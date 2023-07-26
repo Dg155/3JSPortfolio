@@ -66,7 +66,7 @@ scene.background = spaceTexture;
 
 // Avatar
 
-const danielTexture = new THREE.TextureLoader().load('Headshot.jpg');
+const danielTexture = new THREE.TextureLoader().load('headshot.jpg');
 danielTexture.colorSpace = THREE.SRGBColorSpace;
 const danielMaterial = new THREE.MeshBasicMaterial({ map: danielTexture });
 
@@ -84,7 +84,7 @@ daniel.rotation.z = -0.02;
 
 const moonTexture = new THREE.TextureLoader().load('moon.jpg');
 moonTexture.colorSpace = THREE.SRGBColorSpace;
-const normalTexture = new THREE.TextureLoader().load('moonNormal.jpg');
+const normalTexture = new THREE.TextureLoader().load('moonnormal.jpg');
 normalTexture.colorSpace = THREE.SRGBColorSpace;
 
 const moon = new THREE.Mesh(
