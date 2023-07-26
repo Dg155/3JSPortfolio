@@ -1,24 +1,139 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import './style.css';
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+// Setup
 
-setupCounter(document.querySelector('#counter'))
+const scene = new THREE.Scene();
+
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+const renderer = new THREE.WebGLRenderer({
+  canvas: document.querySelector('#bg'),
+});
+
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+THREE.ColorManagement.enabled = true;
+camera.position.setZ(30);
+camera.position.setX(-3);
+
+// Torus
+
+const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
+const material = new THREE.MeshStandardMaterial({ color: 0xff6347 });
+const torus = new THREE.Mesh(geometry, material);
+
+scene.add(torus);
+
+// Lights
+
+const ambientLight = new THREE.AmbientLight();
+scene.add(ambientLight);
+
+// Helpers
+
+// const lightHelper = new THREE.PointLightHelper(pointLight)
+// const gridHelper = new THREE.GridHelper(200, 50);
+// scene.add(lightHelper, gridHelper)
+
+// const controls = new OrbitControls(camera, renderer.domElement);
+
+// Stars
+
+function addStar() {
+  const star = new THREE.Mesh(starGeometry, starMaterial);
+
+  const [x, y, z] = Array(3)
+    .fill()
+    .map(() => THREE.MathUtils.randFloatSpread(100));
+
+  star.position.set(x, y, z);
+  scene.add(star);
+}
+
+const starGeometry = new THREE.SphereGeometry(0.25, 24, 24);
+const starMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff });
+
+Array(200).fill().forEach(addStar);
+
+// Background
+
+const spaceTexture = new THREE.TextureLoader().load('space.jpg');
+spaceTexture.colorSpace = THREE.SRGBColorSpace
+scene.background = spaceTexture;
+
+// Avatar
+
+const danielTexture = new THREE.TextureLoader().load('Headshot.jpg');
+danielTexture.colorSpace = THREE.SRGBColorSpace;
+const danielMaterial = new THREE.MeshBasicMaterial({ map: danielTexture });
+
+
+const daniel = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), danielMaterial);
+
+scene.add(daniel);
+
+daniel.position.z = -5;
+daniel.position.x = 2.5;
+
+daniel.rotation.z = -0.02;
+
+// Moon
+
+const moonTexture = new THREE.TextureLoader().load('moon.jpg');
+moonTexture.colorSpace = THREE.SRGBColorSpace;
+const normalTexture = new THREE.TextureLoader().load('moonNormal.jpg');
+normalTexture.colorSpace = THREE.SRGBColorSpace;
+
+const moon = new THREE.Mesh(
+  new THREE.SphereGeometry(3, 32, 32),
+  new THREE.MeshStandardMaterial({
+    map: moonTexture,
+    normalMap: normalTexture,
+  })
+);
+
+scene.add(moon);
+
+moon.position.z = 30;
+moon.position.setX(-10);
+
+// Rotate objects with mouse
+
+// Scroll Animation
+
+function moveCamera() {
+  const t = document.body.getBoundingClientRect().top;
+  moon.rotation.x += 0.05;
+  moon.rotation.y += 0.075;
+  moon.rotation.z += 0.05;
+
+  camera.position.z = t * -0.01;
+  camera.position.x = t * -0.0002;
+  camera.rotation.y = t * -0.0002;
+}
+
+document.body.onscroll = moveCamera;
+moveCamera();
+
+// Animation Loop
+
+function animate() {
+  requestAnimationFrame(animate);
+
+  torus.rotation.x += 0.01;
+  torus.rotation.y += 0.005;
+  torus.rotation.z += 0.01;
+
+  moon.rotation.x += 0.005;
+  daniel.rotation.y += 0.002;
+
+  // controls.update();
+
+  renderer.gammaOutput = true;
+  renderer.render(scene, camera);
+}
+
+animate();
