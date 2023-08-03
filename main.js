@@ -62,13 +62,13 @@ Array(200).fill().forEach(addStar);
 
 const spaceTexture = new THREE.TextureLoader().load('space.jpg');
 console.log(spaceTexture);
-spaceTexture.colorSpace = THREE.SRGBColorSpace
+// spaceTexture.colorSpace = THREE.SRGBColorSpace
 scene.background = spaceTexture;
 
 // Avatar
 
 const danielTexture = new THREE.TextureLoader().load('headshot.jpg');
-danielTexture.colorSpace = THREE.SRGBColorSpace;
+// danielTexture.colorSpace = THREE.SRGBColorSpace;
 const danielMaterial = new THREE.MeshBasicMaterial({ map: danielTexture });
 
 
