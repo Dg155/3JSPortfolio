@@ -2,6 +2,11 @@ import './style.css';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
+import space from './space.jpg';
+import headshot from './headshot.jpg';
+import moonpic from './moon.jpg';
+import moonnormal from './moonnormal.jpg';
+
 // Setup
 
 const scene = new THREE.Scene();
@@ -60,14 +65,14 @@ Array(200).fill().forEach(addStar);
 
 // Background
 
-const spaceTexture = new THREE.TextureLoader().load('./space.jpg');
+const spaceTexture = new THREE.TextureLoader().load(space);
 console.log(spaceTexture);
 spaceTexture.colorSpace = THREE.SRGBColorSpace
 scene.background = spaceTexture;
 
 // Avatar
 
-const danielTexture = new THREE.TextureLoader().load('./headshot.jpg');
+const danielTexture = new THREE.TextureLoader().load(headshot);
 danielTexture.colorSpace = THREE.SRGBColorSpace;
 const danielMaterial = new THREE.MeshBasicMaterial({ map: danielTexture });
 
@@ -83,9 +88,9 @@ daniel.rotation.z = -0.02;
 
 // Moon
 
-const moonTexture = new THREE.TextureLoader().load('./moon.jpg');
+const moonTexture = new THREE.TextureLoader().load(moonpic);
 moonTexture.colorSpace = THREE.SRGBColorSpace;
-const normalTexture = new THREE.TextureLoader().load('./moonnormal.jpg');
+const normalTexture = new THREE.TextureLoader().load(moonnormal);
 normalTexture.colorSpace = THREE.SRGBColorSpace;
 
 const moon = new THREE.Mesh(
