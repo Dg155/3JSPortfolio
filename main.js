@@ -2,10 +2,15 @@ import './style.css';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
-import space from './space.jpg';
-import headshot from './headshot.jpg';
-import moonpic from './moon.jpg';
-import moonnormal from './moonnormal.jpg';
+// import space from './assets/images/space.jpg';
+// import headshot from './assets/images/headshot.jpg ';
+// import moonpic from './assets/images/moonpic.jpg';
+// import moonnormal from './assets/images/moonnormal.jpg';
+
+var space = document.getElementById("space").src;
+var headshot = document.getElementById("headshot").src;
+var moonpic = document.getElementById("moon").src;
+var moonnormal = document.getElementById("moonnormal").src;
 
 // Setup
 
