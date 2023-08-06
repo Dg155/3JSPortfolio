@@ -1,6 +1,6 @@
 import './style.css';
-import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import * as THREE from "./node_modules/three/build/three.module.js";
+//import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 // import space from './assets/images/space.jpg';
 // import headshot from './assets/images/headshot.jpg ';
