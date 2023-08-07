@@ -1,5 +1,5 @@
 import './style.css';
-import * as THREE from "./node_modules/three/build/three.module.js";
+import * as THREE from 'https://unpkg.com/three@0.127.0/build/three.module.js';
 //import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 // import space from './assets/images/space.jpg';
@@ -25,7 +25,8 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 // renderer.outputColorSpace = THREE.SRGBColorSpace;
-THREE.ColorManagement.enabled = true;
+//THREE.ColorManagement.enabled = true;
+renderer.outputEncoding = THREE.sRGBEncoding;
 camera.position.setZ(30);
 camera.position.setX(-3);
 
@@ -72,13 +73,13 @@ Array(200).fill().forEach(addStar);
 
 const spaceTexture = new THREE.TextureLoader().load(space);
 console.log(spaceTexture);
-spaceTexture.colorSpace = THREE.SRGBColorSpace
+spaceTexture.encoding = THREE.sRGBEncoding;
 scene.background = spaceTexture;
 
 // Avatar
 
 const danielTexture = new THREE.TextureLoader().load(headshot);
-danielTexture.colorSpace = THREE.SRGBColorSpace;
+danielTexture.encoding = THREE.sRGBEncoding;
 const danielMaterial = new THREE.MeshBasicMaterial({ map: danielTexture });
 
 
@@ -94,9 +95,9 @@ daniel.rotation.z = -0.02;
 // Moon
 
 const moonTexture = new THREE.TextureLoader().load(moonpic);
-moonTexture.colorSpace = THREE.SRGBColorSpace;
+moonTexture.encoding = THREE.sRGBEncoding;
 const normalTexture = new THREE.TextureLoader().load(moonnormal);
-normalTexture.colorSpace = THREE.SRGBColorSpace;
+normalTexture.encoding = THREE.sRGBEncoding;
 
 const moon = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32),
