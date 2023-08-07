@@ -1,13 +1,6 @@
-
 import * as THREE from 'https://unpkg.com/three@0.127.0/build/three.module.js';
 import { GLTFLoader } from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/loaders/GLTFLoader.js';
 import { FBXLoader } from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/loaders/FBXLoader.js';
-//import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-
-// import space from './assets/images/space.jpg';
-// import headshot from './assets/images/headshot.jpg ';
-// import moonpic from './assets/images/moonpic.jpg';
-// import moonnormal from './assets/images/moonnormal.jpg';
 
 var space = document.getElementById("space").src;
 var headshot = document.getElementById("headshot").src;
@@ -26,7 +19,6 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-// renderer.outputColorSpace = THREE.SRGBColorSpace;
 //THREE.ColorManagement.enabled = true;
 renderer.outputEncoding = THREE.sRGBEncoding;
 camera.position.setZ(30);
@@ -46,7 +38,7 @@ const fbxLoader = new FBXLoader()
 fbxLoader.load(
     './assets/lol.fbx',
     (object) => {
-        object.scale.set(.01, .01, .01)
+        object.scale.set(.005, .005, .005)
         object.rotation.y = 20  
         scene.add(object)
     },
@@ -62,14 +54,6 @@ fbxLoader.load(
 
 const ambientLight = new THREE.AmbientLight();
 scene.add(ambientLight);
-
-// Helpers
-
-// const lightHelper = new THREE.PointLightHelper(pointLight)
-// const gridHelper = new THREE.GridHelper(200, 50);
-// scene.add(lightHelper, gridHelper)
-
-// const controls = new OrbitControls(camera, renderer.domElement);
 
 // Stars
 
@@ -92,7 +76,6 @@ Array(200).fill().forEach(addStar);
 // Background
 
 const spaceTexture = new THREE.TextureLoader().load(space);
-console.log(spaceTexture);
 spaceTexture.encoding = THREE.sRGBEncoding;
 scene.background = spaceTexture;
 
