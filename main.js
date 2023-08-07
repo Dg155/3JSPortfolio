@@ -39,6 +39,7 @@ fbxLoader.load(
     './assets/lol.fbx',
     (object) => {
         object.scale.set(.005, .005, .005)
+        object.position.set(0, 1, 0)
         object.rotation.y = 20  
         scene.add(object)
     },
