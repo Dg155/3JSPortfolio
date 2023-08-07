@@ -1,5 +1,7 @@
-import './style.css';
+
 import * as THREE from 'https://unpkg.com/three@0.127.0/build/three.module.js';
+import { GLTFLoader } from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/loaders/GLTFLoader.js';
+import { FBXLoader } from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/loaders/FBXLoader.js';
 //import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 // import space from './assets/images/space.jpg';
@@ -37,6 +39,24 @@ const material = new THREE.MeshStandardMaterial({ color: 0xff6347 });
 const torus = new THREE.Mesh(geometry, material);
 
 scene.add(torus);
+
+// Custom Import
+
+const fbxLoader = new FBXLoader()
+fbxLoader.load(
+    './assets/lol.fbx',
+    (object) => {
+        object.scale.set(.01, .01, .01)
+        object.rotation.y = 20  
+        scene.add(object)
+    },
+    (xhr) => {
+        console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+    },
+    (error) => {
+        console.log(error)
+    }
+)
 
 // Lights
 
