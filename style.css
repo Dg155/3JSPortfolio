@@ -5,48 +5,11 @@ canvas{
 }
 
 main {
-  width: 100vw;
-  color: white;
   z-index: 99;
   position: absolute;
   width: 100%;
   margin: 0px auto;
-  padding: 120px 0px;
-
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
 }
-
-
-
-
-  section {
-    grid-column: 2 / 8;
-    padding: 1rem;
-    background: var(--dark-bg);
-    font-size: 1.25rem;
-    line-height: 1.5;
-    margin-bottom: var(--spacing);
-  }
-
-  blockquote {
-    margin: 0;
-    padding: 0;
-    grid-column: 2 / span 9;
-    margin-bottom: var(--spacing);
-  }
-
-  blockquote p {
-    color: black;
-    background-color: white;
-    font-size: 4rem;
-    display: inline;
-    line-height: 1;
-  }
-
-  .left {
-    grid-column: 6 / 12;
-  }
 
 /* Bounce Animation */
 @-webkit-keyframes fadeBounce {
@@ -232,10 +195,8 @@ a {
 }
 
 header {
-  padding-top: 50px;
-  color: #fff;
-  background: #ed8f02 bottom;
-  background-size: cover;
+  margin-bottom: 220px;
+  padding: 30px 0px;
 }
 
 header h1 {
@@ -256,11 +217,13 @@ header p {
 }
 
 .headerLogo{
-  padding-left: 30px; 
+  background: rgba(0, 0, 0, 60%);
+  border-radius: 20px;
+  transform: scale(0.8);
 }
 
 .headerLogo:hover{
-  transform: scale(1.1);
+  transform: scale(0.9);
   transition: all 0.5s ease;
 }
 
@@ -856,12 +819,12 @@ h6 {
   border-radius: 5px;
   font-weight: bold;
   text-transform: uppercase;
-  background-color: #365267;
+  background-image: linear-gradient(to right bottom, #000000, #1c1c1c, #323232, #4E4E4E,#323232, #1c1c1c, #000000);
   color: #fff;
   text-align: center;
   font-size: 100%;
   box-sizing: border-box;
-  width: 45%;
+  width: 100%;
 }
 
 .playButton:hover,
@@ -918,6 +881,8 @@ h6 {
   background-image: -o-linear-gradient(to bottom, #69d7ef, #9054d8);
   border-radius: 15px;
   padding: 20px 25px;
+  
+  /* border: 6px #38222e solid; */
 }
 
 .superSnake {

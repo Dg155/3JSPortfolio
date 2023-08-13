@@ -2,6 +2,9 @@ import * as THREE from 'https://unpkg.com/three@0.127.0/build/three.module.js';
 import { GLTFLoader } from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/loaders/GLTFLoader.js';
 import { FBXLoader } from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/loaders/FBXLoader.js';
 
+
+// Image access from html elements
+
 var space = document.getElementById("space").src;
 var headshot = document.getElementById("headshot").src;
 var moonpic = document.getElementById("moon").src;
@@ -21,7 +24,6 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-//THREE.ColorManagement.enabled = true;
 renderer.outputEncoding = THREE.sRGBEncoding;
 camera.position.setZ(30);
 camera.position.setX(-3);
@@ -32,7 +34,7 @@ const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
 const material = new THREE.MeshStandardMaterial({ color: 0xff6347 });
 const torus = new THREE.Mesh(geometry, material);
 
-scene.add(torus);
+// scene.add(torus);
 
 // Custom Import
 
@@ -40,7 +42,7 @@ const fbxLoader = new FBXLoader()
 fbxLoader.load(
     './assets/Car.fbx',
     (object) => {
-        object.position.set(-10, 0, 20)
+        object.position.set(-5, 0, 10)
         object.rotation.set(0.7, 7.5, 0)
 
         const carTexture = new THREE.TextureLoader().load(carPic);
