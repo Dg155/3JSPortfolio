@@ -6,6 +6,8 @@ var space = document.getElementById("space").src;
 var headshot = document.getElementById("headshot").src;
 var moonpic = document.getElementById("moon").src;
 var moonnormal = document.getElementById("moonnormal").src;
+var carPic = document.getElementById("CarTexture").src;
+var carPicNormal = document.getElementById("CarTextureNormal").src;
 
 // Setup
 
@@ -36,11 +38,32 @@ scene.add(torus);
 
 const fbxLoader = new FBXLoader()
 fbxLoader.load(
-    './assets/lol.fbx',
+    './assets/Car.fbx',
     (object) => {
-        object.scale.set(.005, .005, .005)
-        object.position.set(0, 1, 0)
-        object.rotation.y = 20  
+        object.position.set(-10, 0, 20)
+        object.rotation.set(0.7, 7.5, 0)
+
+        const carTexture = new THREE.TextureLoader().load(carPic);
+        carTexture.encoding = THREE.sRGBEncoding;
+        const carTextureNormal = new THREE.TextureLoader().load(carPicNormal);
+        carTextureNormal.encoding = THREE.sRGBEncoding;
+        object.traverse(function(child) {
+            if (child.isMesh) {
+                child.material.map = carTexture;
+                child.material.normalMap = carTextureNormal;
+            }
+        });
+        // const normalTexture = new THREE.TextureLoader().load(moonnormal);
+        // normalTexture.encoding = THREE.sRGBEncoding;
+        
+        // const moon = new THREE.Mesh(
+        //   new THREE.SphereGeometry(3, 32, 32),
+        //   new THREE.MeshStandardMaterial({
+        //     map: moonTexture,
+        //     normalMap: normalTexture,
+        //   })
+        // );
+
         scene.add(object)
     },
     (xhr) => {
@@ -127,7 +150,7 @@ function moveCamera() {
   moon.rotation.z += 0.05;
 
   camera.position.z = t * -0.01;
-  camera.position.x = t * -0.0002;
+  camera.position.x = t * 0.0002;
   camera.rotation.y = t * -0.0002;
 }
 
@@ -148,7 +171,6 @@ function animate() {
 
   // controls.update();
 
-  renderer.gammaOutput = true;
   renderer.render(scene, camera);
 }
 

@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
     <title>Daniel's Portfolio</title>
-    <link rel="stylesheet" href="./style.css" type="text/css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="./style.css" type="text/css"/>
+    <link rel="stylesheet" href="lightbox.css">
+
+    <!--Javascript-->
+    <script src="jquery.js"></script>
+    <script src="cycle2.js"></script>
+    <script src="lightbox.min.js"></script>
+    <script type="module" src="./main.js" defer></script>
+
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <!--Meta Data-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Daniel Boghossian Portfolio">
+    <meta name="author" content="Daniel Boghossian">
+    <meta name="keywords" content="Daniel Boghossian, UC Irvine, Game, Game Developer, Software, Unreal, Unity">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/DBLogoYellowTransparent.png">
   </head>
+
   <body>
     <canvas id="bg"></canvas>
     <main>
@@ -16,30 +38,91 @@
       <img src="assets/images/space.jpg" alt="" id="space" style="display: none;">
       <img src="assets/images/moon.jpg" alt="" id="moon" style="display: none;">
       <img src="assets/images/moonnormal.jpg" alt="" id="moonnormal" style="display: none;">
+      <img src="assets/CarTextures/lambert1_Base_color.png" alt="" id="CarTexture" style="display: none;">
+      <img src="assets/CarTextures/lambert1_Normal.png" alt="" id="CarTextureNormal" style="display: none;">
 
       <header>
         <h1>Daniel Boghossian</h1>
         <p>Software/Game Developer</p>
       </header>
 
+      <!-- Musical Madness Section-->
+      <div class="content-area group section">
 
-      <blockquote>
-        <p>I like making stuff and putting it on the internet</p>
-      </blockquote>
+        <!-- container -->
+        <div class="container musicalMadness">
 
-      <section>
-        <h2>About Me:</h2>
-        <p>
-          Hello! I am Daniel Boghossian, a skillful and industrious college student working on a degree in computer science/game development. Ever since I was a child playing on my old Nintendo DS I knew that I wanted to create video games for a living. My goal is to be able to provide children with the same joy and comfort I felt when I first started playing video games.
-        </p>
-        <p>
-          My heart is set on Game development, however my strong suit lies in programming. I learned my first coding language in 8th grade, sparking my aspiration to create the mechanics and software elements required to give the games life. Being able to create something with my own hands, especially something that runs on technology and inculcates the advancement of the human race is an art form that I wish to devote the rest of my life too.
-        </p>
-        <p> 
-          Since that first coding class I have learned half a dozen coding languages and created half a dozen games. Everyday I strive to learn something new and to advance my skills and broaden my horizons. I will make an impact on the world.
-        </p>
+            <!-- row -->
+            <div class="row">
 
-      </section>
+            <!-- col -->
+            <div class="col col-md-8 push-down-sm">
+
+                <h2 class="gameTitle MMTitle">Musical Madness:</h2>
+
+                <ul class="gameInfo group">
+                    <li class="Role">Project Lead, Producer, Programmer</li>
+                    <li class="Date">April 2022</li>
+                </ul>
+
+                <ul class="gameInfo group">
+                    <li class="Software">(Unity, C#)</li>
+                    <li class="WeeksWorked">Duration: 7 weeks</li>
+                    <li class="TeamSize">Team Size: 6</li>
+                </ul>
+
+                <p class="gameDescription">Musical Madness is a game project I co-lead with my roommate the spring quarter of our sophomore year. It is a top-down procedural dungeon crawler/shooter themed around music. I managed a team of 6 along side producing and designing the game myself. I implemented aspects such as the procedural generation, level structure, and the combat system!</p>
+
+                <div class="gameButtons">
+                    <a href="https://dg155.itch.io/musical-madness" class="playButton">Play Now!</a>
+                    <a href="musicalMadness.html" class="infoButton">More Info</a>
+                </div>
+
+            </div>
+            <!-- /col -->
+
+            <!-- col -->
+            <div class="col col-md-4 sidebar">
+                <div class="cycle-slideshow" data-cycle-slides=".slide">
+
+                    <span class="cycle-prev">&laquo;</span>
+                    <span class="cycle-next">&raquo;</span>
+
+                    <span class="cycle-pager"></span>
+
+                    <div class="slide">
+                        <a href="Images/MusicalMadness1.png" data-lightbox="MusicalMadness" data-title="What a colorful title screen~"><img src="Images/MusicalMadness1.png" alt="First screenshot of Musical Madness"></a>
+                        <div class="slide-text">
+                            <h4>What a colorful title screen~</h4>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <a href="Images/MusicalMadness2.png" data-lightbox="MusicalMadness" data-title="This is the first room the player spawns into. Where the journey begins!"><img src="Images/MusicalMadness2.png" alt="Second screenshot of Musical Madness"></a>
+                        <div class="slide-text">
+                            <h4>This is the first room the player spawns into. Where the journey begins!</h4>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <a href="Images/MusicalMadness3.png" data-lightbox="MusicalMadness" data-title="Fight against drums and violins!"><img src="Images/MusicalMadness3.png" alt="Third screenshot of Musical Madness"></a>
+                        <div class="slide-text">
+                            <h4>Fight against drums and violins!</h4>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <a href="Images/MusicalMadness4.png" data-lightbox="MusicalMadness" data-title="The Climatic Showdown against the Grand Piano!"><img src="Images/MusicalMadness4.png" alt="Fourth screenshot of Musical Madness"></a>
+                        <div class="slide-text">
+                            <h4>The Climatic Showdown against the Grand Piano!</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /col -->
+
+            </div>
+            <!-- /row -->
+
+        </div>
+        <!-- /container -->
 
       <section class="light">
         <h2>👩🏽‍🚀 Projects</h2>
@@ -85,6 +168,5 @@
 
     </main>
     <div id="app"></div>
-    <script type="module" src="./main.js" defer></script>
   </body>
 </html>
