@@ -38,12 +38,15 @@ const torus = new THREE.Mesh(geometry, material);
 
 // Custom Import
 
+var zotZoomer;
+
 const fbxLoader = new FBXLoader()
 fbxLoader.load(
     './assets/Car.fbx',
     (object) => {
-        object.position.set(-5, 0, 10)
+        object.position.set(-8.5, -1, 0)
         object.rotation.set(0.7, 7.5, 0)
+        object.scale.set(1.1, 1.1, 1.1)
 
         const carTexture = new THREE.TextureLoader().load(carPic);
         carTexture.encoding = THREE.sRGBEncoding;
@@ -55,18 +58,10 @@ fbxLoader.load(
                 child.material.normalMap = carTextureNormal;
             }
         });
-        // const normalTexture = new THREE.TextureLoader().load(moonnormal);
-        // normalTexture.encoding = THREE.sRGBEncoding;
-        
-        // const moon = new THREE.Mesh(
-        //   new THREE.SphereGeometry(3, 32, 32),
-        //   new THREE.MeshStandardMaterial({
-        //     map: moonTexture,
-        //     normalMap: normalTexture,
-        //   })
-        // );
 
-        scene.add(object)
+        zotZoomer = object;
+
+        scene.add(zotZoomer)
     },
     (xhr) => {
         console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
@@ -170,6 +165,7 @@ function animate() {
 
   moon.rotation.x += 0.005;
   daniel.rotation.y += 0.002;
+  zotZoomer.rotation.y += 0.008;
 
   // controls.update();
 
