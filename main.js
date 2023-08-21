@@ -44,8 +44,8 @@ const fbxLoader = new FBXLoader()
 fbxLoader.load(
     './assets/Car.fbx',
     (object) => {
-        object.position.set(-8.5, -1, 0)
-        object.rotation.set(0.7, 7.5, 0)
+        object.position.set(-9.2, -1, 7.3)
+        object.rotation.set(0.8, 0, 0)
         object.scale.set(1.1, 1.1, 1.1)
 
         const carTexture = new THREE.TextureLoader().load(carPic);
@@ -62,6 +62,102 @@ fbxLoader.load(
         zotZoomer = object;
 
         scene.add(zotZoomer)
+    },
+    (xhr) => {
+        console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+    },
+    (error) => {
+        console.log(error)
+    }
+)
+
+var zotZoomer2;
+
+fbxLoader.load(
+    './assets/Car.fbx',
+    (object) => {
+        object.position.set(-12.5, -1, 24)
+        object.rotation.set(0.8, 0, 0)
+        object.scale.set(1.1, 1.1, 1.1)
+
+        const carTexture = new THREE.TextureLoader().load(carPic);
+        carTexture.encoding = THREE.sRGBEncoding;
+        const carTextureNormal = new THREE.TextureLoader().load(carPicNormal);
+        carTextureNormal.encoding = THREE.sRGBEncoding;
+        object.traverse(function(child) {
+            if (child.isMesh) {
+                child.material.map = carTexture;
+                child.material.normalMap = carTextureNormal;
+            }
+        });
+
+        zotZoomer2 = object;
+
+        scene.add(zotZoomer2)
+    },
+    (xhr) => {
+        console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+    },
+    (error) => {
+        console.log(error)
+    }
+)
+
+var zotZoomer3;
+
+fbxLoader.load(
+    './assets/Car.fbx',
+    (object) => {
+        object.position.set(-15.8, -1, 40.7)
+        object.rotation.set(0.8, 0, 0)
+        object.scale.set(1.1, 1.1, 1.1)
+
+        const carTexture = new THREE.TextureLoader().load(carPic);
+        carTexture.encoding = THREE.sRGBEncoding;
+        const carTextureNormal = new THREE.TextureLoader().load(carPicNormal);
+        carTextureNormal.encoding = THREE.sRGBEncoding;
+        object.traverse(function(child) {
+            if (child.isMesh) {
+                child.material.map = carTexture;
+                child.material.normalMap = carTextureNormal;
+            }
+        });
+
+        zotZoomer3 = object;
+
+        scene.add(zotZoomer3)
+    },
+    (xhr) => {
+        console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+    },
+    (error) => {
+        console.log(error)
+    }
+)
+
+var zotZoomer4;
+
+fbxLoader.load(
+    './assets/Car.fbx',
+    (object) => {
+        object.position.set(-19.1, -1, 57.4)
+        object.rotation.set(0.8, 0, 0)
+        object.scale.set(1.1, 1.1, 1.1)
+
+        const carTexture = new THREE.TextureLoader().load(carPic);
+        carTexture.encoding = THREE.sRGBEncoding;
+        const carTextureNormal = new THREE.TextureLoader().load(carPicNormal);
+        carTextureNormal.encoding = THREE.sRGBEncoding;
+        object.traverse(function(child) {
+            if (child.isMesh) {
+                child.material.map = carTexture;
+                child.material.normalMap = carTextureNormal;
+            }
+        });
+
+        zotZoomer4 = object;
+
+        scene.add(zotZoomer4)
     },
     (xhr) => {
         console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
@@ -131,7 +227,7 @@ const moon = new THREE.Mesh(
   })
 );
 
-scene.add(moon);
+//scene.add(moon);
 
 moon.position.z = 30;
 moon.position.setX(-10);
@@ -146,7 +242,7 @@ function moveCamera() {
   moon.rotation.y += 0.075;
   moon.rotation.z += 0.05;
 
-  camera.position.z = t * -0.01;
+  camera.position.z = t * -0.02;
   camera.position.x = t * 0.0002;
   camera.rotation.y = t * -0.0002;
 }
@@ -166,6 +262,9 @@ function animate() {
   moon.rotation.x += 0.005;
   daniel.rotation.y += 0.002;
   zotZoomer.rotation.y += 0.008;
+  zotZoomer2.rotation.y += 0.008;
+  zotZoomer3.rotation.y += 0.008;
+  zotZoomer4.rotation.y += 0.008;
 
   // controls.update();
 

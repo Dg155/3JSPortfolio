@@ -794,7 +794,7 @@ li.TeamSize, .gameMainInfo li.TeamSize {
 
 p.gameDescription {
   font-size: 150%;
-  background-color: rgba(105,215,239, 0.2);
+  background-color: rgba(22, 22, 22, 0.8);
   border-radius: 15px;
   padding: 10px 15px;
 }
@@ -875,14 +875,17 @@ h6 {
   animation-fill-mode: forwards;
 }
 
-.cucumberCastle {
-  background-image: linear-gradient(to bottom, #976d18, #d19a30, #d19a30, #d19a30, #f3cc3c);
-  background-image: -webkit-linear-gradient(to bottom, #976d18, #d19a30, #d19a30, #d19a30, #f3cc3c);
-  background-image: -moz-linear-gradient(to bottom, #976d18, #d19a30, #d19a30, #d19a30, #f3cc3c);
-  background-image: -ms-linear-gradient(to bottom, #976d18, #d19a30, #d19a30, #d19a30, #f3cc3c);
-  background-image: -o-linear-gradient(to bottom, #976d18, #d19a30, #d19a30, #d19a30, #f3cc3c);
+.enKore {
+  background-image: linear-gradient(to right bottom, #000000, #1c1c1c, #323232, #4E4E4E,#323232, #1c1c1c, #000000);
+  background-image: -webkit-linear-gradient(to right bottom, #000000, #1c1c1c, #323232, #4E4E4E,#323232, #1c1c1c, #000000);
+  background-image: -moz-linear-gradient(to right bottom, #000000, #1c1c1c, #323232, #4E4E4E,#323232, #1c1c1c, #000000);
+  background-image: -ms-linear-gradient(to right bottom, #000000, #1c1c1c, #323232, #4E4E4E,#323232, #1c1c1c, #000000);
+  background-image: -o-linear-gradient(to right bottom, #000000, #1c1c1c, #323232, #4E4E4E,#323232, #1c1c1c, #000000);
   border-radius: 15px;
   padding: 20px 25px;
+
+  border: 6px orange solid;
+  color: white;
 }
 
 .musicalMadness {
@@ -893,8 +896,6 @@ h6 {
   background-image: -o-linear-gradient(to bottom, #69d7ef, #9054d8);
   border-radius: 15px;
   padding: 20px 25px;
-  
-  /* border: 6px #38222e solid; */
 }
 
 .superSnake {
@@ -955,12 +956,12 @@ h2.MMTitle {
   background-image: -o-linear-gradient(to bottom, #38222e, #9054d8);
 }
 
-h2.SSTitle {
-  background-image: linear-gradient(to bottom, #035407, #3c251a);
-  background-image: -webkit-linear-gradient(to bottom, #035407, #3c251a);
-  background-image: -moz-linear-gradient(to bottom, #035407, #3c251a);
-  background-image: -ms-linear-gradient(to bottom, #035407, #3c251a);
-  background-image: -o-linear-gradient(to bottom, #035407, #3c251a);
+h2.EKTitle {
+  background-image: linear-gradient(to right bottom, #EDA700, #DB7803);
+  background-image: -webkit-linear-gradient(to right bottom, #EDA700, #DB7803);
+  background-image: -moz-linear-gradient(to right bottom, #EDA700, #DB7803);
+  background-image: -ms-linear-gradient(to right bottom, #EDA700, #DB7803);
+  background-image: -o-linear-gradient(to right bottom, #EDA700, #DB7803);
 }
 
 h2.PZTitle {
