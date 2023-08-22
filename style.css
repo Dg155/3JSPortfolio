@@ -117,6 +117,7 @@ main {
 html {
   background-image: linear-gradient(to right bottom, #000000, #1c1c1c, #323232, #4E4E4E,#323232, #1c1c1c, #000000);
   line-height: 1.7;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -205,7 +206,7 @@ a {
 }
 
 header {
-  margin-top: 150px;
+  margin-top: 50px;
   margin-bottom: 250px;
 }
 
@@ -227,15 +228,38 @@ header p {
 }
 
 .headerLogo{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.headerLogo, .navLogo{
+  width: 800px;
+  margin-left: 100px;
   background-image: linear-gradient(to left bottom, #000000, #0f0f0f, #191919, #222222, #2b2b2c, #2b2b2c, #2b2b2c, #2b2b2c, #222222, #191919, #0f0f0f, #000000);
   border: 6px orange solid;
   border-radius: 20px;
-  transform: scale(0.8);
 }
 
 .headerLogo:hover{
-  transform: scale(0.9);
+  transform: scale(1.1);
   transition: all 0.5s ease;
+}
+
+.navInfo {
+  padding: 10px;
+}
+
+.navLogo{
+  text-align: center;
+  /* background-image: linear-gradient(to right bottom, #000000, #1c1c1c, #323232, #4E4E4E,#323232, #1c1c1c, #000000); */
+  margin-top: 22px;
+  margin-bottom: 22px;
+}
+
+.navLogo p {
+  font-size: 60%;
+  color: orange;
+  margin: auto 0;
 }
 
 .LogoAnimation{
@@ -247,43 +271,15 @@ header p {
 }
 
 /* Site Navigation */
-.site-nav {
-  margin-top: 20px;
-}
 
-.site-nav ul {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  float: right;
-}
-
-.site-nav li {
-  list-style: none;
-  align-self: flex-end;
-  margin-right: 5px;
+.site-nav div {
   opacity: 0;
   animation: fadeBounce 1s forwards;
   -webkit-animation: fadeBounce 1s forwards;
   animation-fill-mode: forwards;
 }
 
-.site-nav a {
-  display: block;
-  color: #000;
-  padding: 10px 20px;
-  background-color: #ff8906;
-  transition-property: color, background-color;
-  transition-duration: 0.7s;
-}
-
-.site-nav a:hover {
-  background-color: #1e1913;
-  color: #ed8f02;
-}
-
-.site-nav li:nth-child(2) {
+.site-nav div:nth-child(2) {
   animation-name: fadeBounce;
   -webkit-animation-delay: 0.3s;
   -moz-animation-delay: 0.3s;
@@ -292,7 +288,7 @@ header p {
   animation-delay: 0.3s;
 }
 
-.site-nav li:nth-child(3) {
+.site-nav div:nth-child(3) {
   animation-name: fadeBounce;
   -webkit-animation-delay: 0.6s;
   -moz-animation-delay: 0.6s;
@@ -301,7 +297,7 @@ header p {
   animation-delay: 0.6s;
 }
 
-.site-nav li:nth-child(4) {
+.site-nav div:nth-child(4) {
   animation-name: fadeBounce;
   -webkit-animation-delay: 0.9s;
   -moz-animation-delay: 0.9s;
@@ -855,7 +851,7 @@ h6 {
   animation-fill-mode: forwards;
 }
 
-/* 
+
 .reveal {
   position: relative;
   transform: translateY(150px);
@@ -866,7 +862,7 @@ h6 {
 .reveal.active{
   transform: translateY(0px);
   opacity: 1;
-} */
+}
 
 .bounceIn {
   opacity: 0;
