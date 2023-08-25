@@ -107,7 +107,91 @@ main {
   }
 }
   
-/* End Bounce Animation */
+/* End Fade In Animation */
+
+/* Fade In Left Animation */
+@-webkit-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+    left: 100%;
+  }
+
+  10% {
+    opacity: 10%;
+    transform: scale(0.1);
+    left: 90%;
+  }
+
+  100% {
+      opacity: 1;
+      transform: scale(1);
+      left: 0%;
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+      opacity: 0;
+      transform: scale(0);
+      left: 100%;
+  }
+
+  10% {
+      opacity: 10%;
+      transform: scale(0.1);
+      left: 90%;
+  }
+
+  100% {
+      opacity: 1;
+      transform: scale(1);
+      left: 0%;
+  }
+}
+  
+/* End Fade In Left Animation */
+
+/* Button Shine Animation */
+@keyframes shine {
+  0% {
+    left: -10%
+  }
+  100% {
+    left: 120%
+  }
+}
+
+@-webkit-keyframes shine {
+  0% {
+    left: -10%
+  }
+  100% {
+    left: 120%
+  }
+}
+/* End Button Shine Animation */
+
+/* Icon Shine Animation */
+@keyframes IconShine {
+  0% {
+    left: -200%
+  }
+  100% {
+    left: 200%
+  }
+}
+
+@-webkit-keyframes IconShine {
+  0% {
+    left: -200%
+  }
+  100% {
+    left: 200%
+  }
+}
+/* End Icon Shine Animation */
+
 
 .hide {
   display: none;
@@ -121,6 +205,40 @@ main {
 [hidden]{
   visibility: hidden;
   opacity: 0;
+}
+
+.ButtonShine{
+  position: relative;
+  overflow: hidden;
+}
+
+.ButtonShine::before {
+  content: '';
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+  width: 60px;
+  height: 100%;
+  top: 0;
+  filter: blur(30px);
+  transform: translateX(-100px) skewX(-15deg);
+}
+
+.ButtonShine::after {
+  content: '';
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  width: 30px;
+  height: 100%;
+  top: 0;
+  filter: blur(5px);
+  transform: translateX(-100px) skewX(-15deg);
+}
+
+.ButtonShine:hover::before,
+.ButtonShine:hover::after {
+  animation: shine 0.7s forwards;
 }
 
 html {
@@ -155,6 +273,7 @@ h5,
 h6,
 p {
   margin-top: 0;
+  margin-bottom: 0;
 }
 
 img {
@@ -180,7 +299,7 @@ a {
 .section {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 #finalsection {
@@ -188,12 +307,24 @@ a {
 }
 
 .container {
-  max-width: 960px;
+  max-width: 50%;
   overflow: hidden;
 }
 
 .margincenter {
   margin: 0 auto;
+}
+
+.LogoAnimation{
+  animation: fadeInLeft 1s forwards;
+}
+
+.removeImagesAnimation{
+  animation: fadeInLeft 1s reverse forwards;
+}
+
+.invisible{
+  display: none;
 }
 
 @media screen and (min-width: 1280px) {
@@ -202,7 +333,7 @@ a {
   }
 
   .container {
-    max-width: 800px;
+    max-width: 47%;
   }
 }
 
@@ -213,9 +344,11 @@ a {
   }
 }
 
+/* Header */
+
 header {
   margin-top: 50px;
-  margin-bottom: 250px;
+  margin-bottom: 150px;
 }
 
 header h1 {
@@ -236,8 +369,10 @@ header p {
 }
 
 .headerLogo{
-  padding-top: 10px;
+  padding-top: 15px;
   padding-bottom: 10px;
+  margin-top: 80px;
+  margin-bottom: 50px;
 }
 
 .headerLogo, .navLogo{
@@ -254,12 +389,21 @@ header p {
   transition: all 0.5s ease;
 }
 
+/* End Header */
+
+/* Site Navigation */
+
 .navInfo {
-  padding: 10px;
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+.navLogo:hover{
+  transform: scale(1.1);
+  transition: all 0.5s ease;
 }
 
 .navLogo{
-  /* background-image: linear-gradient(to right bottom, #000000, #1c1c1c, #323232, #4E4E4E,#323232, #1c1c1c, #000000); */
   margin-top: 22px;
   margin-bottom: 22px;
 }
@@ -270,25 +414,16 @@ header p {
   margin: auto 0;
 }
 
-.LogoAnimation{
-  animation: fadeIn 1s forwards;
-}
-
-.invisible{
-  display: none;
-}
-
-/* Site Navigation */
-
-.site-nav div {
+.bounceAnimOne, .bounceAnimTwo, .bounceAnimThree
+{
   opacity: 0;
   animation: fadeBounce 1s forwards;
   -webkit-animation: fadeBounce 1s forwards;
   animation-fill-mode: forwards;
 }
 
-.site-nav div:nth-child(2) {
-  animation-name: fadeBounce;
+.bounceAnimTwo
+{
   -webkit-animation-delay: 0.3s;
   -moz-animation-delay: 0.3s;
   -ms-animation-delay: 0.3s;
@@ -296,8 +431,8 @@ header p {
   animation-delay: 0.3s;
 }
 
-.site-nav div:nth-child(3) {
-  animation-name: fadeBounce;
+.bounceAnimThree
+{
   -webkit-animation-delay: 0.6s;
   -moz-animation-delay: 0.6s;
   -ms-animation-delay: 0.6s;
@@ -305,14 +440,7 @@ header p {
   animation-delay: 0.6s;
 }
 
-.site-nav div:nth-child(4) {
-  animation-name: fadeBounce;
-  -webkit-animation-delay: 0.9s;
-  -moz-animation-delay: 0.9s;
-  -ms-animation-delay: 0.9s;
-  -o-animation-delay: 0.9s;
-  animation-delay: 0.9s;
-}
+/* End Site Navigation */
 
 @media screen and (max-width: 1023px) {
 
@@ -722,6 +850,14 @@ h2.gameTitle {
   color: #000;
 }
 
+.gameHeader {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
 ul.gameInfo {
   margin: 0;
   padding: 0;
@@ -801,6 +937,7 @@ p.gameDescription {
   background-color: rgba(22, 22, 22, 0.8);
   border-radius: 15px;
   padding: 10px 15px;
+  margin-bottom: 20px;
 }
 
 .gameInfoDescription p {
@@ -859,7 +996,6 @@ h6 {
   animation-fill-mode: forwards;
 }
 
-
 .reveal {
   position: relative;
   transform: translateY(150px);
@@ -879,7 +1015,48 @@ h6 {
   animation-fill-mode: forwards;
 }
 
-.enKore {
+.ImagesLayout {
+  border-radius: 6px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.ImageIcon {
+  text-align: center;
+  border-radius: 3px;
+  padding: 0;
+  margin: 0;
+  height: 60px;
+  width: 60px;
+  z-index: 999;
+  margin-right: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ImageIcon:before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100%;
+  background-image: linear-gradient(
+      120deg,
+      rgba(255,255,255, 0) 30%,
+      rgba(255,255,255, .8),
+      rgba(255,255,255, 0) 70%
+  );
+  top: 0;
+  left: -100px;
+  animation: IconShine 2s infinite linear;
+}
+
+.ImageIcon:hover
+{
+  transform: scale(1.2);
+  transition: all 0.5s ease;
+}
+
+.originalLayout, .originalImages {
   background-image: linear-gradient(to right bottom, #000000, #1c1c1c, #323232, #4E4E4E,#323232, #1c1c1c, #000000);
   background-image: -webkit-linear-gradient(to right bottom, #000000, #1c1c1c, #323232, #4E4E4E,#323232, #1c1c1c, #000000);
   background-image: -moz-linear-gradient(to right bottom, #000000, #1c1c1c, #323232, #4E4E4E,#323232, #1c1c1c, #000000);
@@ -887,37 +1064,29 @@ h6 {
   background-image: -o-linear-gradient(to right bottom, #000000, #1c1c1c, #323232, #4E4E4E,#323232, #1c1c1c, #000000);
   border-radius: 15px;
   padding: 20px 25px;
-
-  border: 6px orange solid;
+  border: 4px orange solid;
   color: white;
 }
 
-.enKoreImages {
-  background-image: linear-gradient(to right bottom, #000000, #1c1c1c, #323232, #4E4E4E,#323232, #1c1c1c, #000000);
-  background-image: -webkit-linear-gradient(to right bottom, #000000, #1c1c1c, #323232, #4E4E4E,#323232, #1c1c1c, #000000);
-  background-image: -moz-linear-gradient(to right bottom, #000000, #1c1c1c, #323232, #4E4E4E,#323232, #1c1c1c, #000000);
-  background-image: -ms-linear-gradient(to right bottom, #000000, #1c1c1c, #323232, #4E4E4E,#323232, #1c1c1c, #000000);
-  background-image: -o-linear-gradient(to right bottom, #000000, #1c1c1c, #323232, #4E4E4E,#323232, #1c1c1c, #000000);
-  border-radius: 15px;
-  border: 6px orange solid;
-  color: white;
-  padding: 0;
-  margin: 0;
+h2.originalTitle {
+  background-image: linear-gradient(to right bottom, #EDA700, #DB7803);
+  background-image: -webkit-linear-gradient(to right bottom, #EDA700, #DB7803);
+  background-image: -moz-linear-gradient(to right bottom, #EDA700, #DB7803);
+  background-image: -ms-linear-gradient(to right bottom, #EDA700, #DB7803);
+  background-image: -o-linear-gradient(to right bottom, #EDA700, #DB7803);
 }
 
-.enKoreImagesIcon{
-  position: absolute;
-  text-align: center;
+.originalIcon{
   background-color: #000;
-  border-radius: 25px;
-  border: 18px orange solid;
-  padding: 0;
-  margin: 0;
-  transform: scale(0.15) translate(480%, -250%);
-  z-index: 999;
+  border: 2px orange solid;
 }
 
-.musicalMadness {
+.originalLayout p.gameDescription
+{
+  background-color: rgba(22, 22, 22, 0.8);
+}
+
+.enKore, .enKoreImages {
   background-image: linear-gradient(to bottom, #69d7ef, #9054d8);
   background-image: -webkit-linear-gradient(to bottom, #69d7ef, #9054d8);
   background-image: -moz-linear-gradient(to bottom, #69d7ef, #9054d8);
@@ -925,29 +1094,28 @@ h6 {
   background-image: -o-linear-gradient(to bottom, #69d7ef, #9054d8);
   border-radius: 15px;
   padding: 20px 25px;
+  border: 4px #9054d8 solid;
 }
 
-.superSnake {
-  background-image: linear-gradient(to bottom, #36c73d, #05960c);
-  background-image: -webkit-linear-gradient(to bottom, #36c73d, #05960c);
-  background-image: -moz-linear-gradient(to bottom, #36c73d, #05960c);
-  background-image: -ms-linear-gradient(to bottom, #36c73d, #05960c);
-  background-image: -o-linear-gradient(to bottom, #36c73d, #05960c);
-  border-radius: 15px;
-  padding: 20px 25px;
+h2.EKTitle {
+  background-image: linear-gradient(to bottom, #38222e, #9054d8);
+  background-image: -webkit-linear-gradient(to bottom, #38222e, #9054d8);
+  background-image: -moz-linear-gradient(to bottom, #38222e, #9054d8);
+  background-image: -ms-linear-gradient(to bottom, #38222e, #9054d8);
+  background-image: -o-linear-gradient(to bottom, #38222e, #9054d8);
 }
 
-.superSnake1 {
-  background-image: linear-gradient(to bottom, #5cac4e, #5cac4e, #5cac4e, #5cac4e, #7ea525, #7ea525, #9c9b3c, #9c9b3c, #a99358, #a99358, #a78f74, #a78f74);
-  background-image: -webkit-linear-gradient(to bottom, #5cac4e, #5cac4e, #5cac4e, #5cac4e, #7ea525, #7ea525, #9c9b3c, #9c9b3c, #a99358, #a99358, #a78f74, #a78f74);
-  background-image: -moz-linear-gradient(to bottom, #5cac4e, #5cac4e, #5cac4e, #5cac4e, #7ea525, #7ea525, #9c9b3c, #9c9b3c, #a99358, #a99358, #a78f74, #a78f74);
-  background-image: -ms-linear-gradient(to bottom, #5cac4e, #5cac4e, #5cac4e, #5cac4e, #7ea525, #7ea525, #9c9b3c, #9c9b3c, #a99358, #a99358, #a78f74, #a78f74);
-  background-image: -o-linear-gradient(to bottom, #5cac4e, #5cac4e, #5cac4e, #5cac4e, #7ea525, #7ea525, #9c9b3c, #9c9b3c, #a99358, #a99358, #a78f74, #a78f74);
-  border-radius: 15px;
-  padding: 20px 25px;
+.enKoreIcon{
+  background-color: #000;
+  border: 2px #9054d8 solid;
 }
 
-.paitentZero {
+.enKore p.gameDescription
+{
+  background-color: rgba(105,215,239, 0.2);
+}
+
+.celestialClash, .celestialClashImages {
   background-image: linear-gradient(to bottom, #9054d8, #69d7ef);
   background-image: -webkit-linear-gradient(to bottom, #9054d8, #69d7ef);
   background-image: -moz-linear-gradient(to bottom, #9054d8, #69d7ef);
@@ -955,26 +1123,65 @@ h6 {
   background-image: -o-linear-gradient(to bottom, #9054d8, #69d7ef);
   border-radius: 15px;
   padding: 20px 25px;
+  border: 4px #0064a4 solid;
 }
 
-.FTDC {
-  background-image: linear-gradient(to bottom, #5f4a13, #5f4a13, #5f4a13, #5f4a13, #5f4a13, #3c251a);
-  background-image: -webkit-linear-gradient(to bottom, #5f4a13, #5f4a13, #5f4a13, #5f4a13, #5f4a13, #3c251a);
-  background-image: -moz-linear-gradient(to bottom, #5f4a13, #5f4a13, #5f4a13, #5f4a13, #5f4a13, #3c251a);
-  background-image: -ms-linear-gradient(to bottom, #5f4a13, #5f4a13, #5f4a13, #5f4a13, #5f4a13, #3c251a);
-  background-image: -o-linear-gradient(to bottom, #5f4a13, #5f4a13, #5f4a13, #5f4a13, #5f4a13, #3c251a);
-  border-radius: 15px;
-  padding: 20px 25px;
+h2.CCTitle {
+  background-image: linear-gradient(to bottom, #38222e, #0064a4);
+  background-image: -webkit-linear-gradient(to bottom, #38222e, #0064a4);
+  background-image: -moz-linear-gradient(to bottom, #38222e, #0064a4);
+  background-image: -ms-linear-gradient(to bottom, #38222e, #0064a4);
+  background-image: -o-linear-gradient(to bottom, #38222e, #0064a4);
 }
 
-.Daboys {
-  background-image: linear-gradient(to bottom, #57952d, #57952d, #284d0f);
-  background-image: -webkit-linear-gradient(to bottom, #57952d, #57952d, #284d0f);
-  background-image: -moz-linear-gradient(to bottom, #57952d, #57952d, #284d0f);
-  background-image: -ms-linear-gradient(to bottom, #57952d, #57952d, #284d0f);
-  background-image: -o-linear-gradient(to bottom, #57952d, #57952d, #284d0f);
+.celestialClashIcon{
+  background-color: #000;
+  border: 2px #0064a4 solid;
+}
+
+.celestialClash p.gameDescription
+{
+  background-color: rgba(105,215,239, 0.2);
+}
+
+.zotZoomer, .zotZoomerImages {
+  background-image: linear-gradient(to bottom, #69d7ef, #9054d8);
+  background-image: -webkit-linear-gradient(to bottom, #69d7ef, #9054d8);
+  background-image: -moz-linear-gradient(to bottom, #69d7ef, #9054d8);
+  background-image: -ms-linear-gradient(to bottom, #69d7ef, #9054d8);
+  background-image: -o-linear-gradient(to bottom, #69d7ef, #9054d8);
   border-radius: 15px;
   padding: 20px 25px;
+  border: 4px #9054d8 solid;
+}
+
+h2.ZZTitle {
+  background-image: linear-gradient(to bottom, #38222e, #9054d8);
+  background-image: -webkit-linear-gradient(to bottom, #38222e, #9054d8);
+  background-image: -moz-linear-gradient(to bottom, #38222e, #9054d8);
+  background-image: -ms-linear-gradient(to bottom, #38222e, #9054d8);
+  background-image: -o-linear-gradient(to bottom, #38222e, #9054d8);
+}
+
+.zotZoomerIcon{
+  background-color: #000;
+  border: 2px #9054d8 solid;
+}
+
+.zotZoomer p.gameDescription
+{
+  background-color: rgba(105,215,239, 0.2);
+}
+
+.musicalMadness, .musicalMadnessImages {
+  background-image: linear-gradient(to bottom, #69d7ef, #9054d8);
+  background-image: -webkit-linear-gradient(to bottom, #69d7ef, #9054d8);
+  background-image: -moz-linear-gradient(to bottom, #69d7ef, #9054d8);
+  background-image: -ms-linear-gradient(to bottom, #69d7ef, #9054d8);
+  background-image: -o-linear-gradient(to bottom, #69d7ef, #9054d8);
+  border-radius: 15px;
+  padding: 20px 25px;
+  border: 4px #9054d8 solid;
 }
 
 h2.MMTitle {
@@ -985,50 +1192,22 @@ h2.MMTitle {
   background-image: -o-linear-gradient(to bottom, #38222e, #9054d8);
 }
 
-h2.EKTitle {
-  background-image: linear-gradient(to right bottom, #EDA700, #DB7803);
-  background-image: -webkit-linear-gradient(to right bottom, #EDA700, #DB7803);
-  background-image: -moz-linear-gradient(to right bottom, #EDA700, #DB7803);
-  background-image: -ms-linear-gradient(to right bottom, #EDA700, #DB7803);
-  background-image: -o-linear-gradient(to right bottom, #EDA700, #DB7803);
+.musicalMadnessIcon{
+  background-color: #000;
+  border: 2px #9054d8 solid;
 }
 
-h2.PZTitle {
-  background-image: linear-gradient(to bottom, #38222e, #0064a4);
-  background-image: -webkit-linear-gradient(to bottom, #38222e, #0064a4);
-  background-image: -moz-linear-gradient(to bottom, #38222e, #0064a4);
-  background-image: -ms-linear-gradient(to bottom, #38222e, #0064a4);
-  background-image: -o-linear-gradient(to bottom, #38222e, #0064a4);
-}
-
-h2.FTDCTitle {
-  background-image: linear-gradient(to bottom, #57952d, #4e903e);
-  background-image: -webkit-linear-gradient(to bottom, #57952d, #4e903e);
-  background-image: -moz-linear-gradient(to bottom, #57952d, #4e903e);
-  background-image: -ms-linear-gradient(to bottom, #57952d, #4e903e);
-  background-image: -o-linear-gradient(to bottom, #57952d, #4e903e);
-}
-
-h2.DBTitle {
-  background-image: linear-gradient(to bottom, #035407, #053b07);
-  background-image: -webkit-linear-gradient(to bottom, #035407, #053b07);
-  background-image: -moz-linear-gradient(to bottom, #035407, #053b07);
-  background-image: -ms-linear-gradient(to bottom, #035407, #053b07);
-  background-image: -o-linear-gradient(to bottom, #035407, #053b07);
-}
-
-h2.CCTitle {
-  background-image: linear-gradient(to bottom, #7d3f20, #542108);
-  background-image: -webkit-linear-gradient(to bottom, #7d3f20, #542108);
-  background-image: -moz-linear-gradient(to bottom, #7d3f20, #542108);
-  background-image: -ms-linear-gradient(to bottom, #7d3f20, #542108);
-  background-image: -o-linear-gradient(to bottom, #7d3f20, #542108);
+.musicalMadness p.gameDescription
+{
+  background-color: rgba(105,215,239, 0.2);
 }
 
 /* Slideshow Start */
 
 .cycle-slideshow{
-  transform: scale(0.9);
+  transform: scale(1);
+  width: 90%;
+  height: 90%;
 }
 
 .slide {
