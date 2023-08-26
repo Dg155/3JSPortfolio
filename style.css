@@ -1087,18 +1087,19 @@ h2.originalTitle {
 }
 
 .enKore, .enKoreImages {
-  background-image: linear-gradient(to bottom, #69d7ef, #9054d8);
+  background-image: linear-gradient(to bottom, #270627, #420747, #5c076b, #760793, #8e0ebf, #9813d4, #a119e9, #a920ff, #a920ff, #a920ff, #a920ff, #a920ff);
   background-image: -webkit-linear-gradient(to bottom, #69d7ef, #9054d8);
   background-image: -moz-linear-gradient(to bottom, #69d7ef, #9054d8);
   background-image: -ms-linear-gradient(to bottom, #69d7ef, #9054d8);
   background-image: -o-linear-gradient(to bottom, #69d7ef, #9054d8);
   border-radius: 15px;
   padding: 20px 25px;
-  border: 4px #9054d8 solid;
+  border: 4px #00bdff solid;
+  color: white;
 }
 
 h2.EKTitle {
-  background-image: linear-gradient(to bottom, #38222e, #9054d8);
+  background-image: linear-gradient(to right bottom, #f568f9, #ed95ff, #eab9ff,#77c6ff, #00bdff);
   background-image: -webkit-linear-gradient(to bottom, #38222e, #9054d8);
   background-image: -moz-linear-gradient(to bottom, #38222e, #9054d8);
   background-image: -ms-linear-gradient(to bottom, #38222e, #9054d8);
@@ -1107,13 +1108,19 @@ h2.EKTitle {
 
 .enKoreIcon{
   background-color: #000;
-  border: 2px #9054d8 solid;
+  border: 2px #00bdff solid;
 }
 
 .enKore p.gameDescription
 {
   background-color: rgba(105,215,239, 0.2);
 }
+
+/* .enKore p {
+  background-image: linear-gradient(to right bottom, #ff00e9, #f568f9, #ed95ff, #eab9ff, #ecd9ff, #e8dfff, #e6e5ff, #e6eaff, #cbdcff, #a8d1ff, #77c6ff, #00bdff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent
+} */
 
 .celestialClash, .celestialClashImages {
   background-image: linear-gradient(to bottom, #9054d8, #69d7ef);
