@@ -198,6 +198,22 @@ scene.background = spaceTexture;
 
 // Avatar
 
+const daniel1Texture = new THREE.TextureLoader().load(headshot);
+daniel1Texture.encoding = THREE.sRGBEncoding;
+const daniel1Material = new THREE.MeshBasicMaterial({ map: daniel1Texture });
+
+
+const daniel1 = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), daniel1Material);
+
+scene.add(daniel1);
+
+daniel1.position.z = -5;
+daniel1.position.x = 2.5;
+
+daniel1.rotation.z = -0.02;
+
+// Avatar
+
 const danielTexture = new THREE.TextureLoader().load(headshot);
 danielTexture.encoding = THREE.sRGBEncoding;
 const danielMaterial = new THREE.MeshBasicMaterial({ map: danielTexture });
@@ -207,8 +223,7 @@ const daniel = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), danielMaterial);
 
 scene.add(daniel);
 
-daniel.position.z = -5;
-daniel.position.x = 2.5;
+daniel.position.set(-2, 0, 65)
 
 daniel.rotation.z = -0.02;
 
@@ -260,7 +275,8 @@ function animate() {
   torus.rotation.z += 0.01;
 
   moon.rotation.x += 0.005;
-  daniel.rotation.y += 0.002;
+  daniel1.rotation.y += 0.002;
+    daniel.rotation.y += 0.002;
   zotZoomer.rotation.y += 0.008;
   zotZoomer2.rotation.y += 0.008;
   zotZoomer3.rotation.y += 0.008;

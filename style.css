@@ -192,6 +192,26 @@ main {
 }
 /* End Icon Shine Animation */
 
+/* Icon Glow Animation */
+@keyframes IconGlow {
+  0% {
+    box-shadow: 0 0 8px 2px #ffffff;
+  }
+  20% {
+    box-shadow: 0 0 8px 2px #ffffff;
+  }
+  50% {
+    box-shadow: 0 0 8px 5px #ffffff;
+  }
+  80% {
+    box-shadow: 0 0 8px 2px #ffffff;
+  }
+  100% {
+    box-shadow: 0 0 8px 2px #ffffff;
+  }
+}
+/* End Icon Glow Animation */
+
 
 .hide {
   display: none;
@@ -379,8 +399,9 @@ header p {
   width: 41.6%;
   text-align: center;
   margin-left: 100px;
-  background-image: linear-gradient(to left bottom, #000000, #0f0f0f, #191919, #222222, #2b2b2c, #2b2b2c, #2b2b2c, #2b2b2c, #222222, #191919, #0f0f0f, #000000);
-  border: 6px orange solid;
+  background: linear-gradient(to left bottom, #000000, #0f0f0f, #191919, #222222, #2b2b2c, #2b2b2c, #2b2b2c, #2b2b2c, #222222, #191919, #0f0f0f, #000000) padding-box,
+  linear-gradient(to right bottom, #DB7802, #EAA001) border-box;
+  border: 5px solid transparent;
   border-radius: 20px;
 }
 
@@ -440,8 +461,6 @@ header p {
   animation-delay: 0.6s;
 }
 
-/* End Site Navigation */
-
 @media screen and (max-width: 1023px) {
 
   .site-nav ul {
@@ -472,6 +491,28 @@ header p {
 }
 
 /* End Site Navigation */
+
+/* About Me */
+
+.AboutMe {
+  width: 41.6%;
+  text-align: center;
+  margin-left: 100px;
+  background: linear-gradient(to left bottom, #000000, #0f0f0f, #191919, #222222, #2b2b2c, #2b2b2c, #2b2b2c, #2b2b2c, #222222, #191919, #0f0f0f, #000000) padding-box,
+  linear-gradient(to right bottom, #DB7802, #EAA001) border-box;
+  border: 5px solid transparent;
+  border-radius: 20px;
+  margin-top: 100px;
+  padding: 20px;
+}
+
+.AboutMe p {
+  color: white;
+  font-size: 140%;
+  margin: 10px 5px;
+}
+
+/* End About Me */
 
 .content-area {
   padding-bottom: 40px;
@@ -911,7 +952,7 @@ ul.gameInfo li.Role {
 li.Role {
   font-style: italic;
   padding-right: 10px;
-  border-right: 3px solid black;
+  border-right: 3px solid white;
 }
 
 li.Date {
@@ -920,12 +961,12 @@ li.Date {
 
 li.Software {
   padding-right: 10px;
-  border-right: 3px solid black;
+  border-right: 3px solid white;
 }
 
 li.WeeksWorked {
   padding-right: 10px;
-  border-right: 3px solid black;
+  border-right: 3px solid white;
 }
 
 li.TeamSize, .gameMainInfo li.TeamSize {
@@ -1034,6 +1075,10 @@ h6 {
   overflow: hidden;
 }
 
+.ImageIconAnimation {
+  animation: IconGlow 1.5s infinite linear;
+}
+
 .ImageIcon:before {
   content: '';
   position: absolute;
@@ -1047,7 +1092,6 @@ h6 {
   );
   top: 0;
   left: -100px;
-  animation: IconShine 2s infinite linear;
 }
 
 .ImageIcon:hover
@@ -1087,112 +1131,110 @@ h2.originalTitle {
 }
 
 .enKore, .enKoreImages {
-  background-image: linear-gradient(to bottom, #270627, #420747, #5c076b, #760793, #8e0ebf, #9813d4, #a119e9, #a920ff, #a920ff, #a920ff, #a920ff, #a920ff);
-  background-image: -webkit-linear-gradient(to bottom, #69d7ef, #9054d8);
+  /* background-image: -webkit-linear-gradient(to bottom, #69d7ef, #9054d8);
   background-image: -moz-linear-gradient(to bottom, #69d7ef, #9054d8);
   background-image: -ms-linear-gradient(to bottom, #69d7ef, #9054d8);
-  background-image: -o-linear-gradient(to bottom, #69d7ef, #9054d8);
+  background-image: -o-linear-gradient(to bottom, #69d7ef, #9054d8); */
   border-radius: 15px;
   padding: 20px 25px;
-  border: 4px #00bdff solid;
+  background: url(assets/images/EKBackgroundScaled.png) padding-box,
+  linear-gradient(to right bottom, #f568f9, #ed95ff, #eab9ff,#77c6ff, #00bdff) border-box;
+  border: 4px solid transparent;
   color: white;
 }
 
 h2.EKTitle {
   background-image: linear-gradient(to right bottom, #f568f9, #ed95ff, #eab9ff,#77c6ff, #00bdff);
-  background-image: -webkit-linear-gradient(to bottom, #38222e, #9054d8);
+  /* background-image: -webkit-linear-gradient(to bottom, #38222e, #9054d8);
   background-image: -moz-linear-gradient(to bottom, #38222e, #9054d8);
   background-image: -ms-linear-gradient(to bottom, #38222e, #9054d8);
-  background-image: -o-linear-gradient(to bottom, #38222e, #9054d8);
+  background-image: -o-linear-gradient(to bottom, #38222e, #9054d8); */
 }
 
 .enKoreIcon{
-  background-color: #000;
-  border: 2px #00bdff solid;
+  background: linear-gradient(to bottom, #270627, #420747, #5c076b, #760793, #8e0ebf, #9813d4, #a119e9, #a920ff, #a920ff, #a920ff, #a920ff, #a920ff) padding-box,
+  linear-gradient(to right bottom, #f568f9, #ed95ff, #eab9ff,#77c6ff, #00bdff) border-box;
+  border: 2px solid transparent;
 }
 
 .enKore p.gameDescription
 {
-  background-color: rgba(105,215,239, 0.2);
+  background-color: rgba(14, 14, 14, 0.8);
 }
 
-/* .enKore p {
-  background-image: linear-gradient(to right bottom, #ff00e9, #f568f9, #ed95ff, #eab9ff, #ecd9ff, #e8dfff, #e6e5ff, #e6eaff, #cbdcff, #a8d1ff, #77c6ff, #00bdff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent
-} */
-
 .celestialClash, .celestialClashImages {
-  background-image: linear-gradient(to bottom, #9054d8, #69d7ef);
-  background-image: -webkit-linear-gradient(to bottom, #9054d8, #69d7ef);
-  background-image: -moz-linear-gradient(to bottom, #9054d8, #69d7ef);
-  background-image: -ms-linear-gradient(to bottom, #9054d8, #69d7ef);
-  background-image: -o-linear-gradient(to bottom, #9054d8, #69d7ef);
   border-radius: 15px;
   padding: 20px 25px;
-  border: 4px #0064a4 solid;
+  background: url(assets/images/CCBackgroundScaled.png) padding-box,
+  linear-gradient(to right bottom, #EADDA1, #D2B136) border-box;
+  border: 4px solid transparent;
+  color: white;
 }
 
 h2.CCTitle {
-  background-image: linear-gradient(to bottom, #38222e, #0064a4);
-  background-image: -webkit-linear-gradient(to bottom, #38222e, #0064a4);
+  background-image: linear-gradient(to bottom, #F3F3F3, #cacaca, #a0a0a0);
+  /* background-image: -webkit-linear-gradient(to bottom, #38222e, #0064a4);
   background-image: -moz-linear-gradient(to bottom, #38222e, #0064a4);
   background-image: -ms-linear-gradient(to bottom, #38222e, #0064a4);
-  background-image: -o-linear-gradient(to bottom, #38222e, #0064a4);
+  background-image: -o-linear-gradient(to bottom, #38222e, #0064a4); */
+  /* text-shadow:0px 0px 3px #fff */
 }
 
 .celestialClashIcon{
-  background-color: #000;
-  border: 2px #0064a4 solid;
+  background: url(assets/images/CCBackgroundScaled.png) padding-box,
+  linear-gradient(to right bottom, #EADDA1, #D2B136) border-box;
+  border: 2px solid transparent;
 }
 
 .celestialClash p.gameDescription
 {
-  background-color: rgba(105,215,239, 0.2);
+  background-color: rgba(31, 53, 83, 0.8);
 }
 
 .zotZoomer, .zotZoomerImages {
-  background-image: linear-gradient(to bottom, #69d7ef, #9054d8);
-  background-image: -webkit-linear-gradient(to bottom, #69d7ef, #9054d8);
-  background-image: -moz-linear-gradient(to bottom, #69d7ef, #9054d8);
-  background-image: -ms-linear-gradient(to bottom, #69d7ef, #9054d8);
-  background-image: -o-linear-gradient(to bottom, #69d7ef, #9054d8);
   border-radius: 15px;
   padding: 20px 25px;
-  border: 4px #9054d8 solid;
+  background: url(assets/images/ZZBackgroundScaled.png) padding-box,
+  linear-gradient(to bottom right, #5645AE, #f0c5f2) border-box;
+  border: 4px solid transparent;
+  color: white;
 }
 
 h2.ZZTitle {
-  background-image: linear-gradient(to bottom, #38222e, #9054d8);
-  background-image: -webkit-linear-gradient(to bottom, #38222e, #9054d8);
+  background-image: linear-gradient(to bottom, #f0c5f2, #5645AE);
+  /* background-image: -webkit-linear-gradient(to bottom, #38222e, #9054d8);
   background-image: -moz-linear-gradient(to bottom, #38222e, #9054d8);
   background-image: -ms-linear-gradient(to bottom, #38222e, #9054d8);
-  background-image: -o-linear-gradient(to bottom, #38222e, #9054d8);
+  background-image: -o-linear-gradient(to bottom, #38222e, #9054d8); */
 }
 
 .zotZoomerIcon{
-  background-color: #000;
-  border: 2px #9054d8 solid;
+  background: url(assets/images/ZZBackgroundScaled.png) padding-box,
+  linear-gradient(to bottom right, #5645AE, #f0c5f2) border-box;
+  border: 2px solid transparent;
 }
 
 .zotZoomer p.gameDescription
 {
-  background-color: rgba(105,215,239, 0.2);
+  background-color: rgba(39, 40, 45, 0.8);
 }
 
 .musicalMadness, .musicalMadnessImages {
-  background-image: linear-gradient(to bottom, #69d7ef, #9054d8);
+  /* background-image: linear-gradient(to bottom, #69d7ef, #9054d8);
   background-image: -webkit-linear-gradient(to bottom, #69d7ef, #9054d8);
   background-image: -moz-linear-gradient(to bottom, #69d7ef, #9054d8);
   background-image: -ms-linear-gradient(to bottom, #69d7ef, #9054d8);
-  background-image: -o-linear-gradient(to bottom, #69d7ef, #9054d8);
+  background-image: -o-linear-gradient(to bottom, #69d7ef, #9054d8); */
   border-radius: 15px;
   padding: 20px 25px;
-  border: 4px #9054d8 solid;
+  background: url(assets/images/MMBackgroundScaled.png) padding-box,
+  linear-gradient(to bottom right, #9054d8, #69d7ef) border-box;
+  border: 4px solid transparent;
+  color: white;
 }
 
 h2.MMTitle {
-  background-image: linear-gradient(to bottom, #38222e, #9054d8);
+  background-image: linear-gradient(to bottom, #69d7ef, #763eba);
   background-image: -webkit-linear-gradient(to bottom, #38222e, #9054d8);
   background-image: -moz-linear-gradient(to bottom, #38222e, #9054d8);
   background-image: -ms-linear-gradient(to bottom, #38222e, #9054d8);
@@ -1200,13 +1242,14 @@ h2.MMTitle {
 }
 
 .musicalMadnessIcon{
-  background-color: #000;
-  border: 2px #9054d8 solid;
+  background: url(assets/images/MMBackgroundScaled.png) padding-box,
+  linear-gradient(to bottom right, #9054d8, #69d7ef) border-box;
+  border: 2px solid transparent;
 }
 
 .musicalMadness p.gameDescription
 {
-  background-color: rgba(105,215,239, 0.2);
+  background-color: rgba(41, 26, 35, 0.8);
 }
 
 /* Slideshow Start */
