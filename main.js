@@ -223,7 +223,7 @@ const daniel = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), danielMaterial);
 
 scene.add(daniel);
 
-daniel.position.set(-2, 0, 65)
+daniel.position.set(-2, 0.15, 65.8)
 
 daniel.rotation.z = -0.02;
 

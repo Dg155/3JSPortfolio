@@ -816,7 +816,7 @@ header p {
 footer {
   text-align: center;
   font-size: 85%;
-  color: #a7a9be;
+  color: white;
   padding-bottom: 20px;
   padding-top: 20px;
 }
@@ -844,19 +844,19 @@ footer a {
     margin-bottom: 4px;
 }
 
-.linkedIn a:hover {background-position: 0 -30px;}
+.linkedIn a:hover {transform: scale(1.1); transition: all 0.5s ease;} 
 
 .itchio a {background-position: -30px 0;}
 
-.itchio a:hover {background-position: -30px -31px;}
+.itchio a:hover {transform: scale(1.1); transition: all 0.5s ease;}
 
 .gitHub a {background-position: -60px 0;} 
 
-.gitHub a:hover {background-position: -60px -30px;}
+.gitHub a:hover {transform: scale(1.1); transition: all 0.5s ease;}
 
 .email a {background-position: -90px 0;} 
 
-.email a:hover {background-position: -90px -30px;}
+.email a:hover {transform: scale(1.1); transition: all 0.5s ease;}
 
 /* Footer Buttons End */
 
@@ -1023,8 +1023,8 @@ h6 {
 
 .playButton:hover,
 .infoButton:hover {
-  background-color: #fff;
-  color: #365267;
+  transform: scale(1.08);
+  transition: all 0.5s ease;
 }
 
 .border {
