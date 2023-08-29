@@ -1,3 +1,4 @@
+/* #region ThreeJS */
 canvas{
   position: fixed;
   top: 0;
@@ -10,6 +11,10 @@ main {
   width: 100%;
   margin: 0px auto;
 }
+
+/* #endregion Animations*/
+
+/* #region Animations*/
 
 /* Bounce Animation */
 @-webkit-keyframes fadeBounce {
@@ -155,19 +160,19 @@ main {
 /* Button Shine Animation */
 @keyframes shine {
   0% {
-    left: -10%
+    left: -30%
   }
   100% {
-    left: 120%
+    left: 165%
   }
 }
 
 @-webkit-keyframes shine {
   0% {
-    left: -10%
+    left: -30%
   }
   100% {
-    left: 120%
+    left: 165%
   }
 }
 /* End Button Shine Animation */
@@ -210,9 +215,29 @@ main {
     box-shadow: 0 0 8px 2px #ffffff;
   }
 }
+
+@-webkit-keyframes IconGlow {
+  0% {
+    box-shadow: 0 0 8px 2px #ffffff;
+  }
+  20% {
+    box-shadow: 0 0 8px 2px #ffffff;
+  }
+  50% {
+    box-shadow: 0 0 8px 5px #ffffff;
+  }
+  80% {
+    box-shadow: 0 0 8px 2px #ffffff;
+  }
+  100% {
+    box-shadow: 0 0 8px 2px #ffffff;
+  }
+}
 /* End Icon Glow Animation */
 
+/* #endregion */
 
+/* #region Helpers*/
 .hide {
   display: none;
 }
@@ -222,9 +247,8 @@ main {
   opacity: 0;
 }
 
-[hidden]{
-  visibility: hidden;
-  opacity: 0;
+.whiteText {
+  color: white;
 }
 
 .ButtonShine{
@@ -258,8 +282,73 @@ main {
 
 .ButtonShine:hover::before,
 .ButtonShine:hover::after {
-  animation: shine 0.7s forwards;
+  animation: shine 1s forwards;
 }
+
+.LogoAnimation{
+  animation: fadeInLeft 1s forwards;
+}
+
+.removeImagesAnimation{
+  animation: fadeInLeft 1s reverse forwards;
+}
+
+.fadeIn {
+  animation: fadeIn 1s forwards;
+  -webkit-animation: fadeIn 1s forwards;
+}
+
+.reveal {
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.reveal.active{
+  transform: translateY(0px);
+  opacity: 1;
+}
+
+.bounceIn {
+  opacity: 0;
+  animation: fadeBounce 1s forwards;
+  -webkit-animation: fadeBounce 1s forwards;
+  animation-fill-mode: forwards;
+}
+
+.row:before,
+.row:after,
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+
+.row:after,
+.group:after {
+  clear: both;
+}
+
+.row,
+.group {
+  zoom: 1;
+}
+
+/* #endregion*/
+
+/* #region Custom Fonts */
+
+@font-face {
+  font-family: 'Pixel';
+  src: url('fonts/slkscr.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* #endregion End Custom Fonts */
+
+/* #region General */
 
 html {
   background-image: linear-gradient(to right bottom, #000000, #1c1c1c, #323232, #4E4E4E,#323232, #1c1c1c, #000000);
@@ -273,17 +362,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
-/* Custom Fonts */
-
-@font-face {
-    font-family: 'Pixel';
-    src: url('fonts/slkscr.ttf') format('ttf');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/* End Custom Fonts */
 
 h1,
 h2,
@@ -305,25 +383,14 @@ a {
   text-decoration: none;
 }
 
-/* Main Column Typography */
+/* #endregion */
 
-.whiteText {
-  color: white;
-}
-
-.main-area h2 {
-  font-size: 165%;
-  font-weight: normal;
-}
+/* #region Containers */
 
 .section {
   display: flex;
   align-items: center;
   justify-content: space-around;
-}
-
-#finalsection {
-  margin-bottom: 170px;
 }
 
 .container {
@@ -333,18 +400,6 @@ a {
 
 .margincenter {
   margin: 0 auto;
-}
-
-.LogoAnimation{
-  animation: fadeInLeft 1s forwards;
-}
-
-.removeImagesAnimation{
-  animation: fadeInLeft 1s reverse forwards;
-}
-
-.invisible{
-  display: none;
 }
 
 @media screen and (min-width: 1280px) {
@@ -364,28 +419,41 @@ a {
   }
 }
 
-/* Header */
+.content-area {
+  padding-bottom: 40px;
+  padding-top: 40px;
+}
+
+.content-area h2 {
+    font-family: 'Press Start 2P', Arial, sans-serif;
+    font-size: 210%;
+    text-align: center;
+    background-color: #fffffe;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+@media screen and (max-width: 767px) {
+  .content-area {
+    padding-top: 20px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .hide-small {
+    display: none;
+  }
+}
+
+/* #endregion Containers */
+
+/* #region Header and Site Nav */
 
 header {
   margin-top: 50px;
   margin-bottom: 150px;
-}
-
-header h1 {
-  margin: 0;
-  color: #fffffe;
-  -webkit-text-stroke: 2px #000;
-  font-weight: normal;
-  font-size: 300%;
-  background-color: rgba(0,0,0, 0.4);
-  border-radius: 15px;
-  padding: 10px;
-}
-
-header p {
-  font-size: 90%;
-  color: #fffffe;
-  margin: 0;
 }
 
 .headerLogo{
@@ -410,10 +478,6 @@ header p {
   transition: all 0.5s ease;
 }
 
-/* End Header */
-
-/* Site Navigation */
-
 .navInfo {
   padding-top: 15px;
   padding-bottom: 10px;
@@ -427,12 +491,6 @@ header p {
 .navLogo{
   margin-top: 22px;
   margin-bottom: 22px;
-}
-
-.navLogo p {
-  font-size: 60%;
-  color: orange;
-  margin: auto 0;
 }
 
 .bounceAnimOne, .bounceAnimTwo, .bounceAnimThree
@@ -463,25 +521,34 @@ header p {
 
 @media screen and (max-width: 1023px) {
 
-  .site-nav ul {
-    float: none;
+  .headerLogo{
+    padding-top: 15px;
+    padding-bottom: 10px;
+    margin-top: 120px;
+    margin-bottom: 60px;
   }
 
-  .site-nav li {
+
+  .headerLogo, .navLogo{
+    width: 45%;
+    margin-left: 80px;
+    border: 4px solid transparent;
+  }
+
+  .navInfo img {
     width: 50%;
-    margin-right: 0;
+    height: 50%;
   }
 
-  .site-nav a {
-    padding: 15px 0;
-    margin-right: 5px;
-    margin-bottom: 5px;
-    text-align: center;
+  .navLogo{
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
 
-  .hide-medium {
-    display: none;
+  header {
+    margin-bottom: 170px;
   }
+
 }
 
 @media screen and (max-width: 767px) {
@@ -490,9 +557,78 @@ header p {
   }
 }
 
-/* End Site Navigation */
+/* #endregion Header and Site Nav */
 
-/* About Me */
+/* #region Sidebar Nav */
+
+#mySidenav a {
+  position: fixed;
+  left: -105px;
+  transition: 0.3s;
+  padding: 15px;
+  width: 140px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  background: linear-gradient(to left bottom, #000000, #0f0f0f, #191919, #222222, #2b2b2c, #2b2b2c, #2b2b2c, #2b2b2c, #222222, #191919, #0f0f0f, #000000) padding-box,
+  linear-gradient(to right bottom, #DB7802, #EAA001) border-box;
+  border: 3px solid transparent;
+  border-left:none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#mySidenav a:hover {
+  left: 0;
+}
+
+#SideLinkedIn {
+  top: 60%;
+  border-radius: 0 15px 0 0;
+}
+
+#SideItch {
+  top: 67.5%;
+}
+
+#SideGitHub {
+  top: 75%;
+}
+
+#SideContact {
+  top: 82.5%;
+  border-radius: 0 0 15px 0;
+}
+
+.sidebarIcon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-image: url(assets/images/Icons.png);
+  text-indent: -99999px;
+  background-repeat: no-repeat;
+  margin: auto;
+  margin: 4px;
+  float: right;
+  filter: invert(55%) sepia(65%) saturate(2742%) hue-rotate(352deg) brightness(105%) contrast(98%);
+}
+
+#sideItchImage { background-position: -30px 0; }
+
+#sideGitImage { background-position: -60px 0; }
+
+#sideContactImage { background-position: -90px 0; }
+
+@media screen and (max-width: 767px) {
+  #mySidenav {
+    display: none;
+  }
+}
+
+/* #endregion End Sidebar Nav */
+
+/* #region About Me */
 
 .AboutMe {
   width: 41.6%;
@@ -512,127 +648,10 @@ header p {
   margin: 10px 5px;
 }
 
-/* End About Me */
+/* #endregion End About Me */
 
-.content-area {
-  padding-bottom: 40px;
-  padding-top: 40px;
-}
+/* #region Grid */
 
-.content-area h2 {
-    font-family: 'Press Start 2P', Arial, sans-serif;
-    font-size: 210%;
-    text-align: center;
-    background-color: #fffffe;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-}
-
-@media screen and (max-width: 767px) {
-  .content-area {
-    padding-top: 20px;
-  }
-}
-
-.main-area {
-  width: 66%;
-  float: left;
-  padding-right: 40px;
-  box-sizing: border-box;
-}
-
-.sidebar {
-  color: #000;
-  font-size: 85%;
-}
-
-.sidebar h3 {
-  color: #fffffe;
-  font-size: 200%;
-  font-style: italic;
-  text-align: center;
-  margin-bottom: 7px;
-  margin-top: 20px;
-}
-
-.sidebar p {
-  color: #a7a9be;
-  font-size: 130%;
-}
-
-.sideimage {
-  margin-top: 40px;
-  display: flex;
-  justify-content: center;
-}
-
-@media screen and (max-width: 1023px) {
-  .sidebar {
-    width: 100%;
-  }
-}
-
-.info-box {
-  background-color: #efeedb;
-  border: 5px solid #e6e5c2;
-  padding: 20px 40px 7px 40px;
-  margin-bottom: 1em;
-}
-
-@media screen and (max-width: 767px) {
-  .hide-small {
-    display: none;
-  }
-}
-
-.fadeIn {
-    animation: fadeIn 1s forwards;
-    -webkit-animation: fadeIn 1s forwards;
-}
-
-/* Banner Overlay */
-.image-banner {
-  position: relative;
-  margin-bottom: 40px;
-  overflow: hidden;
-}
-
-.image-banner img {
-  display: block;
-  transition: all 2s;
-}
-
-.image-banner:hover img {
-  transform: scale(1.5);
-}
-
-.banner-description {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.65);
-  padding: 15px 25px;
-  opacity: 0;
-  transition-property: all;
-  transition-duration: 1s;
-  transform: translateY(100%);
-}
-
-.image-banner:hover .banner-description {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media screen and (max-width: 767px) {
-  .box-a {
-    margin-bottom: 15px;
-  }
-}
-
-/* Grid */
 .row {
   display: flex;
   align-items: center;
@@ -813,6 +832,10 @@ header p {
   }
 }
 
+/* #endregion Grid */
+
+/* #region Footer */
+
 footer {
   text-align: center;
   font-size: 85%;
@@ -860,29 +883,11 @@ footer a {
 
 /* Footer Buttons End */
 
-.row:before,
-.row:after,
-.group:before,
-.group:after {
-  content: "";
-  display: table;
-}
-
-.row:after,
-.group:after {
-  clear: both;
-}
-
-.row,
-.group {
-  zoom: 1;
-}
+/* #endregion Footer */
 
 /* Portfolio Page Start */
 
-.borderLine {
-  border-top: 2px dashed rgba(0, 0, 0, 0.35);
-}
+/* #region GameInfoText */
 
 h2.gameTitle {
   font-family: 'Press Start 2P', Arial, sans-serif;
@@ -905,36 +910,6 @@ ul.gameInfo {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-}
-
-ul.gameMainInfo {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-ul.gameMainInfo li {
-  list-style: none;
-  margin-right: 10px;
-  font-size: 110%;
-  font-weight: bold;
-  padding-right: 10px;
-  border-right: 3px solid black;
-}
-
-@media screen and (max-width: 539px) {
-  ul.gameMainInfo {
-    transform: scale(0.65);
-  }
-}
-
-@media screen and (max-width: 281px) {
-  ul.gameMainInfo {
-    transform: scale(0.5);
-  }
 }
 
 ul.gameInfo li {
@@ -969,7 +944,7 @@ li.WeeksWorked {
   border-right: 3px solid white;
 }
 
-li.TeamSize, .gameMainInfo li.TeamSize {
+li.TeamSize {
   border-right: none;
 }
 
@@ -981,25 +956,15 @@ p.gameDescription {
   margin-bottom: 20px;
 }
 
-.gameInfoDescription p {
-  color: #000;
-  font-size: 150%;
-}
-
-h6 {
-  color: #000;
-  font-size: 200%;
-  font-style: italic;
-  text-align: center;
-  margin-bottom: 7px;
-  margin-top: 20px;
-}
-
-.gameDescription, .gameInfoDescription {
+.gameDescription {
   background-color: rgba(105,215,239, 0.2);
   border-radius: 15px;
   padding: 10px 15px;
 }
+
+/* #endregion GameInfoText */
+
+/* #region PortfolioButtons */
 
 .gameButtons {
   display: flex;
@@ -1027,35 +992,6 @@ h6 {
   transition: all 0.5s ease;
 }
 
-.border {
-  background-color: #1d1b2b;
-  border-radius: 15px;
-  padding: 20px 25px;
-  opacity: 0;
-  animation: fadeBounce 1s forwards;
-  -webkit-animation: fadeBounce 1s forwards;
-  animation-fill-mode: forwards;
-}
-
-.reveal {
-  position: relative;
-  transform: translateY(150px);
-  opacity: 0;
-  transition: all 1s ease;
-}
-
-.reveal.active{
-  transform: translateY(0px);
-  opacity: 1;
-}
-
-.bounceIn {
-  opacity: 0;
-  animation: fadeBounce 1s forwards;
-  -webkit-animation: fadeBounce 1s forwards;
-  animation-fill-mode: forwards;
-}
-
 .ImagesLayout {
   border-radius: 6px !important;
   padding: 0 !important;
@@ -1079,26 +1015,15 @@ h6 {
   animation: IconGlow 1.5s infinite linear;
 }
 
-.ImageIcon:before {
-  content: '';
-  position: absolute;
-  width: 100px;
-  height: 100%;
-  background-image: linear-gradient(
-      120deg,
-      rgba(255,255,255, 0) 30%,
-      rgba(255,255,255, .8),
-      rgba(255,255,255, 0) 70%
-  );
-  top: 0;
-  left: -100px;
-}
-
 .ImageIcon:hover
 {
   transform: scale(1.2);
   transition: all 0.5s ease;
 }
+
+/* #endregion PortfolioButtons */
+
+/* #region OriginalPortfolioDesign */
 
 .originalLayout, .originalImages {
   background-image: linear-gradient(to right bottom, #000000, #1c1c1c, #323232, #4E4E4E,#323232, #1c1c1c, #000000);
@@ -1130,30 +1055,49 @@ h2.originalTitle {
   background-color: rgba(22, 22, 22, 0.8);
 }
 
+/* #endregion OriginalPortfolioDesign */
+
+/* #region GameSpecificDesigns */
+
 .enKore, .enKoreImages {
-  /* background-image: -webkit-linear-gradient(to bottom, #69d7ef, #9054d8);
-  background-image: -moz-linear-gradient(to bottom, #69d7ef, #9054d8);
-  background-image: -ms-linear-gradient(to bottom, #69d7ef, #9054d8);
-  background-image: -o-linear-gradient(to bottom, #69d7ef, #9054d8); */
   border-radius: 15px;
   padding: 20px 25px;
+  color: white;
+
   background: url(assets/images/EKBackgroundScaled.png) padding-box,
   linear-gradient(to right bottom, #f568f9, #ed95ff, #eab9ff,#77c6ff, #00bdff) border-box;
+  background: url(assets/images/EKBackgroundScaled.png) padding-box,
+  -webkit-linear-gradient(to right bottom, #f568f9, #ed95ff, #eab9ff,#77c6ff, #00bdff) border-box;
+  background: url(assets/images/EKBackgroundScaled.png) padding-box,
+  -moz-linear-gradient(to right bottom, #f568f9, #ed95ff, #eab9ff,#77c6ff, #00bdff) border-box;
+  background: url(assets/images/EKBackgroundScaled.png) padding-box,
+  -ms-linear-gradient(to right bottom, #f568f9, #ed95ff, #eab9ff,#77c6ff, #00bdff) border-box;
+  background: url(assets/images/EKBackgroundScaled.png) padding-box,
+  -o-linear-gradient(to right bottom, #f568f9, #ed95ff, #eab9ff,#77c6ff, #00bdff) border-box;
+
   border: 4px solid transparent;
-  color: white;
 }
 
 h2.EKTitle {
   background-image: linear-gradient(to right bottom, #f568f9, #ed95ff, #eab9ff,#77c6ff, #00bdff);
-  /* background-image: -webkit-linear-gradient(to bottom, #38222e, #9054d8);
-  background-image: -moz-linear-gradient(to bottom, #38222e, #9054d8);
-  background-image: -ms-linear-gradient(to bottom, #38222e, #9054d8);
-  background-image: -o-linear-gradient(to bottom, #38222e, #9054d8); */
+  background-image: -webkit-linear-gradient(to right bottom, #f568f9, #ed95ff, #eab9ff,#77c6ff, #00bdff);
+  background-image: -moz-linear-gradient(to right bottom, #f568f9, #ed95ff, #eab9ff,#77c6ff, #00bdff);
+  background-image: -ms-linear-gradient(to right bottom, #f568f9, #ed95ff, #eab9ff,#77c6ff, #00bdff);
+  background-image: -o-linear-gradient(to right bottom, #f568f9, #ed95ff, #eab9ff,#77c6ff, #00bdff);
 }
 
 .enKoreIcon{
   background: linear-gradient(to bottom, #270627, #420747, #5c076b, #760793, #8e0ebf, #9813d4, #a119e9, #a920ff, #a920ff, #a920ff, #a920ff, #a920ff) padding-box,
   linear-gradient(to right bottom, #f568f9, #ed95ff, #eab9ff,#77c6ff, #00bdff) border-box;
+  background: -webkit-linear-gradient(to bottom, #270627, #420747, #5c076b, #760793, #8e0ebf, #9813d4, #a119e9, #a920ff, #a920ff, #a920ff, #a920ff, #a920ff) padding-box,
+  -webkit-linear-gradient(to right bottom, #f568f9, #ed95ff, #eab9ff,#77c6ff, #00bdff) border-box;
+  background: -moz-linear-gradient(to bottom, #270627, #420747, #5c076b, #760793, #8e0ebf, #9813d4, #a119e9, #a920ff, #a920ff, #a920ff, #a920ff, #a920ff) padding-box,
+  -moz-linear-gradient(to right bottom, #f568f9, #ed95ff, #eab9ff,#77c6ff, #00bdff) border-box;
+  background: -ms-linear-gradient(to bottom, #270627, #420747, #5c076b, #760793, #8e0ebf, #9813d4, #a119e9, #a920ff, #a920ff, #a920ff, #a920ff, #a920ff) padding-box,
+  -ms-linear-gradient(to right bottom, #f568f9, #ed95ff, #eab9ff,#77c6ff, #00bdff) border-box;
+  background: -o-linear-gradient(to bottom, #270627, #420747, #5c076b, #760793, #8e0ebf, #9813d4, #a119e9, #a920ff, #a920ff, #a920ff, #a920ff, #a920ff) padding-box,
+  -o-linear-gradient(to right bottom, #f568f9, #ed95ff, #eab9ff,#77c6ff, #00bdff) border-box;
+
   border: 2px solid transparent;
 }
 
@@ -1165,24 +1109,42 @@ h2.EKTitle {
 .celestialClash, .celestialClashImages {
   border-radius: 15px;
   padding: 20px 25px;
+  color: white;
+
   background: url(assets/images/CCBackgroundScaled.png) padding-box,
   linear-gradient(to right bottom, #EADDA1, #D2B136) border-box;
+  background: url(assets/images/CCBackgroundScaled.png) padding-box,
+  -webkit-linear-gradient(to right bottom, #EADDA1, #D2B136) border-box;
+  background: url(assets/images/CCBackgroundScaled.png) padding-box,
+  -moz-linear-gradient(to right bottom, #EADDA1, #D2B136) border-box;
+  background: url(assets/images/CCBackgroundScaled.png) padding-box,
+  -ms-linear-gradient(to right bottom, #EADDA1, #D2B136) border-box;
+  background: url(assets/images/CCBackgroundScaled.png) padding-box,
+  -o-linear-gradient(to right bottom, #EADDA1, #D2B136) border-box;
+
   border: 4px solid transparent;
-  color: white;
 }
 
 h2.CCTitle {
   background-image: linear-gradient(to bottom, #F3F3F3, #cacaca, #a0a0a0);
-  /* background-image: -webkit-linear-gradient(to bottom, #38222e, #0064a4);
-  background-image: -moz-linear-gradient(to bottom, #38222e, #0064a4);
-  background-image: -ms-linear-gradient(to bottom, #38222e, #0064a4);
-  background-image: -o-linear-gradient(to bottom, #38222e, #0064a4); */
-  /* text-shadow:0px 0px 3px #fff */
+  background-image: -webkit-linear-gradient(to bottom, #F3F3F3, #cacaca, #a0a0a0);
+  background-image: -moz-linear-gradient(to bottom, #F3F3F3, #cacaca, #a0a0a0);
+  background-image: -ms-linear-gradient(to bottom, #F3F3F3, #cacaca, #a0a0a0);
+  background-image: -o-linear-gradient(to bottom, #F3F3F3, #cacaca, #a0a0a0);
 }
 
 .celestialClashIcon{
   background: url(assets/images/CCBackgroundScaled.png) padding-box,
   linear-gradient(to right bottom, #EADDA1, #D2B136) border-box;
+  background: url(assets/images/CCBackgroundScaled.png) padding-box,
+  -webkit-linear-gradient(to right bottom, #EADDA1, #D2B136) border-box;
+  background: url(assets/images/CCBackgroundScaled.png) padding-box,
+  -moz-linear-gradient(to right bottom, #EADDA1, #D2B136) border-box;
+  background: url(assets/images/CCBackgroundScaled.png) padding-box,
+  -ms-linear-gradient(to right bottom, #EADDA1, #D2B136) border-box;
+  background: url(assets/images/CCBackgroundScaled.png) padding-box,
+  -o-linear-gradient(to right bottom, #EADDA1, #D2B136) border-box;
+
   border: 2px solid transparent;
 }
 
@@ -1194,23 +1156,42 @@ h2.CCTitle {
 .zotZoomer, .zotZoomerImages {
   border-radius: 15px;
   padding: 20px 25px;
+  color: white;
+
   background: url(assets/images/ZZBackgroundScaled.png) padding-box,
   linear-gradient(to bottom right, #5645AE, #f0c5f2) border-box;
+  background: url(assets/images/ZZBackgroundScaled.png) padding-box,
+  -webkit-linear-gradient(to bottom right, #5645AE, #f0c5f2) border-box;
+  background: url(assets/images/ZZBackgroundScaled.png) padding-box,
+  -moz-linear-gradient(to bottom right, #5645AE, #f0c5f2) border-box;
+  background: url(assets/images/ZZBackgroundScaled.png) padding-box,
+  -ms-linear-gradient(to bottom right, #5645AE, #f0c5f2) border-box;
+  background: url(assets/images/ZZBackgroundScaled.png) padding-box,
+  -o-linear-gradient(to bottom right, #5645AE, #f0c5f2) border-box;
+
   border: 4px solid transparent;
-  color: white;
 }
 
 h2.ZZTitle {
   background-image: linear-gradient(to bottom, #f0c5f2, #5645AE);
-  /* background-image: -webkit-linear-gradient(to bottom, #38222e, #9054d8);
-  background-image: -moz-linear-gradient(to bottom, #38222e, #9054d8);
-  background-image: -ms-linear-gradient(to bottom, #38222e, #9054d8);
-  background-image: -o-linear-gradient(to bottom, #38222e, #9054d8); */
+  background-image: -webkit-linear-gradient(to bottom, #f0c5f2, #5645AE);
+  background-image: -moz-linear-gradient(to bottom, #f0c5f2, #5645AE);
+  background-image: -ms-linear-gradient(to bottom, #f0c5f2, #5645AE);
+  background-image: -o-linear-gradient(to bottom, #f0c5f2, #5645AE);
 }
 
 .zotZoomerIcon{
   background: url(assets/images/ZZBackgroundScaled.png) padding-box,
   linear-gradient(to bottom right, #5645AE, #f0c5f2) border-box;
+  background: url(assets/images/ZZBackgroundScaled.png) padding-box,
+  -webkit-linear-gradient(to bottom right, #5645AE, #f0c5f2) border-box;
+  background: url(assets/images/ZZBackgroundScaled.png) padding-box,
+  -moz-linear-gradient(to bottom right, #5645AE, #f0c5f2) border-box;
+  background: url(assets/images/ZZBackgroundScaled.png) padding-box,
+  -ms-linear-gradient(to bottom right, #5645AE, #f0c5f2) border-box;
+  background: url(assets/images/ZZBackgroundScaled.png) padding-box,
+  -o-linear-gradient(to bottom right, #5645AE, #f0c5f2) border-box;
+
   border: 2px solid transparent;
 }
 
@@ -1220,30 +1201,44 @@ h2.ZZTitle {
 }
 
 .musicalMadness, .musicalMadnessImages {
-  /* background-image: linear-gradient(to bottom, #69d7ef, #9054d8);
-  background-image: -webkit-linear-gradient(to bottom, #69d7ef, #9054d8);
-  background-image: -moz-linear-gradient(to bottom, #69d7ef, #9054d8);
-  background-image: -ms-linear-gradient(to bottom, #69d7ef, #9054d8);
-  background-image: -o-linear-gradient(to bottom, #69d7ef, #9054d8); */
   border-radius: 15px;
   padding: 20px 25px;
+  color: white;
+
   background: url(assets/images/MMBackgroundScaled.png) padding-box,
   linear-gradient(to bottom right, #9054d8, #69d7ef) border-box;
+  background: url(assets/images/MMBackgroundScaled.png) padding-box,
+  -webkit-linear-gradient(to bottom right, #9054d8, #69d7ef) border-box;
+  background: url(assets/images/MMBackgroundScaled.png) padding-box,
+  -moz-linear-gradient(to bottom right, #9054d8, #69d7ef) border-box;
+  background: url(assets/images/MMBackgroundScaled.png) padding-box,
+  -ms-linear-gradient(to bottom right, #9054d8, #69d7ef) border-box;
+  background: url(assets/images/MMBackgroundScaled.png) padding-box,
+  -o-linear-gradient(to bottom right, #9054d8, #69d7ef) border-box;
+
   border: 4px solid transparent;
-  color: white;
 }
 
 h2.MMTitle {
   background-image: linear-gradient(to bottom, #69d7ef, #763eba);
-  background-image: -webkit-linear-gradient(to bottom, #38222e, #9054d8);
-  background-image: -moz-linear-gradient(to bottom, #38222e, #9054d8);
-  background-image: -ms-linear-gradient(to bottom, #38222e, #9054d8);
-  background-image: -o-linear-gradient(to bottom, #38222e, #9054d8);
+  background-image: -webkit-linear-gradient(to bottom, #69d7ef, #763eba);
+  background-image: -moz-linear-gradient(to bottom, #69d7ef, #763eba);
+  background-image: -ms-linear-gradient(to bottom, #69d7ef, #763eba);
+  background-image: -o-linear-gradient(to bottom, #69d7ef, #763eba);
 }
 
 .musicalMadnessIcon{
   background: url(assets/images/MMBackgroundScaled.png) padding-box,
   linear-gradient(to bottom right, #9054d8, #69d7ef) border-box;
+  background: url(assets/images/MMBackgroundScaled.png) padding-box,
+  -webkit-linear-gradient(to bottom right, #9054d8, #69d7ef) border-box;
+  background: url(assets/images/MMBackgroundScaled.png) padding-box,
+  -moz-linear-gradient(to bottom right, #9054d8, #69d7ef) border-box;
+  background: url(assets/images/MMBackgroundScaled.png) padding-box,
+  -ms-linear-gradient(to bottom right, #9054d8, #69d7ef) border-box;
+  background: url(assets/images/MMBackgroundScaled.png) padding-box,
+  -o-linear-gradient(to bottom right, #9054d8, #69d7ef) border-box;
+
   border: 2px solid transparent;
 }
 
@@ -1252,7 +1247,9 @@ h2.MMTitle {
   background-color: rgba(41, 26, 35, 0.8);
 }
 
-/* Slideshow Start */
+/* #endregion GameSpecificDesigns */
+
+/* #region Slideshow Start */
 
 .cycle-slideshow{
   transform: scale(1);
@@ -1357,11 +1354,11 @@ h2.MMTitle {
   background-color: #000;
 }
 
-/* Slideshow End */
+/* #endregion Slideshow End */
 
 /* Portfolio Page End */
 
-/* Contact Me Modal Start */
+/* #region Contact Me Modal Start */
 
 .modal-container {
   z-index: 100000;
@@ -1492,4 +1489,4 @@ button#close {
   margin-left: 30px;
 }
 
-/* Contact Me Modal End */
+/* #endregion Contact Me Modal End */

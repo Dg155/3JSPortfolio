@@ -12,15 +12,19 @@ var moonnormal = document.getElementById("moonnormal").src;
 var carPic = document.getElementById("CarTexture").src;
 var carPicNormal = document.getElementById("CarTextureNormal").src;
 
+// Variables
+
+var currentWidth = window.innerWidth;
+var currentHeight = window.innerHeight;
+
 // Setup
 
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-const renderer = new THREE.WebGLRenderer({
-  canvas: document.querySelector('#bg'),
-});
+const canvas = document.querySelector('#bg');
+const renderer = new THREE.WebGLRenderer({antialias: true, canvas});
 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -207,8 +211,7 @@ const daniel1 = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), daniel1Material);
 
 scene.add(daniel1);
 
-daniel1.position.z = -5;
-daniel1.position.x = 2.5;
+daniel1.position.set(2.5, 0, -5);
 
 daniel1.rotation.z = -0.02;
 
@@ -264,6 +267,7 @@ function moveCamera() {
 
 document.body.onscroll = moveCamera;
 moveCamera();
+reSizeWindow();
 
 // Animation Loop
 
@@ -282,9 +286,49 @@ function animate() {
   zotZoomer3.rotation.y += 0.008;
   zotZoomer4.rotation.y += 0.008;
 
-  // controls.update();
+  if (window.innerWidth != currentWidth || window.innerHeight != currentHeight) {
+    reSizeWindow();
+  }
+
+
+  if (resizeRendererToDisplaySize(renderer)) {
+    const canvas = renderer.domElement;
+    camera.aspect = canvas.clientWidth / canvas.clientHeight;
+    camera.updateProjectionMatrix();
+  }
 
   renderer.render(scene, camera);
 }
 
 animate();
+
+function resizeRendererToDisplaySize(renderer) {
+    const canvas = renderer.domElement;
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+    const needResize = canvas.width !== width || canvas.height !== height;
+    if (needResize) {
+      renderer.setSize(width, height, false);
+    }
+    return needResize;
+  }
+
+function reSizeWindow()
+{
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    currentWidth = window.innerWidth;
+    currentHeight = window.innerHeight;
+    if (currentWidth < 1023)
+    {
+        daniel1.scale.set(0.5, 0.5, 0.5);
+        daniel1.position.set(1.3, 0, -3.5);
+        console.log("mobile");
+    }
+    else
+    {
+        daniel1.scale.set(1, 1, 1);
+        daniel1.position.set(2.5, 0, -5);
+        console.log("desktop");
+    }
+}

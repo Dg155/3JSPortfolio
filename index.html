@@ -103,12 +103,21 @@
         <div id="portfolio"></div>
 
     </header>
+
+    <!-- Sidebar Nav -->
+    <div id="mySidenav" class="sidenav">
+        <a href="https://www.linkedin.com/in/daniel-boghossian/" id="SideLinkedIn" class="ButtonShine">LinkedIn <div class="sidebarIcon" id="sideLinkedImage"></div></a>
+        <a href="https://dg155.itch.io/" id="SideItch" class="ButtonShine">Itch.io <div class="sidebarIcon" id="sideItchImage"></div></a>
+        <a href="https://github.com/Dg155" id="SideGitHub" class="ButtonShine">GitHub <div class="sidebarIcon" id="sideGitImage"></div></a>
+        <a href="mailto:danielboghoss@gmail.com" id="SideContact" class="ButtonShine">Contact <div class="sidebarIcon" id="sideContactImage"></div></a>
+      </div>
+    <!-- Sidebar Nav -->
     
     <!-- EnKore Section-->
     <div class="content-area group section">
 
         <!-- Image Slideshow -->
-        <div class="col col-md-4 sidebar enKoreImageBorder" style="opacity: 0;">
+        <div class="col col-md-4 enKoreImageBorder" style="opacity: 0;">
             <div class="cycle-slideshow ImagesLayout enKoreImages LogoAnimation" data-cycle-slides=".slide" style="display: none;" id="enKoreImages" data-cycle-pause-on-hover="true">
 
                 <span class="cycle-prev">&laquo;</span>
@@ -199,7 +208,7 @@
     <div class="content-area group section">
 
         <!-- Image Slideshow -->
-        <div class="col col-md-4 sidebar celestialClashImageBorder" style="opacity: 0;">
+        <div class="col col-md-4 celestialClashImageBorder" style="opacity: 0;">
             <div class="cycle-slideshow celestialClashImages ImagesLayout LogoAnimation" data-cycle-slides=".slide" style="display: none;" id="celestialClashImages" data-cycle-pause-on-hover="true">
 
                 <span class="cycle-prev">&laquo;</span>
@@ -288,7 +297,7 @@
     <div class="content-area group section">
 
         <!-- Image Slideshow -->
-        <div class="col col-md-4 sidebar zotZoomerImageBorder" style="opacity: 0;">
+        <div class="col col-md-4 zotZoomerImageBorder" style="opacity: 0;">
             <div class="cycle-slideshow zotZoomerImages ImagesLayout LogoAnimation" data-cycle-slides=".slide" style="display: none;" id="zotZoomerImages" data-cycle-pause-on-hover="true">
 
                 <span class="cycle-prev">&laquo;</span>
@@ -384,7 +393,7 @@
     <div class="content-area group section">
 
         <!-- Image Slideshow -->
-        <div class="col col-md-4 sidebar musicalMadnessImageBorder" style="opacity: 0;">
+        <div class="col col-md-4 musicalMadnessImageBorder" style="opacity: 0;">
             <div class="cycle-slideshow ImagesLayout musicalMadnessImages LogoAnimation" data-cycle-slides=".slide" style="display: none;" id="musicalMadnessImages" data-cycle-pause-on-hover="true">
 
                 <span class="cycle-prev">&laquo;</span>
@@ -590,10 +599,6 @@
           );
         });
       }); 
-      
-      console.log(document.querySelector(".cycle-slideshow").clientHeight);
-    //   document.getElementById("enKoreImages").offsetHeight = document.querySelector(".enKore").offsetHeight;
-    //   console.log(document.getElementById("enKoreImages").offsetHeight);
   </script>
   </body>
 </html>
