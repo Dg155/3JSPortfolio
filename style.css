@@ -412,7 +412,23 @@ a {
   }
 }
 
+@media screen and (max-width: 1023px) {
+  .section {
+    flex-direction: column;
+  }
+
+  .container {
+    max-width: 80%;
+  }
+
+}
+
 @media screen and (max-width: 767px) {
+/* 
+  .container {
+    margin-top: 400px;
+  } */
+
   .section {
     padding-left: 20px;
     padding-right: 20px;
@@ -569,7 +585,7 @@ header {
   }
 
   header {
-    margin-top: 0px;
+    margin-top: 550px;
   }
 }
 
@@ -669,6 +685,31 @@ header {
   .AboutMe p {
     font-size: 125%;
     margin: 10px 5px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+
+  .AboutMe {
+    margin-bottom: 20px;
+  }
+
+  .AboutMe p {
+    font-size: 110%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+
+  .AboutMe {
+    margin-bottom: 10px;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 400px;
+  }
+
+  .AboutMe p {
+    font-size: 110%;
   }
 }
 
@@ -871,6 +912,9 @@ footer {
 footer ul {
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 footer li {
@@ -1019,7 +1063,7 @@ p.gameDescription {
 .ImagesLayout {
   border-radius: 6px !important;
   padding: 0 !important;
-  margin: 0 !important;
+  margin: auto !important;
 }
 
 .ImageIcon {
@@ -1305,16 +1349,28 @@ h2.MMTitle {
   transition: opacity 0.5s;
 }
 
+.imageSizing {
+  width: 33.332%;
+  float: left;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
 @media screen and (max-width: 1023px) {
-  .slide-text {
-    position: static;
-    background-color: #000;
-    height: 100%;
-    padding-bottom: 30px;
+  .cycle-slideshow{
+    display: flex;
+    flex: 1;
   }
 
   .slide-text h4 {
     font-size: 150%;
+  }
+
+  .imageSizing {
+    width: auto;
+    float: none;
+    padding-right: 0;
+    margin-bottom: 30px;
   }
 }
 
