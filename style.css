@@ -552,8 +552,24 @@ header {
 }
 
 @media screen and (max-width: 767px) {
-  .site-nav li {
-    width: 50%;
+
+  .headerLogo, .navLogo{
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .headerLogo{
+    margin-top: 2%;
+    margin-bottom: 30px;
+  }
+
+  .navLogo{
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  header {
+    margin-top: 0px;
   }
 }
 
@@ -577,6 +593,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 999;
 }
 
 #mySidenav a:hover {
@@ -646,6 +663,13 @@ header {
   color: white;
   font-size: 140%;
   margin: 10px 5px;
+}
+
+@media screen and (max-width: 1280px) {
+  .AboutMe p {
+    font-size: 125%;
+    margin: 10px 5px;
+  }
 }
 
 /* #endregion End About Me */
