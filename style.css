@@ -119,33 +119,33 @@ main {
   0% {
     opacity: 0;
     transform: scale(0);
-    left: 100%;
-  }
+    left: 70%;
+}
 
-  10% {
+10% {
     opacity: 10%;
     transform: scale(0.1);
-    left: 90%;
-  }
+    left: 63%;
+}
 
-  100% {
-      opacity: 1;
-      transform: scale(1);
-      left: 0%;
-  }
+100% {
+    opacity: 1;
+    transform: scale(1);
+    left: 0%;
+}
 }
 
 @keyframes fadeInLeft {
   0% {
       opacity: 0;
       transform: scale(0);
-      left: 100%;
+      left: 70%;
   }
 
   10% {
       opacity: 10%;
       transform: scale(0.1);
-      left: 90%;
+      left: 63%;
   }
 
   100% {
@@ -424,11 +424,7 @@ a {
 }
 
 @media screen and (max-width: 767px) {
-/* 
-  .container {
-    margin-top: 400px;
-  } */
-
+  
   .section {
     padding-left: 20px;
     padding-right: 20px;
@@ -562,7 +558,7 @@ header {
   }
 
   header {
-    margin-bottom: 170px;
+    margin-bottom: 30px;
   }
 
 }
@@ -1349,6 +1345,24 @@ h2.MMTitle {
   transition: opacity 0.5s;
 }
 
+.slide-text h4 {
+  font-size: 90%;
+  margin: 0;
+  margin-top: -10px;
+}
+
+@media screen and (max-width: 1439px) {
+  .slide-text {
+    height: 25%;
+  }
+}
+
+@media screen and (max-width: 1079px) {
+  .slide-text h4{
+    font-size: 85%;
+  }
+}
+
 .imageSizing {
   width: 33.332%;
   float: left;
@@ -1362,12 +1376,16 @@ h2.MMTitle {
     flex: 1;
   }
 
+  .slide-text {
+    height: 20%;
+  }
+
   .slide-text h4 {
-    font-size: 150%;
+    font-size: 110%;
   }
 
   .imageSizing {
-    width: auto;
+    width: 70%;
     float: none;
     padding-right: 0;
     margin-bottom: 30px;
@@ -1376,13 +1394,47 @@ h2.MMTitle {
 
 @media screen and (max-width: 767px) {
   .slide-text h4 {
-    font-size: 130%;
+    font-size: 90%;
+  }
+
+  .imageSizing {
+    width: 80%;
   }
 }
 
-.slide-text h4 {
-  margin: 0;
-  margin-top: -10px;
+@media screen and (max-width: 600px) {
+  .slide-text {
+    height: 25%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .imageSizing {
+    width: 90%;
+  }
+
+}
+
+@media screen and (max-width: 420px) {
+  .imageSizing {
+    width: 100%;
+  }
+
+  .slide-text h4 {
+    font-size: 80%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .slide-text {
+    height: 30%;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .slide-text {
+    height: 40%;
+  }
 }
 
 /* Prev and Next Buttons */

@@ -115,8 +115,8 @@
     <div class="content-area group section">
 
         <!-- Image Slideshow -->
-        <div class="imageSizing enKoreImageBorder" style="opacity: 0;">
-            <div class="cycle-slideshow ImagesLayout enKoreImages LogoAnimation" data-cycle-slides=".slide" style="display: none;" id="enKoreImages" data-cycle-pause-on-hover="true">
+        <div class="imageSizing enKoreImageBorder">
+            <div class="cycle-slideshow ImagesLayout enKoreImages" data-cycle-slides=".slide" style="display: none; left: 65%; opacity: 0;" id="enKoreImages" data-cycle-pause-on-hover="true">
 
                 <span class="cycle-prev">&laquo;</span>
                 <span class="cycle-next">&raquo;</span>
@@ -206,8 +206,8 @@
     <div class="content-area group section">
 
         <!-- Image Slideshow -->
-        <div class="imageSizing celestialClashImageBorder" style="opacity: 0;">
-            <div class="cycle-slideshow celestialClashImages ImagesLayout LogoAnimation" data-cycle-slides=".slide" style="display: none;" id="celestialClashImages" data-cycle-pause-on-hover="true">
+        <div class="imageSizing celestialClashImageBorder">
+            <div class="cycle-slideshow celestialClashImages ImagesLayout" data-cycle-slides=".slide" style="display: none; left: 65%; opacity: 0;" id="celestialClashImages" data-cycle-pause-on-hover="true">
 
                 <span class="cycle-prev">&laquo;</span>
                 <span class="cycle-next">&raquo;</span>
@@ -215,9 +215,9 @@
                 <span class="cycle-pager"></span>
 
                 <div class="slide">
-                    <a href="assets/images/gifs/CC1.gif" data-lightbox="CelestialClash" data-title="Celestial Clash Title Screen"><img src="assets/images/CelestialClashThumb1.png" alt="First screenshot of Celestial Clash"></a>
+                    <a href="assets/images/gifs/CC1.gif" data-lightbox="CelestialClash" data-title="Celestial Clash: Battle for the fate of the universe using the power of the stars"><img src="assets/images/CelestialClashThumb1.png" alt="First screenshot of Celestial Clash"></a>
                     <div class="slide-text">
-                        <h4>Celestial Clash Title Screen</h4>
+                        <h4>Celestial Clash: Battle for the fate of the universe using the power of the stars</h4>
                     </div>
                 </div>
 
@@ -295,8 +295,8 @@
     <div class="content-area group section">
 
         <!-- Image Slideshow -->
-        <div class="imageSizing zotZoomerImageBorder" style="opacity: 0;">
-            <div class="cycle-slideshow zotZoomerImages ImagesLayout LogoAnimation" data-cycle-slides=".slide" style="display: none;" id="zotZoomerImages" data-cycle-pause-on-hover="true">
+        <div class="imageSizing zotZoomerImageBorder">
+            <div class="cycle-slideshow zotZoomerImages ImagesLayout" data-cycle-slides=".slide" style="display: none; left: 65%; opacity: 0;" id="zotZoomerImages" data-cycle-pause-on-hover="true">
 
                 <span class="cycle-prev">&laquo;</span>
                 <span class="cycle-next">&raquo;</span>
@@ -304,9 +304,9 @@
                 <span class="cycle-pager"></span>
 
                 <div class="slide">
-                    <a href="assets/images/gifs/ZZ1.gif" data-lightbox="ZotZoomer" data-title="Zot Zoomer Title Screen"><img src="assets/images/ZotZoomerThumb1.png" alt="First screenshot of Zot Zoomer"></a>
+                    <a href="assets/images/gifs/ZZ1.gif" data-lightbox="ZotZoomer" data-title="Zot Zoomer: Modern Day F-Zero GX"><img src="assets/images/ZotZoomerThumb1.png" alt="First screenshot of Zot Zoomer"></a>
                     <div class="slide-text">
-                        <h4>Zot Zoomer Title Screen</h4>
+                        <h4>Zot Zoomer: Modern Day F-Zero GX</h4>
                     </div>
                 </div>
 
@@ -384,8 +384,8 @@
     <div class="content-area group section">
 
         <!-- Image Slideshow -->
-        <div class="imageSizing musicalMadnessImageBorder" style="opacity: 0;">
-            <div class="cycle-slideshow ImagesLayout musicalMadnessImages LogoAnimation" data-cycle-slides=".slide" style="display: none;" id="musicalMadnessImages" data-cycle-pause-on-hover="true">
+        <div class="imageSizing musicalMadnessImageBorder">
+            <div class="cycle-slideshow ImagesLayout musicalMadnessImages" data-cycle-slides=".slide" style="display: none; left: 65%; opacity: 0;" id="musicalMadnessImages" data-cycle-pause-on-hover="true">
 
                 <span class="cycle-prev">&laquo;</span>
                 <span class="cycle-next">&raquo;</span>
@@ -393,9 +393,9 @@
                 <span class="cycle-pager"></span>
 
                 <div class="slide">
-                    <a href="assets/images/gifs/MM1.gif" data-lightbox="MusicalMadness" data-title="Musical Madness Title Screen"><img src="assets/images/MusicalMadness1.png" alt="First screenshot of Musical Madness"></a>
+                    <a href="assets/images/gifs/MM1.gif" data-lightbox="MusicalMadness" data-title="Musical Madness: Fight against corrupted instruments to restore Musical Harmony"><img src="assets/images/MusicalMadness1.png" alt="First screenshot of Musical Madness"></a>
                     <div class="slide-text">
-                        <h4>Musical Madness Title Screen</h4>
+                        <h4>Musical Madness: Fight against corrupted instruments to restore Musical Harmony</h4>
                     </div>
                 </div>
 
@@ -514,85 +514,119 @@
           }
       }
 
-        $("#enKoreImages").cycle('pause');
-        $("#celestialClashImages").cycle('pause');
-        $("#zotZoomerImages").cycle('pause');
-        $("#musicalMadnessImages").cycle('pause');
-
       $(document).ready(function(){
         $("#enKoreButton").click(function(){
-          $("#enKoreImages").toggle(
-            function()
-            {
-                if ($("#enKoreImages").is(':visible')){
-                    document.querySelector(".enKoreImageBorder").style.opacity = "100%";
-                    $("#enKoreImages").cycle('goto', 0);
-                }
-                else{
-                    document.querySelector(".enKoreImageBorder").style.opacity = "0%";
-                }
-                $("#enKoreButton").removeClass("ImageIconAnimation");
+            if (document.getElementById("enKoreImages").style.display == "none"){
+
+                $("#enKoreImages").animate({
+                    opacity: 1,
+                    height: "toggle",
+                    width: "toggle",
+                    left: "0"
+                }, 650, function() { console.log("finished");});
+
+
+                $("#enKoreImages").cycle('goto', 0);
             }
-          );
+            else{
+
+                $("#enKoreImages").animate({
+                    opacity: 0,
+                    height: "toggle",
+                    width: "toggle",
+                    left: "-65%"
+                }, 650, function() { document.getElementById("enKoreImages").style.left = "65%"; document.getElementById("enKoreImages").style.display = "none";});
+
+            }
+            $("#enKoreButton").removeClass("ImageIconAnimation");
         });
       }); 
 
       $(document).ready(function(){
         $("#celestialClashButton").click(function(){
-          $("#celestialClashImages").toggle(
-            function()
-            {
-                if ($("#celestialClashImages").is(':visible')){
-                    document.querySelector(".celestialClashImageBorder").style.opacity = "100%";
-                    $("#celestialClashImages").cycle('goto', 0);
-                }
-                else{
-                    document.querySelector(".celestialClashImageBorder").style.opacity = "0%";
-                }
-                $("#celestialClashButton").removeClass("ImageIconAnimation");
+            if (document.getElementById("celestialClashImages").style.display == "none"){
+
+                $("#celestialClashImages").animate({
+                    opacity: 1,
+                    height: "toggle",
+                    width: "toggle",
+                    left: "0"
+                }, 650, function() { console.log("finished");});
+
+
+                $("#celestialClashImages").cycle('goto', 0);
             }
-          );
+            else{
+
+                $("#celestialClashImages").animate({
+                    opacity: 0,
+                    height: "toggle",
+                    width: "toggle",
+                    left: "-65%"
+                }, 650, function() { document.getElementById("celestialClashImages").style.left = "65%"; document.getElementById("celestialClashImages").style.display = "none";});
+
+            }
+            $("#celestialClashButton").removeClass("ImageIconAnimation");
         });
       }); 
 
       $(document).ready(function(){
         $("#zotZoomerButton").click(function(){
-          $("#zotZoomerImages").toggle(
-            function()
-            {
-                if ($("#zotZoomerImages").is(':visible')){
-                    document.querySelector(".zotZoomerImageBorder").style.opacity = "100%";
-                    $("#zotZoomerImages").cycle('goto', 0);
-                }
-                else{
-                    document.querySelector(".zotZoomerImageBorder").style.opacity = "0%";
-                }
-                $("#zotZoomerButton").removeClass("ImageIconAnimation");
+            if (document.getElementById("zotZoomerImages").style.display == "none"){
+
+                $("#zotZoomerImages").animate({
+                    opacity: 1,
+                    height: "toggle",
+                    width: "toggle",
+                    left: "0"
+                }, 650, function() { console.log("finished");});
+
+
+                $("#zotZoomerImages").cycle('goto', 0);
             }
-          );
+            else{
+
+                $("#zotZoomerImages").animate({
+                    opacity: 0,
+                    height: "toggle",
+                    width: "toggle",
+                    left: "-65%"
+                }, 650, function() { document.getElementById("zotZoomerImages").style.left = "65%"; document.getElementById("zotZoomerImages").style.display = "none";});
+
+            }
+            $("#zotZoomerButton").removeClass("ImageIconAnimation");
         });
       }); 
 
       $(document).ready(function(){
         $("#musicalMadnessButton").click(function(){
-          $("#musicalMadnessImages").toggle(
-            function()
-            {
-                if ($("#musicalMadnessImages").is(':visible')){
-                    document.querySelector(".musicalMadnessImageBorder").style.opacity = "100%";
-                    $("#musicalMadnessImages").cycle('goto', 0);
-                }
-                else{
-                    document.querySelector(".musicalMadnessImageBorder").style.opacity = "0%";
-                }
-                $("#musicalMadnessButton").removeClass("ImageIconAnimation");
+            if (document.getElementById("musicalMadnessImages").style.display == "none"){
+
+                $("#musicalMadnessImages").animate({
+                    opacity: 1,
+                    height: "toggle",
+                    width: "toggle",
+                    left: "0"
+                }, 650, function() { console.log("finished");});
+
+
+                $("#musicalMadnessImages").cycle('goto', 0);
             }
-          );
+            else{
+
+                $("#musicalMadnessImages").animate({
+                    opacity: 0,
+                    height: "toggle",
+                    width: "toggle",
+                    left: "-65%"
+                }, 650, function() { document.getElementById("musicalMadnessImages").style.left = "65%"; document.getElementById("musicalMadnessImages").style.display = "none";});
+
+            }
+            $("#musicalMadnessButton").removeClass("ImageIconAnimation");
         });
       }); 
 
       document.querySelector(".lb-image").addEventListener('click', event => {
-    console.log('meow');
     })
   </script>
   </body>
