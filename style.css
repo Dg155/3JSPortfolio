@@ -412,7 +412,7 @@ a {
   }
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
   .section {
     flex-direction: column;
   }
@@ -423,7 +423,7 @@ a {
 
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   
   .section {
     padding-left: 20px;
@@ -447,13 +447,13 @@ a {
     color: transparent;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .content-area {
     padding-top: 20px;
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .hide-small {
     display: none;
   }
@@ -531,7 +531,7 @@ header {
   animation-delay: 0.6s;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
 
   .headerLogo{
     padding-top: 15px;
@@ -563,7 +563,7 @@ header {
 
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
 
   .headerLogo, .navLogo{
     width: 90%;
@@ -649,7 +649,7 @@ header {
 
 #sideContactImage { background-position: -90px 0; }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1024px) {
   #mySidenav {
     display: none;
   }
@@ -684,7 +684,7 @@ header {
   }
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
 
   .AboutMe {
     margin-bottom: 20px;
@@ -695,7 +695,7 @@ header {
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
 
   .AboutMe {
     margin-bottom: 10px;
@@ -718,7 +718,7 @@ header {
   align-items: center;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
   .row {
     display: block;
   }
@@ -765,7 +765,7 @@ header {
   width: 8.332%;
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 768px) {
   .row {
     margin-right: -40px;
   }
@@ -881,13 +881,13 @@ header {
   }
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
   .push-down-sm {
     margin-bottom: 30px;
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .push-down-sm {
     margin-bottom: 15px;
   }
@@ -953,19 +953,19 @@ footer a {
 
 /* #region GameInfoText */
 
-h2.gameTitle {
-  font-family: 'Press Start 2P', Arial, sans-serif;
-  font-size: 210%;
-  text-align: left;
-  color: #000;
-}
-
 .gameHeader {
   margin: 0;
   padding: 0;
   display: flex;
   align-items: baseline;
   margin-bottom: 10px;
+}
+
+h2.gameTitle {
+  font-family: 'Press Start 2P', Arial, sans-serif;
+  font-size: 210%;
+  text-align: left;
+  color: #000;
 }
 
 ul.gameInfo {
@@ -1010,6 +1010,7 @@ li.WeeksWorked {
 
 li.TeamSize {
   border-right: none;
+  margin-right: 0 !important;
 }
 
 p.gameDescription {
@@ -1025,6 +1026,73 @@ p.gameDescription {
   border-radius: 15px;
   padding: 10px 15px;
 }
+
+@media screen and (max-width: 768px) {
+  .gameHeader{
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 0;
+  }
+
+  h2.gameTitle {
+    font-size: 180%;
+    padding-right: 30px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  h2.gameTitle {
+    font-size: 160%;
+  }
+
+  ul.gameInfo li.Role {
+    font-size: 140%;
+  }
+
+  ul.gameInfo li {
+    font-size: 100%;
+    z-index: 999;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  p.gameDescription {
+    font-size: 130%;
+  }
+
+  ul.gameInfo {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  ul.gameInfo li {
+    font-size: 90%;
+  }
+
+  p.gameDescription {
+    font-size: 120%;
+  }
+
+  ul.gameInfo li.Role {
+    font-size: 120%;
+  }
+
+  ul.gameInfo {
+    margin-bottom: 5px;
+  }
+
+  h2.gameTitle {
+    padding-right: 60px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  h2.gameTitle {
+    padding-right: 0;
+  }
+}
+
 
 /* #endregion GameInfoText */
 
@@ -1084,6 +1152,28 @@ p.gameDescription {
   transform: scale(1.2);
   transition: all 0.5s ease;
 }
+
+@media screen and (max-width: 768px) {
+  .ImageIcon{
+    position:absolute;
+    top:0;
+    right:0;
+    margin-top: 15px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .ImageIcon{
+    position:relative;
+    margin-top: 0;
+    margin-bottom: 10px;
+    align-self: center;
+    margin-right: 0;
+    height: 50px;
+    width: 50px;
+  }
+}
+
 
 /* #endregion PortfolioButtons */
 
@@ -1370,7 +1460,7 @@ h2.MMTitle {
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
   .cycle-slideshow{
     display: flex;
     flex: 1;
@@ -1392,7 +1482,7 @@ h2.MMTitle {
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .slide-text h4 {
     font-size: 90%;
   }
@@ -1517,7 +1607,7 @@ h2.MMTitle {
   text-align: center;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
   .modal {
     width: 50%;
   }
