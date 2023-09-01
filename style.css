@@ -1168,6 +1168,13 @@ p.gameDescription {
   }
 }
 
+@media screen and (max-width: 550px) {
+  .ImageIcon{
+    margin-top: 8px;
+    margin-right: 8px;
+  }
+}
+
 @media screen and (max-width: 350px) {
   .ImageIcon{
     position:relative;
