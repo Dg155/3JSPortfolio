@@ -192,32 +192,6 @@ fbxLoader.load(
     }
 )
 
-// Lights
-
-// Logo Light
-const LogoLight = new THREE.PointLight(0xffffff);
-LogoLight.position.set(3, 2, -2);
-LogoLight.rotation.set(1, 10, 4);
-LogoLight.intensity = 8;
-LogoLight.distance = 100;
-LogoLight.decay = 20;
-scene.add(LogoLight);
-
-// Enkore Light
-const EnkoreLight = new THREE.PointLight(0xffffff);
-EnkoreLight.position.set(-9.2, 8, 7.3);
-EnkoreLight.rotation.set(0, 2.2, 0);
-EnkoreLight.intensity = 8;
-EnkoreLight.distance = 100;
-EnkoreLight.decay = 20;
-scene.add(EnkoreLight);
-
-// const lightHelper = new THREE.PointLightHelper(LogoLight);
-// scene.add(lightHelper);
-
-const ambientLight = new THREE.AmbientLight(0x404040);
-scene.add(ambientLight);
-
 // Stars
 
 function addStar() {
@@ -249,8 +223,8 @@ var Logo = new THREE.Mesh();
 fbxLoader.load(
     './assets/Logo.fbx',
     (object) => {
-        object.position.set(6.3, 0, -12)
-        // object.rotation.set(0.8, 0, 0)
+        object.position.set(6.7, 0, -13.5)
+        object.rotation.set(0, 1.2, 0.15)
         object.scale.set(0.05, 0.05, 0.05)
 
         object.traverse(function(child) {
@@ -316,7 +290,31 @@ const moon = new THREE.Mesh(
 
 //scene.add(moon);
 
-// Rotate objects with mouse
+// Lights
+
+// Logo Light
+const LogoLight = new THREE.PointLight(0xffffff);
+LogoLight.position.set(3, 2, -2);
+LogoLight.rotation.set(1, 10, 4);
+LogoLight.intensity = 8;
+LogoLight.distance = 100;
+LogoLight.decay = 15;
+scene.add(LogoLight);
+
+// Enkore Light
+const EnkoreLight = new THREE.PointLight(0xffffff);
+EnkoreLight.position.set(-9.2, 8, 7.3);
+EnkoreLight.rotation.set(0, 2.2, 0);
+EnkoreLight.intensity = 8;
+EnkoreLight.distance = 100;
+EnkoreLight.decay = 20;
+scene.add(EnkoreLight);
+
+// const lightHelper = new THREE.PointLightHelper(LogoLight);
+// scene.add(lightHelper);
+
+const ambientLight = new THREE.AmbientLight(0x404040);
+scene.add(ambientLight);
 
 // Scroll Animation
 
@@ -333,7 +331,6 @@ function moveCamera() {
 
 document.body.onscroll = moveCamera;
 moveCamera();
-reSizeWindow();
 
 // Animation Loop
 
@@ -348,10 +345,7 @@ function animate() {
   zotZoomer3.rotation.y += 0.008;
   zotZoomer4.rotation.y += 0.008;
 
-  if (window.innerWidth != currentWidth || window.innerHeight != currentHeight) {
-    reSizeWindow();
-  }
-
+  reSizeWindow();
 
   if (resizeRendererToDisplaySize(renderer)) {
     const canvas = renderer.domElement;
@@ -363,6 +357,7 @@ function animate() {
 }
 
 animate();
+
 
 function resizeRendererToDisplaySize(renderer) {
     const canvas = renderer.domElement;
@@ -377,16 +372,51 @@ function resizeRendererToDisplaySize(renderer) {
 
 function reSizeWindow()
 {
+    console.log(currentWidth);
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     currentWidth = window.innerWidth;
     currentHeight = window.innerHeight;
-    if (currentWidth < 1023)
+    if (currentWidth < 251)
     {
-        console.log("mobile");
+        Logo.scale.set(0.015, 0.015, 0.015);
+        Logo.position.set(-0.3, 4.5, -10.5);
+        Logo.rotation.z = 0;
+        LogoLight.position.set(0, 8, -9);
+    }
+    else if (currentWidth < 351)
+    {
+        Logo.scale.set(0.02, 0.02, 0.02);
+        Logo.position.set(-0.3, 4.5, -10.5);
+        Logo.rotation.z = 0;
+        LogoLight.position.set(0, 8, -9);
+    }
+    else if (currentWidth < 501)
+    {
+        Logo.scale.set(0.03, 0.03, 0.03);
+        Logo.position.set(0, 3, -10.5);
+        Logo.rotation.z = 0;
+        LogoLight.position.set(0, 6, -9);
+    }
+    else if (currentWidth < 769)
+    {
+        Logo.scale.set(0.03, 0.03, 0.03);
+        Logo.position.set(0, 3, -10.5);
+        LogoLight.position.set(0, 6, -9);
+    }
+    else if (currentWidth < 875)
+    {
+        Logo.scale.set(0.03, 0.03, 0.03);
+        Logo.position.set(4.7, 0, -13.5);
+    }
+    else if (currentWidth < 1025)
+    {
+        Logo.scale.set(0.03, 0.03, 0.03);
+        Logo.position.set(5.7, 0, -13.5);
     }
     else
     {
-        console.log("desktop");
+        Logo.scale.set(0.05, 0.05, 0.05);
+        Logo.position.set(6.7, 0, -13.5);
     }
 }
