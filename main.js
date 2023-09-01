@@ -383,6 +383,9 @@ function reSizeWindow()
         Logo.position.set(-0.3, 4.5, -10.5);
         Logo.rotation.z = 0;
         LogoLight.position.set(0, 8, -9);
+
+        daniel.position.set(-10, 0, 86);
+        daniel.scale.set(1, 1, 1); 
     }
     else if (currentWidth < 351)
     {
@@ -396,11 +399,21 @@ function reSizeWindow()
     }
     else if (currentWidth < 401)
     {
+        Logo.scale.set(0.03, 0.03, 0.03);
+        Logo.position.set(0, 3, -10.5);
+        Logo.rotation.z = 0;
+        LogoLight.position.set(0, 6, -9);
+
         daniel.position.set(-8, 0, 78);
         daniel.scale.set(1, 1, 1);  
     }
     else if (currentWidth < 451)
     {
+        Logo.scale.set(0.03, 0.03, 0.03);
+        Logo.position.set(0, 3, -10.5);
+        Logo.rotation.z = 0;
+        LogoLight.position.set(0, 6, -9);
+
         daniel.position.set(-8, 0, 85);
         daniel.scale.set(1, 1, 1); 
     }
@@ -416,11 +429,19 @@ function reSizeWindow()
     }
     else if (currentWidth < 551)
     {
+        Logo.scale.set(0.03, 0.03, 0.03);
+        Logo.position.set(0, 3, -10.5);
+        LogoLight.position.set(0, 6, -9);
+
         daniel.position.set(-5, -1.3, 81);
         daniel.scale.set(1, 1, 1);  
     }
     else if (currentWidth < 601)
     {
+        Logo.scale.set(0.03, 0.03, 0.03);
+        Logo.position.set(0, 3, -10.5);
+        LogoLight.position.set(0, 6, -9);
+
         daniel.position.set(-5.7, -1.3, 72);
         daniel.scale.set(1, 1, 1);
     }
@@ -437,6 +458,9 @@ function reSizeWindow()
     {
         Logo.scale.set(0.03, 0.03, 0.03);
         Logo.position.set(4.7, 0, -13.5);
+
+        daniel.position.set(-3, 0.15, 60);
+        daniel.scale.set(1, 1, 1);
     }
     else if (currentWidth < 1025)
     {
