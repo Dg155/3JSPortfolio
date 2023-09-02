@@ -387,7 +387,7 @@ function reSizeWindow()
         daniel.position.set(-10, 0, 86);
         daniel.scale.set(1, 1, 1); 
     }
-    else if (currentWidth < 351)
+    else if (currentWidth < 376)
     {
         Logo.scale.set(0.02, 0.02, 0.02);
         Logo.position.set(-0.3, 4.5, -10.5);
