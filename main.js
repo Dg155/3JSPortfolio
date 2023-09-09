@@ -48,45 +48,19 @@ const torus = new THREE.Mesh(geometry, material);
 
 // Custom Import
 
-var zotZoomer = new THREE.Mesh();
+var EnKore = new THREE.Mesh();
 
 const fbxLoader = new FBXLoader();
 fbxLoader.load(
-    './assets/Car.fbx',
+    './assets/EnKore.fbx',
     (object) => {
-        object.position.set(-9.2, 0, 7.3) 
-        object.rotation.set(0.8, 0, 0)
-        object.scale.set(1.1, 1.1, 1.1)
+        object.position.set(-9, -2, 7.3) 
+        object.rotation.set(0, 4, 0)
+        object.scale.set(0.007, 0.007, 0.007)
 
-        const material = new THREE.MeshStandardMaterial({
-            color: 0xffffff, // Base color
-            roughness: 1,    // Roughness (1 for completely rough)
-            metalness: 0,    // Metalness (0 for non-metallic)
-        });
-    
-        // Load and assign texture maps
-        const textureLoader = new THREE.TextureLoader();
-        material.map = textureLoader.load(carPic);
-        material.map.encoding = THREE.sRGBEncoding;
-        material.normalMap = textureLoader.load(carPicNormal);
-        material.normalMap.encoding = THREE.sRGBEncoding;
-        material.roughnessMap = textureLoader.load(carPicRoughness);
-        material.roughnessMap.encoding = THREE.sRGBEncoding;
-        material.metalnessMap = textureLoader.load(carPicMetallic);
-        material.metalnessMap.encoding = THREE.sRGBEncoding;
-        material.displacementMap = textureLoader.load(carPicHeight);
-        material.displacementMap.encoding = THREE.sRGBEncoding;
-        material.displacementScale = 0; // Adjust the height map scale as needed
+        EnKore = object;
 
-        object.traverse(function(child) {
-            if (child.isMesh) {
-                child.material = material; 
-            }
-        });
-
-        zotZoomer = object;
-
-        scene.add(zotZoomer)
+        scene.add(EnKore)
     },
     (xhr) => {
         console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
@@ -348,7 +322,7 @@ scene.add(LogoLight);
 
 // Enkore Light
 const EnkoreLight = new THREE.PointLight(0xffffff);
-EnkoreLight.position.set(-9.2, 8, 7.3);
+EnkoreLight.position.set(-9, 8, 7.3);
 EnkoreLight.rotation.set(0, 2.2, 0);
 EnkoreLight.intensity = 8;
 EnkoreLight.distance = 100;
@@ -412,7 +386,7 @@ function animate() {
   moon.rotation.x += 0.005;
   Logo.rotation.y += 0.008;
   daniel.rotation.y += 0.002;
-  zotZoomer.rotation.y += 0.008;
+  EnKore.rotation.y += 0.008;
   zotZoomer2.rotation.y += 0.008;
   zotZoomer3.rotation.y += 0.008;
   zotZoomer4.rotation.y += 0.008;
