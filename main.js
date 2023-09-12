@@ -1,6 +1,6 @@
 import * as THREE from 'https://unpkg.com/three@0.127.0/build/three.module.js';
 import { FBXLoader } from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/loaders/FBXLoader.js';
-import { GLTFLoader } from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/loaders/GLTFLoader.js';
+import { OBJLoader } from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/loaders/OBJLoader.js';
 
 
 // Image access from html elements
@@ -15,6 +15,8 @@ var carPicNormal = document.getElementById("CarTextureNormal").src;
 var carPicMetallic = document.getElementById("CarTextureMetallic").src;
 var carPicRoughness = document.getElementById("CarTextureRoughness").src;
 var carPicHeight = document.getElementById("CarTextureHeight").src;
+
+var MMPic = document.getElementById("MMTexture").src;
 
 var logoPic = document.getElementById("LogoTexture").src;
 
@@ -164,34 +166,24 @@ fbxLoader.load(
     }
 )
 
-var zotZoomer4 = new THREE.Mesh();
+var MusicalMadness = new THREE.Mesh();
 
 fbxLoader.load(
-    './assets/Car.fbx',
+    './assets/MM.fbx',
     (object) => {
-        object.position.set(-13, -1, 47)
-        object.rotation.set(0.8, 0, 0)
-        object.scale.set(1.1, 1.1, 1.1)
+        object.position.set(-10, -0.3, 49)
+        object.rotation.set(0, 0, 0)
+        object.scale.set(0.03, 0.03, 0.03)
 
         const material = new THREE.MeshStandardMaterial({
             color: 0xffffff, // Base color
-            roughness: 1,    // Roughness (1 for completely rough)
+            roughness: 0.5,    // Roughness (1 for completely rough)
             metalness: 0,    // Metalness (0 for non-metallic)
         });
-    
-        // Load and assign texture maps
+
         const textureLoader = new THREE.TextureLoader();
-        material.map = textureLoader.load(carPic);
+        material.map = textureLoader.load(MMPic);
         material.map.encoding = THREE.sRGBEncoding;
-        material.normalMap = textureLoader.load(carPicNormal);
-        material.normalMap.encoding = THREE.sRGBEncoding;
-        material.roughnessMap = textureLoader.load(carPicRoughness);
-        material.roughnessMap.encoding = THREE.sRGBEncoding;
-        material.metalnessMap = textureLoader.load(carPicMetallic);
-        material.metalnessMap.encoding = THREE.sRGBEncoding;
-        material.displacementMap = textureLoader.load(carPicHeight);
-        material.displacementMap.encoding = THREE.sRGBEncoding;
-        material.displacementScale = 0; // Adjust the height map scale as needed
 
         object.traverse(function(child) {
             if (child.isMesh) {
@@ -199,9 +191,9 @@ fbxLoader.load(
             }
         });
 
-        zotZoomer4 = object;
+        MusicalMadness = object;
 
-        scene.add(zotZoomer4)
+        scene.add(MusicalMadness)
     },
     (xhr) => {
         console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
@@ -242,8 +234,8 @@ var Logo = new THREE.Mesh();
 fbxLoader.load(
     './assets/Logo.fbx',
     (object) => {
-        object.position.set(6.7, 0, -13.5)
-        object.rotation.set(0, 1.2, 0.15)
+        object.position.set(7.4, 0, -13.5)
+        // object.rotation.set(0, 1.2, 0.15)
         object.scale.set(0.05, 0.05, 0.05)
 
         object.traverse(function(child) {
@@ -349,14 +341,14 @@ scene.add(ZotLight);
 
 // Musical Light
 const MusicalLight = new THREE.PointLight(0xffffff);
-MusicalLight.position.set(-13, 7, 47);
+MusicalLight.position.set(-6, -0.3, 54);
 MusicalLight.rotation.set(0, 2.2, 0);
-MusicalLight.intensity = 8;
+MusicalLight.intensity = 3;
 MusicalLight.distance = 100;
 MusicalLight.decay = 20;
 scene.add(MusicalLight);
 
-// const lightHelper = new THREE.PointLightHelper(LogoLight);
+// const lightHelper = new THREE.PointLightHelper(MusicalLight);
 // scene.add(lightHelper);
 
 const ambientLight = new THREE.AmbientLight(0x404040);
@@ -389,7 +381,7 @@ function animate() {
   EnKore.rotation.y += 0.008;
   zotZoomer2.rotation.y += 0.008;
   zotZoomer3.rotation.y += 0.008;
-  zotZoomer4.rotation.y += 0.008;
+  MusicalMadness.rotation.y += 0.008;
 
   reSizeWindow();
 
@@ -519,7 +511,7 @@ function reSizeWindow()
     else
     {
         Logo.scale.set(0.05, 0.05, 0.05);
-        Logo.position.set(6.7, 0, -13.5);
+        Logo.position.set(7.4, 0, -13.5);
 
         daniel.position.set(-2, 0.15, 65.8);
         daniel.scale.set(1, 1, 1);
