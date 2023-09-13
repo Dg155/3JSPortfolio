@@ -10,6 +10,7 @@ main {
   position: absolute;
   width: 100%;
   margin: 0px auto;
+  display: none;
 }
 
 /* #endregion Animations*/
@@ -928,19 +929,21 @@ footer ul {
 footer li {
   list-style: none;
   color: #000;
+  filter: invert(55%) sepia(65%) saturate(2742%) hue-rotate(352deg) brightness(105%) contrast(98%);
 }
 
 /* Footer Buttons */
 
 footer a {
-    display: block;
-    width: 30px;
-    height: 30px;
-    background-image: url(assets/images/Icons.png);
-    text-indent: -99999px;
-    background-repeat: no-repeat;
-    margin: auto;
-    margin-bottom: 4px;
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-image: url(assets/images/Icons.png);
+  text-indent: -99999px;
+  background-repeat: no-repeat;
+  margin: auto;
+  margin-bottom: 4px;
+  transform: scale(1.2);
 }
 
 .linkedIn a:hover {transform: scale(1.1); transition: all 0.5s ease;} 
@@ -1603,12 +1606,12 @@ h2.MMTitle {
 
 .modal-container {
   z-index: 100000;
-  background-color: rgba(0, 0, 0, 0.35);
+  background-color: rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
   position: fixed;
-  opacity: 0;
+  display: none;
   pointer-events: none;
   top: 0;
   left: 0;
@@ -1617,8 +1620,10 @@ h2.MMTitle {
 }
 
 .modal {
-  background-color: #fff;
-  border-radius: 5px;
+  background: linear-gradient(to right bottom, #000000, #1c1c1c, #323232, #4E4E4E,#323232, #1c1c1c, #000000) padding-box,
+  linear-gradient(to right bottom, #DB7802, #EAA001) border-box;
+  border: 5px solid transparent;
+  border-radius: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   padding: 30px 50px;
   width: 25%;
@@ -1635,11 +1640,12 @@ h2.MMTitle {
 .modal h1 {
   padding: 0;
   margin: 0;
+  color: white;
 }
 
 .modal-container.show {
   pointer-events: auto;
-  opacity: 1;
+  display: flex;
 }
 
 .contactForm {
@@ -1672,7 +1678,8 @@ button#close {
   border-bottom: 2px solid #333;
   outline: none;
   resize: none;
-  box-shadow: 3px 5px #888888;
+  box-shadow: 3px 5px #000000;
+  background-color: #c9c9c9;
 }
 
 .contactForm .inputBox span {
@@ -1683,14 +1690,14 @@ button#close {
   margin: 10px 0;
   pointer-events: none;
   transition: 0.5s;
-  color: #666;
+  color: black;
 }
 
 .contactForm .inputBox input:focus ~ span,
 .contactForm .inputBox input:valid ~ span,
 .contactForm .inputBox textarea:focus ~ span,
 .contactForm .inputBox textarea:valid ~ span {
-  color: #e91e63;
+  color: orange;
   font-size: 12px;
   transform: translateY(-20px);
 }
@@ -1702,23 +1709,37 @@ button#close {
   justify-content: space-evenly;
 }
 
+@media screen and (max-width: 450px) {
+  .contactForm .inputBox input[type="Submit"],button#close {
+    font-size: 16px !important;
+  }
+
+  .contactForm .inputBox input[type="Submit"] {
+    margin-left: 0 !important;
+  }
+  
+  .contactForm .inputBox span{
+    font-size: 13px;
+  }
+}
+
 .contactForm .inputBox input[type="Submit"],
 button#close {
-  background: #00bcd4;
+  background: linear-gradient(to left bottom, #000000, #0f0f0f, #191919, #222222, #2b2b2c, #2b2b2c, #2b2b2c, #2b2b2c, #222222, #191919, #0f0f0f, #000000) padding-box,
+  linear-gradient(to right bottom, #DB7802, #EAA001) border-box;
+  border: 2px solid transparent;
+  border-radius: 5px;
   color: #fff;
-  border: none;
   cursor: pointer;
   padding: 10px;
   font-size: 24px;
   font-family: 'Times New Roman', Times, serif;
   height: 50%;
-  border-radius: 5px;
 }
 
 .contactForm .inputBox input[type="Submit"]:hover,
 button#close:hover {
-  background: #666;
-  color: #0C166B;
+  transform: scale(1.08);
   transition: 0.5s;
 }
 

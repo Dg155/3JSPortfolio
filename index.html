@@ -15,6 +15,15 @@
     <script src="lightbox.min.js"></script>
     <script type="module" src="./main.js" defer></script>
 
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init("lcJrfXospYKI34J0N");
+    })();
+    </script>
+
     <!--Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +41,7 @@
 
   <body>
     <canvas id="bg"></canvas>
-    <main>
+    <main id="main">
 
     <!-- ThreeJS Textures -->
     <img src="assets/images/headshot.jpg" alt="" id="headshot" style="display: none;">
@@ -117,9 +126,9 @@
 
     <!-- Sidebar Nav -->
     <div id="mySidenav" class="sidenav">
-        <a href="https://www.linkedin.com/in/daniel-boghossian/" id="SideLinkedIn" class="ButtonShine">LinkedIn <div class="sidebarIcon" id="sideLinkedImage"></div></a>
-        <a href="https://dg155.itch.io/" id="SideItch" class="ButtonShine">Itch.io <div class="sidebarIcon" id="sideItchImage"></div></a>
-        <a href="https://github.com/Dg155" id="SideGitHub" class="ButtonShine">GitHub <div class="sidebarIcon" id="sideGitImage"></div></a>
+        <a href="https://www.linkedin.com/in/daniel-boghossian/" id="SideLinkedIn" class="ButtonShine" target="_blank" rel="noopener noreferrer">LinkedIn <div class="sidebarIcon" id="sideLinkedImage"></div></a>
+        <a href="https://dg155.itch.io/" id="SideItch" class="ButtonShine" target="_blank" rel="noopener noreferrer">Itch.io <div class="sidebarIcon" id="sideItchImage"></div></a>
+        <a href="https://github.com/Dg155" id="SideGitHub" class="ButtonShine" target="_blank" rel="noopener noreferrer">GitHub <div class="sidebarIcon" id="sideGitImage"></div></a>
         <a href="mailto:danielboghoss@gmail.com" id="SideContact" class="ButtonShine">Contact <div class="sidebarIcon" id="sideContactImage"></div></a>
       </div>
     <!-- Sidebar Nav -->
@@ -499,13 +508,44 @@
 
     <footer>
         <ul class="group margincenter">
-            <li class="linkedIn" style="filter: invert(55%) sepia(65%) saturate(2742%) hue-rotate(352deg) brightness(105%) contrast(98%);"><a href="https://www.linkedin.com/in/daniel-boghossian">linkedIn</a></li>
-            <li class="itchio" style="filter: invert(55%) sepia(65%) saturate(2742%) hue-rotate(352deg) brightness(105%) contrast(98%);"><a href="https://dg155.itch.io/">Itchio</a></li>
-            <li class="gitHub" style="filter: invert(55%) sepia(65%) saturate(2742%) hue-rotate(352deg) brightness(105%) contrast(98%);"><a href="https://github.com/Dg155">gitHub</a></li>
-            <li class="email" style="filter: invert(55%) sepia(65%) saturate(2742%) hue-rotate(352deg) brightness(105%) contrast(98%);"><a href="mailto:danielboghoss@gmail.com">Email Me</a></li>
+            <li class="linkedIn"><a href="https://www.linkedin.com/in/daniel-boghossian" target="_blank" rel="noopener noreferrer">linkedIn</a></li>
+            <li class="itchio"><a href="https://dg155.itch.io/" target="_blank" rel="noopener noreferrer">Itchio</a></li>
+            <li class="gitHub"><a href="https://github.com/Dg155" target="_blank" rel="noopener noreferrer">gitHub</a></li>
+            <li class="email"><a href="mailto:danielboghoss@gmail.com" id="BottomContact">Email Me</a></li>
         </ul>
         <p>&copy; Boghossian 2023</p>
     </footer>
+
+    <div class="modal-container" id="modal_container">
+        <div class="modal fadeIn">
+            <h1>Send Me a Message!</h1>
+            <div class="contactForm">
+                <form id="contactMeForm" onsubmit="sendMail(); reset(); return false;">
+                    <div class="inputBox">
+                        <label for="fullname1" class="hide">Full Name:</label>
+                        <input type="text" name="fullname" id="fullname1" required="required">
+                        <span>Full Name</span>
+                    </div>
+                    <div class="inputBox">
+                        <label for="email1" class="hide">Email:</label>
+                        <input type="text" name="email" id="email1" required="required">
+                        <span>Email</span>
+                    </div>
+                    <div class="inputBox">
+                        <label for="message1" class="hide">Type Message:</label>
+                        <textarea name="message" id="message1" required="required"></textarea>
+                        <span>Type your Message... </span>
+                    </div>
+                    <div class="contactButtons">
+                        <div class="inputBox">
+                            <input type="submit" id="submit" value="Send">
+                        </div>
+                        <button id="close">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -526,6 +566,53 @@
               }
           }
       }
+
+      $("#SideContact").click(function(){
+        event.preventDefault();
+        console.log($("#modal-container"));
+        $("#modal_container").addClass("show");
+      });
+
+      $("#BottomContact").click(function(){
+        event.preventDefault();
+        console.log($("#modal-container"));
+        $("#modal_container").addClass("show");
+      });
+
+      $("#close").click(function(){
+        event.preventDefault();
+        $("#modal_container").removeClass("show");
+      });
+
+    //   $("#submit").click(function(){
+    //     event.preventDefault();
+    //     sendMail();
+    //   });
+
+
+
+      function sendMail() {
+        var params = {
+            name: document.getElementById("fullname1").value,
+            email: document.getElementById("email1").value,
+            message: document.getElementById("message1").value,
+        };
+
+        const serviceID = "service_sbmxuqo";
+        const templateID = "template_xy5qbbs";
+
+            emailjs.send(serviceID, templateID, params)
+            .then(res=>{
+                document.getElementById("fullname1").value = "";
+                document.getElementById("email1").value = "";
+                document.getElementById("message1").value = "";
+                console.log(res);
+                alert("Thanks! Your message sent successfully and I will respond asap!")
+
+            })
+            .catch(err=>console.log(err));
+
+        }
 
       $(document).ready(function(){
         $("#enKoreButton").click(function(){

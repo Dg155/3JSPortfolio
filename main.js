@@ -1,6 +1,5 @@
 import * as THREE from 'https://unpkg.com/three@0.127.0/build/three.module.js';
 import { FBXLoader } from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/loaders/FBXLoader.js';
-import { OBJLoader } from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/loaders/OBJLoader.js';
 
 
 // Image access from html elements
@@ -43,6 +42,15 @@ renderer.outputEncoding = THREE.sRGBEncoding;
 camera.position.setZ(30);
 camera.position.setX(-3);
 
+var objectsLoadedBools = {
+    logo: false,
+    enkore: false,
+    celestial: false,
+    zotZoomer: false,
+    musicalMadness: false
+};
+
+
 // Torus
 
 const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
@@ -68,10 +76,12 @@ fbxLoader.load(
         scene.add(EnKore)
     },
     (xhr) => {
-        console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+        console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
+        objectsLoadedBools.enkore = true;
+        showScreenAfterLoad();
     },
     (error) => {
-        console.log(error)
+        console.log(error);
     }
 )
 
@@ -80,7 +90,7 @@ var Celestial = new THREE.Mesh();
 fbxLoader.load(
     './assets/CC.fbx',
     (object) => {
-        object.position.set(-14, 0, 18)
+        object.position.set(-13, 0, 18)
         // object.rotation.set(0.8, 0, 0)
         object.scale.set(0.0035, 0.0035, 0.0035)
 
@@ -105,10 +115,12 @@ fbxLoader.load(
         scene.add(Celestial)
     },
     (xhr) => {
-        console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+        console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
+        objectsLoadedBools.celestial = true;
+        showScreenAfterLoad();
     },
     (error) => {
-        console.log(error)
+        console.log(error);
     }
 )
 
@@ -152,10 +164,12 @@ fbxLoader.load(
         scene.add(zotZoomer)
     },
     (xhr) => {
-        console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+        console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
+        objectsLoadedBools.zotZoomer = true;
+        showScreenAfterLoad();
     },
     (error) => {
-        console.log(error)
+        console.log(error);
     }
 )
 
@@ -189,10 +203,12 @@ fbxLoader.load(
         scene.add(MusicalMadness)
     },
     (xhr) => {
-        console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+        console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
+        objectsLoadedBools.musicalMadness = true;
+        showScreenAfterLoad();
     },
     (error) => {
-        console.log(error)
+        console.log(error);
     }
 )
 
@@ -256,6 +272,8 @@ fbxLoader.load(
     },
     (xhr) => {
         console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+        objectsLoadedBools.logo = true;
+        showScreenAfterLoad();
     },
     (error) => {
         console.log(error)
@@ -316,7 +334,7 @@ scene.add(EnkoreLight);
 
 // Celestial Light
 const CelestialLight = new THREE.PointLight(0xffffff);
-CelestialLight.position.set(-8, -0.7, 23);
+CelestialLight.position.set(-8, 0, 23);
 CelestialLight.rotation.set(0, 2.2, 0);
 CelestialLight.intensity = 3;
 CelestialLight.distance = 100;
@@ -388,6 +406,22 @@ function animate() {
 }
 
 animate();
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function showScreenAfterLoad() {
+    console.log(objectsLoadedBools);
+    if (Object.values(objectsLoadedBools).every((bool) => bool === true))
+    {
+        sleep(500).then(() => {
+            document.getElementById("main").style.display = "block";
+            console.log("loaded");
+        });
+
+    }
+  }
 
 
 function resizeRendererToDisplaySize(renderer) {
