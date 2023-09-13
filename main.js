@@ -16,6 +16,9 @@ var carPicMetallic = document.getElementById("CarTextureMetallic").src;
 var carPicRoughness = document.getElementById("CarTextureRoughness").src;
 var carPicHeight = document.getElementById("CarTextureHeight").src;
 
+var CCPic = document.getElementById("CCTexture").src;
+var CCNeutralPic = document.getElementById("CCNeutralTexture").src;
+
 var MMPic = document.getElementById("MMTexture").src;
 
 var logoPic = document.getElementById("LogoTexture").src;
@@ -72,34 +75,24 @@ fbxLoader.load(
     }
 )
 
-var zotZoomer2 = new THREE.Mesh();
+var Celestial = new THREE.Mesh();
 
 fbxLoader.load(
-    './assets/Car.fbx',
+    './assets/CC.fbx',
     (object) => {
-        object.position.set(-11, -1.5, 18)
-        object.rotation.set(0.8, 0, 0)
-        object.scale.set(1.1, 1.1, 1.1)
+        object.position.set(-14, 0, 18)
+        // object.rotation.set(0.8, 0, 0)
+        object.scale.set(0.0035, 0.0035, 0.0035)
 
         const material = new THREE.MeshStandardMaterial({
             color: 0xffffff, // Base color
-            roughness: 1,    // Roughness (1 for completely rough)
-            metalness: 0,    // Metalness (0 for non-metallic)
+            roughness: 0.5,    // Roughness (1 for completely rough)
+            metalness: 0.5,    // Metalness (0 for non-metallic)
         });
-    
-        // Load and assign texture maps
+
         const textureLoader = new THREE.TextureLoader();
-        material.map = textureLoader.load(carPic);
+        material.map = textureLoader.load(CCPic);
         material.map.encoding = THREE.sRGBEncoding;
-        material.normalMap = textureLoader.load(carPicNormal);
-        material.normalMap.encoding = THREE.sRGBEncoding;
-        material.roughnessMap = textureLoader.load(carPicRoughness);
-        material.roughnessMap.encoding = THREE.sRGBEncoding;
-        material.metalnessMap = textureLoader.load(carPicMetallic);
-        material.metalnessMap.encoding = THREE.sRGBEncoding;
-        material.displacementMap = textureLoader.load(carPicHeight);
-        material.displacementMap.encoding = THREE.sRGBEncoding;
-        material.displacementScale = 0; // Adjust the height map scale as needed
 
         object.traverse(function(child) {
             if (child.isMesh) {
@@ -107,9 +100,9 @@ fbxLoader.load(
             }
         });
 
-        zotZoomer2 = object;
+        Celestial = object;
 
-        scene.add(zotZoomer2)
+        scene.add(Celestial)
     },
     (xhr) => {
         console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
@@ -119,7 +112,7 @@ fbxLoader.load(
     }
 )
 
-var zotZoomer3 = new THREE.Mesh();
+var zotZoomer = new THREE.Mesh();
 
 fbxLoader.load(
     './assets/Car.fbx',
@@ -154,9 +147,9 @@ fbxLoader.load(
             }
         });
 
-        zotZoomer3 = object;
+        zotZoomer = object;
 
-        scene.add(zotZoomer3)
+        scene.add(zotZoomer)
     },
     (xhr) => {
         console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
@@ -323,9 +316,9 @@ scene.add(EnkoreLight);
 
 // Celestial Light
 const CelestialLight = new THREE.PointLight(0xffffff);
-CelestialLight.position.set(-11, 6.5, 18);
+CelestialLight.position.set(-8, -0.7, 23);
 CelestialLight.rotation.set(0, 2.2, 0);
-CelestialLight.intensity = 8;
+CelestialLight.intensity = 3;
 CelestialLight.distance = 100;
 CelestialLight.decay = 20;
 scene.add(CelestialLight);
@@ -348,7 +341,7 @@ MusicalLight.distance = 100;
 MusicalLight.decay = 20;
 scene.add(MusicalLight);
 
-// const lightHelper = new THREE.PointLightHelper(MusicalLight);
+// const lightHelper = new THREE.PointLightHelper(CelestialLight);
 // scene.add(lightHelper);
 
 const ambientLight = new THREE.AmbientLight(0x404040);
@@ -379,8 +372,8 @@ function animate() {
   Logo.rotation.y += 0.008;
   daniel.rotation.y += 0.002;
   EnKore.rotation.y += 0.008;
-  zotZoomer2.rotation.y += 0.008;
-  zotZoomer3.rotation.y += 0.008;
+  Celestial.rotation.y += 0.008;
+  zotZoomer.rotation.y += 0.008;
   MusicalMadness.rotation.y += 0.008;
 
   reSizeWindow();
