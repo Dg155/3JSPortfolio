@@ -26,6 +26,8 @@ var logoPic = document.getElementById("LogoTexture").src;
 
 var currentWidth = window.innerWidth;
 var currentHeight = window.innerHeight;
+var logoStartRotation = -0.5;
+var logoEndRotation = 2.64;
 
 // Setup
 
@@ -388,9 +390,9 @@ function animate() {
 
   moon.rotation.x += 0.005;
   Logo.rotation.y += 0.008;
-  if (Logo.rotation.y > 2.64)
+  if (Logo.rotation.y > logoEndRotation)
   {
-        Logo.rotation.y = -0.5;
+        Logo.rotation.y = logoStartRotation;
   }
   daniel.rotation.y += 0.002;
   EnKore.rotation.y += 0.008;
@@ -452,6 +454,9 @@ function reSizeWindow()
         Logo.rotation.z = 0;
         LogoLight.position.set(0, 8, -9);
 
+        logoStartRotation = -0.05;
+        logoEndRotation = 3.09;
+
         daniel.position.set(-10, 0, 86);
         daniel.scale.set(1, 1, 1); 
     }
@@ -461,6 +466,9 @@ function reSizeWindow()
         Logo.position.set(-0.3, 4.5, -10.5);
         Logo.rotation.z = 0;
         LogoLight.position.set(0, 8, -9);
+
+        logoStartRotation = -0.05;
+        logoEndRotation = 3.09;
 
         daniel.position.set(-10, 0, 86);
         daniel.scale.set(1, 1, 1); 
@@ -472,6 +480,9 @@ function reSizeWindow()
         Logo.rotation.z = 0;
         LogoLight.position.set(0, 6, -9);
 
+        logoStartRotation = -0.1;
+        logoEndRotation = 3.04;
+
         daniel.position.set(-8, 0, 78);
         daniel.scale.set(1, 1, 1);  
     }
@@ -481,6 +492,9 @@ function reSizeWindow()
         Logo.position.set(0, 3, -10.5);
         Logo.rotation.z = 0;
         LogoLight.position.set(0, 6, -9);
+
+        logoStartRotation = -0.1;
+        logoEndRotation = 3.04;
 
         daniel.position.set(-8, 0, 85);
         daniel.scale.set(1, 1, 1); 
@@ -492,6 +506,9 @@ function reSizeWindow()
         Logo.rotation.z = 0;
         LogoLight.position.set(0, 6, -9);
 
+        logoStartRotation = -0.1;
+        logoEndRotation = 3.04;
+
         daniel.position.set(-5, 0, 81);
         daniel.scale.set(1, 1, 1);  
     }
@@ -500,6 +517,9 @@ function reSizeWindow()
         Logo.scale.set(0.03, 0.03, 0.03);
         Logo.position.set(0, 3, -10.5);
         LogoLight.position.set(0, 6, -9);
+
+        logoStartRotation = -0.1;
+        logoEndRotation = 3.04;
 
         daniel.position.set(-5, -1.3, 81);
         daniel.scale.set(1, 1, 1);  
@@ -510,6 +530,9 @@ function reSizeWindow()
         Logo.position.set(0, 3, -10.5);
         LogoLight.position.set(0, 6, -9);
 
+        logoStartRotation = -0.1;
+        logoEndRotation = 3.04;
+
         daniel.position.set(-5.7, -1.3, 72);
         daniel.scale.set(1, 1, 1);
     }
@@ -519,6 +542,9 @@ function reSizeWindow()
         Logo.position.set(0, 3, -10.5);
         LogoLight.position.set(0, 6, -9);
 
+        logoStartRotation = -0.1;
+        logoEndRotation = 3.04;
+
         daniel.position.set(-5.7, 0.15, 72);
         daniel.scale.set(1, 1, 1);
     }
@@ -526,6 +552,9 @@ function reSizeWindow()
     {
         Logo.scale.set(0.03, 0.03, 0.03);
         Logo.position.set(4.7, 0, -13.5);
+
+        logoStartRotation = -0.5;
+        logoEndRotation = 2.64;
 
         daniel.position.set(-3, 0.15, 60);
         daniel.scale.set(1, 1, 1);
@@ -535,6 +564,9 @@ function reSizeWindow()
         Logo.scale.set(0.03, 0.03, 0.03);
         Logo.position.set(5.7, 0, -13.5);
 
+        logoStartRotation = -0.5;
+        logoEndRotation = 2.64;
+
         daniel.position.set(-3, 0.15, 60);
         daniel.scale.set(1, 1, 1);
     }
@@ -542,6 +574,9 @@ function reSizeWindow()
     {
         Logo.scale.set(0.05, 0.05, 0.05);
         Logo.position.set(7.4, 0, -13.5);
+
+        logoStartRotation = -0.5;
+        logoEndRotation = 2.64;
 
         daniel.position.set(-2, 0.15, 65.8);
         daniel.scale.set(1, 1, 1);
