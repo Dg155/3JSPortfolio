@@ -244,7 +244,7 @@ fbxLoader.load(
     './assets/Logo.fbx',
     (object) => {
         object.position.set(7.4, 0, -13.5)
-        // object.rotation.set(0, 1.2, 0.15)
+        // object.rotation.set(0, 2.64, 0)
         object.scale.set(0.05, 0.05, 0.05)
 
         object.traverse(function(child) {
@@ -388,6 +388,10 @@ function animate() {
 
   moon.rotation.x += 0.005;
   Logo.rotation.y += 0.008;
+  if (Logo.rotation.y > 2.64)
+  {
+        Logo.rotation.y = -0.5;
+  }
   daniel.rotation.y += 0.002;
   EnKore.rotation.y += 0.008;
   Celestial.rotation.y += 0.008;
@@ -437,7 +441,6 @@ function resizeRendererToDisplaySize(renderer) {
 
 function reSizeWindow()
 {
-    console.log(currentWidth);
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     currentWidth = window.innerWidth;
