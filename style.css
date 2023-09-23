@@ -1559,9 +1559,9 @@ h2.MMTitle {
   padding: 1px 10px;
   display: block;
   cursor: pointer;
-  font-size: 130%;
+  font-size: 170%;
   z-index: 1000;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.5s;
 }
 
@@ -1569,11 +1569,15 @@ h2.MMTitle {
   right: 0;
 }
 
-.cycle-slideshow:hover .cycle-prev,
-.cycle-slideshow:hover .cycle-next,
 .cycle-slideshow:hover .slide-text {
   opacity: 1;
 }
+
+/* .cycle-slideshow:hover .cycle-prev,
+.cycle-slideshow:hover .cycle-next,
+.cycle-slideshow:hover .slide-text {
+  opacity: 1;
+} */
 
 .cycle-pager {
   position: absolute;

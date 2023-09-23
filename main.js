@@ -4,7 +4,7 @@ import { FBXLoader } from 'https://threejsfundamentals.org/threejs/resources/thr
 
 // Image access from html elements
 
-var space = document.getElementById("space").src;
+var space = document.getElementById("grid").src;
 var headshot = document.getElementById("headshot").src;
 var moonpic = document.getElementById("moon").src;
 var moonnormal = document.getElementById("moonnormal").src;
@@ -228,7 +228,7 @@ function addStar() {
 const starGeometry = new THREE.SphereGeometry(0.25, 24, 24);
 const starMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff });
 
-Array(200).fill().forEach(addStar);
+// Array(200).fill().forEach(addStar);
 
 // Background
 
