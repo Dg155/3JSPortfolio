@@ -355,6 +355,7 @@ html {
   background-image: linear-gradient(to right bottom, #000000, #1c1c1c, #323232, #4E4E4E,#323232, #1c1c1c, #000000);
   line-height: 1.7;
   scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
 }
 
 body {
@@ -435,6 +436,7 @@ a {
 .content-area {
   padding-bottom: 40px;
   padding-top: 40px;
+  scroll-snap-align: center;
 }
 
 .content-area h2 {
@@ -446,6 +448,12 @@ a {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
+}
+
+@media screen and (max-width: 1024px) {
+  .content-area {
+    scroll-snap-align: none;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -467,6 +475,7 @@ a {
 header {
   margin-top: 50px;
   margin-bottom: 150px;
+  scroll-snap-align: center;
 }
 
 .headerLogo{

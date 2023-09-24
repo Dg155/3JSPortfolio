@@ -1,5 +1,8 @@
 import * as THREE from 'https://unpkg.com/three@0.127.0/build/three.module.js';
 import { FBXLoader } from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/loaders/FBXLoader.js';
+import { RenderPass } from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/postprocessing/RenderPass.js';
+import { EffectComposer } from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/postprocessing/EffectComposer.js';
+import { UnrealBloomPass } from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/postprocessing/UnrealBloomPass.js';
 
 
 // Image access from html elements
@@ -52,6 +55,13 @@ var objectsLoadedBools = {
     musicalMadness: false
 };
 
+const renderScene = new RenderPass(scene, camera);
+const composer = new EffectComposer(renderer);
+composer.addPass(renderScene);
+
+// const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
+// composer.addPass(bloomPass);
+
 
 // Torus
 
@@ -72,6 +82,12 @@ fbxLoader.load(
         object.position.set(-9, -2, 7.3) 
         object.rotation.set(0, 4, 0)
         object.scale.set(0.007, 0.007, 0.007)
+
+        // object.traverse(function(child) {
+        //     if (child.isMesh) {
+        //         child.material.emissive = new THREE.Color(0x030303); 
+        //     }
+        // });
 
         EnKore = object;
 
@@ -180,7 +196,7 @@ var MusicalMadness = new THREE.Mesh();
 fbxLoader.load(
     './assets/MM.fbx',
     (object) => {
-        object.position.set(-10, -0.3, 49)
+        object.position.set(-10, -0.3, 50)
         object.rotation.set(0, 0, 0)
         object.scale.set(0.03, 0.03, 0.03)
 
@@ -408,7 +424,8 @@ function animate() {
     camera.updateProjectionMatrix();
   }
 
-  renderer.render(scene, camera);
+//   renderer.render(scene, camera);
+    composer.render();
 }
 
 animate();
