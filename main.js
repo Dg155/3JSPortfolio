@@ -475,7 +475,22 @@ function reSizeWindow()
         logoEndRotation = 3.09;
 
         daniel.position.set(-10, 0, 86);
-        daniel.scale.set(1, 1, 1); 
+        daniel.scale.set(1, 1, 1);
+
+        EnKore.position.set(-9, -2, 7.3);
+        
+        EnKore.scale.set(0.007, 0.007, 0.007);
+
+        Celestial.position.set(-13, 0, 18);
+        Celestial.scale.set(0.0035, 0.0035, 0.0035);
+
+        zotZoomer.position.set(-13, -0.7, 32.8);
+        
+        zotZoomer.scale.set(1.1, 1.1, 1.1);
+
+        MusicalMadness.position.set(-10, -0.3, 50);
+        
+        MusicalMadness.scale.set(0.03, 0.03, 0.03);
     }
     else if (currentWidth < 376)
     {
@@ -488,7 +503,22 @@ function reSizeWindow()
         logoEndRotation = 3.09;
 
         daniel.position.set(-10, 0, 86);
-        daniel.scale.set(1, 1, 1); 
+        daniel.scale.set(1, 1, 1);
+
+        EnKore.position.set(-9, -2, 7.3);
+        
+        EnKore.scale.set(0.007, 0.007, 0.007);
+
+        Celestial.position.set(-13, 0, 18);
+        Celestial.scale.set(0.0035, 0.0035, 0.0035);
+
+        zotZoomer.position.set(-13, -0.7, 32.8);
+        
+        zotZoomer.scale.set(1.1, 1.1, 1.1);
+
+        MusicalMadness.position.set(-10, -0.3, 50);
+        
+        MusicalMadness.scale.set(0.03, 0.03, 0.03);
     }
     else if (currentWidth < 401)
     {
@@ -501,7 +531,22 @@ function reSizeWindow()
         logoEndRotation = 3.04;
 
         daniel.position.set(-8, 0, 78);
-        daniel.scale.set(1, 1, 1);  
+        daniel.scale.set(1, 1, 1);
+        
+        EnKore.position.set(-9, -2, 7.3);
+        
+        EnKore.scale.set(0.007, 0.007, 0.007);
+
+        Celestial.position.set(-13, 0, 18);
+        Celestial.scale.set(0.0035, 0.0035, 0.0035);
+
+        zotZoomer.position.set(-13, -0.7, 32.8);
+        
+        zotZoomer.scale.set(1.1, 1.1, 1.1);
+
+        MusicalMadness.position.set(-10, -0.3, 50);
+        
+        MusicalMadness.scale.set(0.03, 0.03, 0.03);
     }
     else if (currentWidth < 451)
     {
@@ -514,7 +559,22 @@ function reSizeWindow()
         logoEndRotation = 3.04;
 
         daniel.position.set(-8, 0, 85);
-        daniel.scale.set(1, 1, 1); 
+        daniel.scale.set(1, 1, 1);
+
+        EnKore.position.set(-9, -2, 7.3);
+        
+        EnKore.scale.set(0.007, 0.007, 0.007);
+
+        Celestial.position.set(-13, 0, 18);
+        Celestial.scale.set(0.0035, 0.0035, 0.0035);
+
+        zotZoomer.position.set(-13, -0.7, 32.8);
+        
+        zotZoomer.scale.set(1.1, 1.1, 1.1);
+
+        MusicalMadness.position.set(-10, -0.3, 50);
+        
+        MusicalMadness.scale.set(0.03, 0.03, 0.03);
     }
     else if (currentWidth < 501)
     {
@@ -527,7 +587,22 @@ function reSizeWindow()
         logoEndRotation = 3.04;
 
         daniel.position.set(-5, 0, 81);
-        daniel.scale.set(1, 1, 1);  
+        daniel.scale.set(1, 1, 1);
+
+        EnKore.position.set(-9, -2, 7.3);
+        
+        EnKore.scale.set(0.007, 0.007, 0.007);
+
+        Celestial.position.set(-13, 0, 18);
+        Celestial.scale.set(0.0035, 0.0035, 0.0035);
+
+        zotZoomer.position.set(-13, -0.7, 32.8);
+        
+        zotZoomer.scale.set(1.1, 1.1, 1.1);
+
+        MusicalMadness.position.set(-10, -0.3, 50);
+        
+        MusicalMadness.scale.set(0.03, 0.03, 0.03);
     }
     else if (currentWidth < 551)
     {
@@ -539,7 +614,22 @@ function reSizeWindow()
         logoEndRotation = 3.04;
 
         daniel.position.set(-5, -1.3, 81);
-        daniel.scale.set(1, 1, 1);  
+        daniel.scale.set(1, 1, 1);
+
+        EnKore.position.set(-9, -2, 7.3);
+        
+        EnKore.scale.set(0.007, 0.007, 0.007);
+
+        Celestial.position.set(-13, 0, 18);
+        Celestial.scale.set(0.0035, 0.0035, 0.0035);
+
+        zotZoomer.position.set(-13, -0.7, 32.8);
+        
+        zotZoomer.scale.set(1.1, 1.1, 1.1);
+
+        MusicalMadness.position.set(-10, -0.3, 50);
+        
+        MusicalMadness.scale.set(0.03, 0.03, 0.03);
     }
     else if (currentWidth < 601)
     {
@@ -552,6 +642,21 @@ function reSizeWindow()
 
         daniel.position.set(-5.7, -1.3, 72);
         daniel.scale.set(1, 1, 1);
+
+        EnKore.position.set(-9, -2, 7.3);
+        
+        EnKore.scale.set(0.007, 0.007, 0.007);
+
+        Celestial.position.set(-13, 0, 18);
+        Celestial.scale.set(0.0035, 0.0035, 0.0035);
+
+        zotZoomer.position.set(-13, -0.7, 32.8);
+        
+        zotZoomer.scale.set(1.1, 1.1, 1.1);
+
+        MusicalMadness.position.set(-10, -0.3, 50);
+        
+        MusicalMadness.scale.set(0.03, 0.03, 0.03);
     }
     else if (currentWidth < 769)
     {
@@ -564,6 +669,21 @@ function reSizeWindow()
 
         daniel.position.set(-5.7, 0.15, 72);
         daniel.scale.set(1, 1, 1);
+
+        EnKore.position.set(-9, -2, 7.3);
+        
+        EnKore.scale.set(0.007, 0.007, 0.007);
+
+        Celestial.position.set(-13, 0, 18);
+        Celestial.scale.set(0.0035, 0.0035, 0.0035);
+
+        zotZoomer.position.set(-13, -0.7, 32.8);
+        
+        zotZoomer.scale.set(1.1, 1.1, 1.1);
+
+        MusicalMadness.position.set(-10, -0.3, 50);
+        
+        MusicalMadness.scale.set(0.03, 0.03, 0.03);
     }
     else if (currentWidth < 875)
     {
@@ -575,6 +695,21 @@ function reSizeWindow()
 
         daniel.position.set(-3, 0.15, 60);
         daniel.scale.set(1, 1, 1);
+
+        EnKore.position.set(-9, -2, 7.3);
+        
+        EnKore.scale.set(0.007, 0.007, 0.007);
+
+        Celestial.position.set(-13, 0, 18);
+        Celestial.scale.set(0.0035, 0.0035, 0.0035);
+
+        zotZoomer.position.set(-13, -0.7, 32.8);
+        
+        zotZoomer.scale.set(1.1, 1.1, 1.1);
+
+        MusicalMadness.position.set(-10, -0.3, 50);
+        
+        MusicalMadness.scale.set(0.03, 0.03, 0.03);
     }
     else if (currentWidth < 1025)
     {
@@ -586,8 +721,23 @@ function reSizeWindow()
 
         daniel.position.set(-3, 0.15, 60);
         daniel.scale.set(1, 1, 1);
+
+        EnKore.position.set(-9, -2, 7.3);
+        
+        EnKore.scale.set(0.007, 0.007, 0.007);
+
+        Celestial.position.set(-13, 0, 18);
+        Celestial.scale.set(0.0035, 0.0035, 0.0035);
+
+        zotZoomer.position.set(-13, -0.7, 32.8);
+        
+        zotZoomer.scale.set(1.1, 1.1, 1.1);
+
+        MusicalMadness.position.set(-10, -0.3, 50);
+        
+        MusicalMadness.scale.set(0.03, 0.03, 0.03);
     }
-    else
+    else if (currentWidth < 1600)
     {
         Logo.scale.set(0.05, 0.05, 0.05);
         Logo.position.set(7.4, 0, -13.5);
@@ -597,5 +747,43 @@ function reSizeWindow()
 
         daniel.position.set(-2, 0.15, 65.8);
         daniel.scale.set(1, 1, 1);
+
+        EnKore.position.set(-9, -2, 7.3);
+        
+        EnKore.scale.set(0.007, 0.007, 0.007);
+
+        Celestial.position.set(-13, 0, 18);
+        Celestial.scale.set(0.0035, 0.0035, 0.0035);
+
+        zotZoomer.position.set(-13, -0.7, 32.8);
+        
+        zotZoomer.scale.set(1.1, 1.1, 1.1);
+
+        MusicalMadness.position.set(-10, -0.3, 50);
+        
+        MusicalMadness.scale.set(0.03, 0.03, 0.03);
+    }
+    else
+    {
+        Logo.scale.set(0.05, 0.05, 0.05);
+        Logo.position.set(7.4, 0, -13.5);
+
+        logoStartRotation = -0.5;
+        logoEndRotation = 2.64;
+
+        daniel.position.set(-2, 0.15, 63);
+        daniel.scale.set(1, 1, 1);
+
+        EnKore.position.set(-9.8, -2.5, 7.3);
+        EnKore.scale.set(0.007, 0.007, 0.007);
+
+        Celestial.position.set(-14.4, 0, 18);
+        Celestial.scale.set(0.0035, 0.0035, 0.0035);
+
+        zotZoomer.position.set(-13, -0.7, 32.8);
+        zotZoomer.scale.set(1.1, 1.1, 1.1);
+
+        MusicalMadness.position.set(-10, 0, 49);
+        MusicalMadness.scale.set(0.03, 0.03, 0.03);
     }
 }
