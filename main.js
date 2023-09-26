@@ -737,7 +737,7 @@ function reSizeWindow()
         
         MusicalMadness.scale.set(0.03, 0.03, 0.03);
     }
-    else if (currentWidth < 1850)
+    else if (currentWidth < 1849)
     {
         Logo.scale.set(0.05, 0.05, 0.05);
         Logo.position.set(7.4, 0, -13.5);
