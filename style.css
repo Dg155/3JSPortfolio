@@ -1122,10 +1122,17 @@ p.gameDescription {
 
 /* #region PortfolioButtons */
 
+.ContentButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .gameButtons {
   display: flex;
   justify-content: space-between;
   margin: 0px 20px;
+  width: 100%;
 }
 
 .playButton,
@@ -1142,28 +1149,28 @@ p.gameDescription {
   width: 100%;
 }
 
-#enKoreButton{
+.enKoreButton{
   background: linear-gradient(90deg, #000000, #0f0f0f, #191919, #222222, #2b2b2c, #2b2b2c, #2b2b2c, #2b2b2c, #222222, #191919, #0f0f0f, #000000) padding-box,
   linear-gradient(to right bottom, #f568f9, #ed95ff, #eab9ff,#77c6ff, #00bdff) border-box;
   border: 3px solid transparent;
   border-radius: 5px;
 }
 
-#celestialButton{
+.celestialButton{
   background: linear-gradient(90deg, #000000, #0f0f0f, #191919, #222222, #2b2b2c, #2b2b2c, #2b2b2c, #2b2b2c, #222222, #191919, #0f0f0f, #000000) padding-box,
   linear-gradient(to right bottom, #EADDA1, #D2B136) border-box;
   border: 3px solid transparent;
   border-radius: 5px;
 }
 
-#zotZoomerButton{
+.zotZoomerButton{
   background: linear-gradient(90deg, #000000, #0f0f0f, #191919, #222222, #2b2b2c, #2b2b2c, #2b2b2c, #2b2b2c, #222222, #191919, #0f0f0f, #000000) padding-box,
   linear-gradient(to bottom right, #5645AE, #f0c5f2) border-box;
   border: 3px solid transparent;
   border-radius: 5px;
 }
 
-#musicalMadnessButton{
+.musicalMadnessButton{
   background: linear-gradient(90deg, #000000, #0f0f0f, #191919, #222222, #2b2b2c, #2b2b2c, #2b2b2c, #2b2b2c, #222222, #191919, #0f0f0f, #000000) padding-box,
   linear-gradient(to bottom right, #9054d8, #69d7ef) border-box;
   border: 3px solid transparent;

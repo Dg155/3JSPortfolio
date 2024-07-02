@@ -46,7 +46,7 @@
     <!-- ThreeJS Textures -->
     <img src="assets/images/headshot.jpg" alt="" id="headshot" style="display: none;">
     <img src="assets/images/Space-Background.jpg" alt="" id="space" style="display: none;">
-    <img src="assets/images/NewGrid.jpg" alt="" id="grid" style="display: none;">
+    <img src="assets/images/PortfolioBackground.png" alt="" id="grid" style="display: none;">
     <img src="assets/images/moon.jpg" alt="" id="moon" style="display: none;">
     <img src="assets/images/moonnormal.jpg" alt="" id="moonnormal" style="display: none;">
 
@@ -71,7 +71,7 @@
         <!-- Header Logo -->
         <div class="LogoAnimation">
             <div class="headerLogo ButtonShine">
-                <a href="mailto:danielboghoss@gmail.com">
+                <a href="#portfolio" id="headerContact">
                     <img src="assets/images/PortfolioLogov4.png" alt="Daniel Boghossian Logo">
                 </a>
             </div>
@@ -188,9 +188,10 @@
             <div class="col col-md-12 push-down-sm">
 
                 <div class="gameHeader group">
-                    <button class="ImageIcon ImageIconAnimation enKoreIcon" id="enKoreButton">
+                    <!-- Obsolete Image Buttons -->
+                    <!-- <button class="ImageIcon ImageIconAnimation enKoreIcon" id="enKoreButton">
                         <img src="assets/images/whiteImageIcon.png" alt="Image Icon">
-                    </button>
+                    </button> -->
                     <h2 class="gameTitle EKTitle">EnKore:</h2>
                 </div>
 
@@ -206,11 +207,19 @@
                 </ul>
 
                 <div class="gameDescriptionBackground">
-                    <p class="gameDescription">An impressive online multiplayer first person shooter developed using C++ within Unreal Engine 5. Play from a diverse cast of characters, each personifying their own genre of music with unique abilities. I implemented the online connection/lobby system, logic for teams, multiplayer UI, and one of the playable characters, "Rock".</p>
+                    <p class="gameDescription">An online multiplayer first-person shooter with multiple unique characters and abilities!
+                        Implemented the online connection and lobby system by utilizing Unreal’s Online Subsystem Steam API within C++.
+                        Engineered player specific UI elements within a multiplayer context using C++, providing users with real-time information.
+                        </p>
                 </div>
 
-                <div class="gameButtons ButtonShine" id="enKoreButton">
-                    <a href="https://hsdrummond.itch.io/enkore" target="_blank" rel="noopener noreferrer" class="playButton">Play Now!</a>
+                <div class="ContentButtons">
+                    <div class="ButtonShine enKoreButton gameButtons">
+                        <a href="https://hsdrummond.itch.io/enkore" target="_blank" rel="noopener noreferrer" class="playButton">Play Now!</a>
+                    </div>
+                    <div class="ButtonShine enKoreButton gameButtons" id="enKoreButton">
+                        <a class="playButton">View Images</a>
+                    </div>
                 </div>
                 
             </div>
@@ -279,9 +288,10 @@
             <div class="col col-md-12 push-down-sm">
 
                 <div class="gameHeader group">
-                    <button class="ImageIcon ImageIconAnimation celestialClashIcon" id="celestialClashButton">
+                    <!-- Obsolete Image Buttons -->
+                    <!-- <button class="ImageIcon ImageIconAnimation celestialClashIcon" id="celestialClashButton">
                         <img src="assets/images/whiteImageIcon.png" alt="Image Icon">
-                    </button>
+                    </button> -->
                     <h2 class="gameTitle CCTitle">Celestial Clash:</h2>
                 </div>
 
@@ -296,10 +306,18 @@
                     <li class="TeamSize">Team Size: 12</li>
                 </ul>
 
-                <p class="gameDescription">An exciting online multiplayer 2D free-for-all platform fighter based on zodiac signs. The stars align, and the whole universe is watching as you assimilate with your chosen zodiacs… FIGHT! I implemented many multiplayer and UX features such as player kill tracking, a map selection, dynamic camera, post processing effects, and multiplayer UI.</p>
+                <p class="gameDescription">An online multiplayer 2D free-for-all platform fighter based on zodiac signs.
+                    Utilized Unity’s Fish-Net online networking extension, showcasing adaptability and proficiency in utilizing third-party tools.
+                    Implemented networking features such as player specific UI and a kill feed system, enhancing the games engagement. 
+                    </p>
 
-                <div class="gameButtons ButtonShine" id="celestialButton">
-                    <a href="https://dtrmgiraffe.itch.io/celestial-clash" target="_blank" rel="noopener noreferrer" class="playButton">Play Now!</a>
+                <div class="ContentButtons">
+                    <div class="ButtonShine celestialButton gameButtons">
+                        <a href="https://dtrmgiraffe.itch.io/celestial-clash" target="_blank" rel="noopener noreferrer" class="playButton">Play Now!</a>
+                    </div>
+                    <div class="ButtonShine celestialButton gameButtons" id="celestialClashButton">
+                        <a class="playButton">View Images</a>
+                    </div>
                 </div>
                 
             </div>
@@ -368,9 +386,10 @@
             <div class="col col-md-12 push-down-sm">
 
                 <div class="gameHeader group">
-                    <button class="ImageIcon ImageIconAnimation zotZoomerIcon" id="zotZoomerButton">
+                    <!-- Obsolete Image Buttons -->
+                    <!-- <button class="ImageIcon ImageIconAnimation zotZoomerIcon" id="zotZoomerButton">
                         <img src="assets/images/whiteImageIcon.png" alt="Image Icon">
-                    </button>
+                    </button> -->
                     <h2 class="gameTitle ZZTitle">Zot Zoomer:</h2>
                 </div>
 
@@ -385,10 +404,19 @@
                     <li class="TeamSize">Team Size: 6</li>
                 </ul>
 
-                <p class="gameDescription">A thrilling futuristic anti-gravity racing game developed using the Unreal Engine. Strap into ultramodern zot car to speed, turn, and drift your way through tracks inspired by the original F-Zero GX. I acted as a jack of all for this project, implementing dynamic cameras and UI, music and sound effects, and even designing and implementing my own track with the Houdini plugin.</p>
+                <p class="gameDescription">A futuristic anti-gravity racing game with drifting and boosting!
+                    Leveraged Unreal UMG to implement dynamic, context-sensitive UI.
+                    Cooperated with other developers to implement UX features such as a dynamic camera, sound effects, and race track designs.
+                    Refined and optimized gameplay mechanics and track design by iterating on user feedback and game playtesting.
+                </p>
 
-                <div class="gameButtons ButtonShine" id="zotZoomerButton">
-                    <a href="https://dawdlegames.itch.io/zot-zoomer" target="_blank" rel="noopener noreferrer" class="playButton">Play Now!</a>
+                <div class="ContentButtons">
+                    <div class="ButtonShine zotZoomerButton gameButtons">
+                        <a href="https://dawdlegames.itch.io/zot-zoomer" target="_blank" rel="noopener noreferrer" class="playButton">Play Now!</a>
+                    </div>
+                    <div class="ButtonShine zotZoomerButton gameButtons" id="zotZoomerButton">
+                        <a class="playButton">View Images</a>
+                    </div>
                 </div>
                 
             </div>
@@ -457,9 +485,10 @@
             <div class="col col-md-12 push-down-sm">
 
                 <div class="gameHeader group">
-                    <button class="ImageIcon ImageIconAnimation musicalMadnessIcon" id="musicalMadnessButton">
+                    <!-- Obsolete Image Buttons -->
+                    <!-- <button class="ImageIcon ImageIconAnimation musicalMadnessIcon" id="musicalMadnessButton">
                         <img src="assets/images/whiteImageIcon.png" alt="Image Icon">
-                    </button>
+                    </button> -->
                     <h2 class="gameTitle MMTitle">Musical Madness:</h2>
                 </div>
 
@@ -474,10 +503,19 @@
                     <li class="TeamSize">Team Size: 6</li>
                 </ul>
 
-                <p class="gameDescription">An engaging top-down procedural dungeon crawler/shooter themed around the concept of music. Navigate an ever-changing dungeon, using musical weapons and abilities to fight the corrupted instruments, cleansing their souls! I lead this project, designing the core ideas and gameplay, implementing many core elements such as procedural generation, level structure, and the combat system.</p>
+                <p class="gameDescription">An engaging top-down procedural dungeon crawler/shooter themed around the concept of music.
+                    Adopted agile production strategies by scheduling meetings and sprints, effectively coordinating progress and work flow.
+                    Created a comprehensive Game Design Document and UML diagrams, providing the team with a clear vision and structure.
+                    Implemented various crucial game elements, such as procedural generation of the dungeon and the enemy combat system.
+                </p>
 
-                <div class="gameButtons ButtonShine" id="musicalMadnessButton">
-                    <a href="https://dg155.itch.io/musical-madness" target="_blank" rel="noopener noreferrer" class="playButton">Play Now!</a>
+                <div class="ContentButtons">
+                    <div class="ButtonShine musicalMadnessButton gameButtons">
+                        <a href="https://dg155.itch.io/musical-madness" target="_blank" rel="noopener noreferrer" class="playButton">Play Now!</a>
+                    </div>
+                    <div class="ButtonShine musicalMadnessButton gameButtons" id="musicalMadnessButton">
+                        <a class="playButton">View Images</a>
+                    </div>
                 </div>
                 
             </div>
@@ -496,7 +534,7 @@
     <div class="AboutMe">
         <img src="assets/images/AboutMeImage.png" alt="AboutMeTextImage">
         <p>
-            Hello! I am Daniel Boghossian, a skillful and multidisciplinary college student working on degrees within Computer Science and Game Development. From my earliest memories I remember booting up my old Nintendo DS just to lose myself inside the worlds of Super Mario World and Donkey Kong Country. Since then I knew I wanted to create video games for a living. My goal is to be able to provide children with the same joy and comfort I felt within video games.
+            Hello! I am Daniel Boghossian, a skillful and multidisciplinary college student working on degrees within Computer Science and Game Development. From my earliest memories I remember booting up my old Nintendo DS just to lose myself inside the worlds of Super Mario World and Donkey Kong Country. Since then I knew I wanted to create video games for a living. I can't wait to provide others with the same joy and comfort I felt within video games.
         </p>
         <p id="AboutMe">
             During the 8th grade I taught myself my first coding language, sparking my aspiration to create the mechanics and software elements required to breath life into video games. Being able to create something with my own hands, especially something that runs on technology and inculcates our advancements, is an art form that I wish to devote the rest of my life to.
@@ -567,6 +605,12 @@
               }
           }
       }
+
+      $("#headerContact").click(function(){
+        event.preventDefault();
+        console.log($("#modal-container"));
+        $("#modal_container").addClass("show");
+      });
 
       $("#SideContact").click(function(){
         event.preventDefault();
