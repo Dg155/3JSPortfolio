@@ -58,17 +58,13 @@ loadingManager.onStart = function (url, itemsLoaded, itemsTotal) {
     console.log('Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.');
 }
 
-//const progressBar = document.getElementById('progress-bar');
-
 loadingManager.onProgress = function (url, itemsLoaded, itemsTotal) {
     console.log('Started loading file: ' + url);
-    //progressBar.value = (itemsLoaded / itemsTotal) * 100;
 }
 
 const progressBarContainer = document.querySelector('.spinner-background');
 
 loadingManager.onLoad = function () {
-    progressBarContainer.style.display = 'none';
     showScreenAfterLoad();
 }
 
@@ -256,6 +252,10 @@ fbxLoader.load(
         scene.add(Logo)
     },
     (xhr) => {
+        // sleep(5000).then(() => {
+        //     showScreenAfterLoad();
+        //     console.log("Sleep Loaded");
+        // });
     },
     (error) => {
         console.log(error)
@@ -399,6 +399,7 @@ function sleep(ms) {
 }
 
 function showScreenAfterLoad() {
+    progressBarContainer.style.display = 'none';
     document.getElementById("main").style.display = "block";
     console.log("loaded");
   }
