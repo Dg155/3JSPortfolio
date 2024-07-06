@@ -1165,11 +1165,11 @@ p.gameDescription {
 }
 
 .spinner:before {
-  border-top-color: #66e6ff;
+  border-top-color: #d56e00;
 }
 
 .spinner:after {
-  border-top-color: #f0db75;
+  border-top-color: #dfa608;
   animation-delay: 0.3s;
 }
 
@@ -1187,6 +1187,35 @@ p.gameDescription {
   }
   60% {
     opacity: .1;
+  }
+}
+
+.loading-text {
+  animation: pulsing-fade 4000ms ease infinite;
+  color: white;
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  left: 50%;
+  letter-spacing: 8px;
+  margin-left: 4px;
+  margin-top: 10px;
+  position: absolute;
+  transform: translate3d(-50%, -50%, 0);
+  text-transform: uppercase;
+}
+
+@keyframes pulsing-fade {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+  
+  100% {
+    opacity: 1;
   }
 }
 
