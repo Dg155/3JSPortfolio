@@ -46,14 +46,6 @@ renderer.outputEncoding = THREE.sRGBEncoding;
 camera.position.setZ(30);
 camera.position.setX(-3);
 
-var objectsLoadedBools = {
-    logo: false,
-    enkore: false,
-    celestial: false,
-    zotZoomer: false,
-    musicalMadness: false
-};
-
 const renderScene = new RenderPass(scene, camera);
 const composer = new EffectComposer(renderer);
 composer.addPass(renderScene);
@@ -66,12 +58,22 @@ loadingManager.onStart = function (url, itemsLoaded, itemsTotal) {
     console.log('Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.');
 }
 
+const progressBar = document.getElementById('progress-bar');
+
 loadingManager.onProgress = function (url, itemsLoaded, itemsTotal) {
     console.log('Started loading file: ' + url);
+    progressBar.value = (itemsLoaded / itemsTotal) * 100;
 }
 
+const progressBarContainer = document.querySelector('.progress-bar-container');
+
 loadingManager.onLoad = function () {
-    console.log('Loading complete!');
+    progressBarContainer.style.display = 'none';
+    showScreenAfterLoad();
+}
+
+loadingManager.onError = function (url) {
+    console.log('There was an error loading ' + url);
 }
 
 // Custom Import
@@ -90,8 +92,6 @@ fbxLoader.load(
         scene.add(EnKore)
     },
     (xhr) => {
-        objectsLoadedBools.enkore = true;
-        showScreenAfterLoad();
     },
     (error) => {
         console.log(error);
@@ -127,8 +127,6 @@ fbxLoader.load(
         scene.add(Celestial)
     },
     (xhr) => {
-        objectsLoadedBools.celestial = true;
-        showScreenAfterLoad();
     },
     (error) => {
         console.log(error);
@@ -175,8 +173,6 @@ fbxLoader.load(
         scene.add(zotZoomer)
     },
     (xhr) => {
-        objectsLoadedBools.zotZoomer = true;
-        showScreenAfterLoad();
     },
     (error) => {
         console.log(error);
@@ -213,8 +209,6 @@ fbxLoader.load(
         scene.add(MusicalMadness)
     },
     (xhr) => {
-        objectsLoadedBools.musicalMadness = true;
-        showScreenAfterLoad();
     },
     (error) => {
         console.log(error);
@@ -262,8 +256,6 @@ fbxLoader.load(
         scene.add(Logo)
     },
     (xhr) => {
-        objectsLoadedBools.logo = true;
-        showScreenAfterLoad();
     },
     (error) => {
         console.log(error)
@@ -407,14 +399,10 @@ function sleep(ms) {
 }
 
 function showScreenAfterLoad() {
-    if (Object.values(objectsLoadedBools).every((bool) => bool === true))
-    {
-        sleep(500).then(() => {
-            document.getElementById("main").style.display = "block";
-            console.log("loaded");
-        });
-
-    }
+    sleep(500).then(() => {
+        document.getElementById("main").style.display = "block";
+        console.log("loaded");
+    });
   }
 
 
