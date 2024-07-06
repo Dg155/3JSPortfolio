@@ -2,7 +2,6 @@ import * as THREE from 'https://unpkg.com/three@0.127.0/build/three.module.js';
 import { FBXLoader } from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/loaders/FBXLoader.js';
 import { RenderPass } from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/postprocessing/RenderPass.js';
 import { EffectComposer } from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/postprocessing/EffectComposer.js';
-import { UnrealBloomPass } from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/postprocessing/UnrealBloomPass.js';
 
 
 // Image access from html elements
@@ -59,23 +58,26 @@ const renderScene = new RenderPass(scene, camera);
 const composer = new EffectComposer(renderer);
 composer.addPass(renderScene);
 
-// const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
-// composer.addPass(bloomPass);
+// Loader
+const loadingManager = new THREE.LoadingManager();
+const fbxLoader = new FBXLoader(loadingManager);
 
+loadingManager.onStart = function (url, itemsLoaded, itemsTotal) {
+    console.log('Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.');
+}
 
-// Torus
+loadingManager.onProgress = function (url, itemsLoaded, itemsTotal) {
+    console.log('Started loading file: ' + url);
+}
 
-const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-const material = new THREE.MeshStandardMaterial({ color: 0xff6347 });
-const torus = new THREE.Mesh(geometry, material);
-
-// scene.add(torus);
+loadingManager.onLoad = function () {
+    console.log('Loading complete!');
+}
 
 // Custom Import
 
 var EnKore = new THREE.Mesh();
 
-const fbxLoader = new FBXLoader();
 fbxLoader.load(
     './assets/EnKore.fbx',
     (object) => {
@@ -83,18 +85,11 @@ fbxLoader.load(
         object.rotation.set(0, 4, 0)
         object.scale.set(0.007, 0.007, 0.007)
 
-        // object.traverse(function(child) {
-        //     if (child.isMesh) {
-        //         child.material.emissive = new THREE.Color(0x030303); 
-        //     }
-        // });
-
         EnKore = object;
 
         scene.add(EnKore)
     },
     (xhr) => {
-        console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
         objectsLoadedBools.enkore = true;
         showScreenAfterLoad();
     },
@@ -109,7 +104,6 @@ fbxLoader.load(
     './assets/CC.fbx',
     (object) => {
         object.position.set(-13, 0, 18)
-        // object.rotation.set(0.8, 0, 0)
         object.scale.set(0.0035, 0.0035, 0.0035)
 
         const material = new THREE.MeshStandardMaterial({
@@ -133,7 +127,6 @@ fbxLoader.load(
         scene.add(Celestial)
     },
     (xhr) => {
-        console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
         objectsLoadedBools.celestial = true;
         showScreenAfterLoad();
     },
@@ -182,7 +175,6 @@ fbxLoader.load(
         scene.add(zotZoomer)
     },
     (xhr) => {
-        console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
         objectsLoadedBools.zotZoomer = true;
         showScreenAfterLoad();
     },
@@ -221,7 +213,6 @@ fbxLoader.load(
         scene.add(MusicalMadness)
     },
     (xhr) => {
-        console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
         objectsLoadedBools.musicalMadness = true;
         showScreenAfterLoad();
     },
@@ -229,24 +220,6 @@ fbxLoader.load(
         console.log(error);
     }
 )
-
-// Stars
-
-function addStar() {
-    const star = new THREE.Mesh(starGeometry, starMaterial);
-
-    const [x, y, z] = Array(3)
-        .fill()
-        .map(() => THREE.MathUtils.randFloatSpread(100));
-
-    star.position.set(x, y, z);
-    scene.add(star);
-}
-
-const starGeometry = new THREE.SphereGeometry(0.25, 24, 24);
-const starMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff });
-
-// Array(200).fill().forEach(addStar);
 
 // Background
 
@@ -289,7 +262,6 @@ fbxLoader.load(
         scene.add(Logo)
     },
     (xhr) => {
-        console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
         objectsLoadedBools.logo = true;
         showScreenAfterLoad();
     },
@@ -309,7 +281,7 @@ const daniel = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), danielMaterial);
 
 scene.add(daniel);
 
-daniel.position.set(-2, 0.15, 65.8)
+daniel.position.set(-2, 0.15, 65.8);
 
 daniel.rotation.z = -0.02;
 
@@ -435,7 +407,6 @@ function sleep(ms) {
 }
 
 function showScreenAfterLoad() {
-    console.log(objectsLoadedBools);
     if (Object.values(objectsLoadedBools).every((bool) => bool === true))
     {
         sleep(500).then(() => {
