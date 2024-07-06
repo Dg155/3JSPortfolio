@@ -58,14 +58,14 @@ loadingManager.onStart = function (url, itemsLoaded, itemsTotal) {
     console.log('Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.');
 }
 
-const progressBar = document.getElementById('progress-bar');
+//const progressBar = document.getElementById('progress-bar');
 
 loadingManager.onProgress = function (url, itemsLoaded, itemsTotal) {
     console.log('Started loading file: ' + url);
-    progressBar.value = (itemsLoaded / itemsTotal) * 100;
+    //progressBar.value = (itemsLoaded / itemsTotal) * 100;
 }
 
-const progressBarContainer = document.querySelector('.progress-bar-container');
+const progressBarContainer = document.querySelector('.spinner-background');
 
 loadingManager.onLoad = function () {
     progressBarContainer.style.display = 'none';
@@ -399,10 +399,8 @@ function sleep(ms) {
 }
 
 function showScreenAfterLoad() {
-    sleep(500).then(() => {
-        document.getElementById("main").style.display = "block";
-        console.log("loaded");
-    });
+    document.getElementById("main").style.display = "block";
+    console.log("loaded");
   }
 
 
