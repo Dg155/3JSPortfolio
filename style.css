@@ -690,7 +690,7 @@ header {
 .AboutMe p {
   color: white;
   font-size: 140%;
-  margin: 10px 5px;
+  margin: 25px 5px;
 }
 
 @media screen and (max-width: 1280px) {
@@ -1250,6 +1250,13 @@ p.gameDescription {
   width: 100%;
 }
 
+.fellChaserButton{
+  background: linear-gradient(90deg, #000000, #0f0f0f, #191919, #222222, #2b2b2c, #2b2b2c, #2b2b2c, #2b2b2c, #222222, #191919, #0f0f0f, #000000) padding-box,
+  linear-gradient(to right bottom, #e4e4e4, #dbd1e2, #ddbbd8, #e686a3, #e1839f, #be9dba, #b4aaba, #b3b3b3) border-box;
+  border: 3px solid transparent;
+  border-radius: 5px;
+}
+
 .enKoreButton{
   background: linear-gradient(90deg, #000000, #0f0f0f, #191919, #222222, #2b2b2c, #2b2b2c, #2b2b2c, #2b2b2c, #222222, #191919, #0f0f0f, #000000) padding-box,
   linear-gradient(to right bottom, #f568f9, #ed95ff, #eab9ff,#77c6ff, #00bdff) border-box;
@@ -1379,6 +1386,53 @@ h2.originalTitle {
 /* #endregion OriginalPortfolioDesign */
 
 /* #region GameSpecificDesigns */
+
+.fellChaser, .fellChaserImages {
+  border-radius: 15px;
+  padding: 20px 25px;
+  color: white;
+
+  background: url(assets/images/FellChaserBackground.png) padding-box,
+  linear-gradient(to right bottom, #e4e4e4, #dbd1e2, #ddbbd8, #e686a3, #e1839f, #be9dba, #b4aaba, #b3b3b3) border-box;
+  background: url(assets/images/FellChaserBackground.png) padding-box,
+  -webkit-linear-gradient(to right bottom, #949494, #887d8d, #86647d, #761e34, #5a3a52, #4f4654, #4e4e4e) border-box;
+  background: url(assets/images/FellChaserBackground.png) padding-box,
+  -moz-linear-gradient(to right bottom, #949494, #887d8d, #86647d, #761e34, #5a3a52, #4f4654, #4e4e4e) border-box;
+  background: url(assets/images/FellChaserBackground.png) padding-box,
+  -ms-linear-gradient(to right bottom, #949494, #887d8d, #86647d, #761e34, #5a3a52, #4f4654, #4e4e4e) border-box;
+  background: url(assets/images/FellChaserBackground.png) padding-box,
+  -o-linear-gradient(to right bottom, #949494, #887d8d, #86647d, #761e34, #5a3a52, #4f4654, #4e4e4e) border-box;
+
+  border: 4px solid transparent;
+} 
+
+h2.FCTitle {
+  background-image: linear-gradient(to bottom, #aeaeae, #dddddd, #bf0909);
+  background-image: -webkit-linear-gradient(to right bottom, #949494, #887d8d, #86647d, #761e34, #5a3a52, #4f4654, #4e4e4e);
+  background-image: -moz-linear-gradient(to right bottom, #949494, #887d8d, #86647d, #761e34, #5a3a52, #4f4654, #4e4e4e);
+  background-image: -ms-linear-gradient(to right bottom, #949494, #887d8d, #86647d, #761e34, #5a3a52, #4f4654, #4e4e4e);
+  background-image: -o-linear-gradient(to right bottom, #949494, #887d8d, #86647d, #761e34, #5a3a52, #4f4654, #4e4e4e);
+}
+
+.fellChaserIcon{
+  background: linear-gradient(to bottom, #270627, #420747, #5c076b, #760793, #8e0ebf, #9813d4, #a119e9, #a920ff, #a920ff, #a920ff, #a920ff, #a920ff) padding-box,
+  linear-gradient(to right bottom, #f568f9, #ed95ff, #eab9ff,#77c6ff, #00bdff) border-box;
+  background: -webkit-linear-gradient(to bottom, #270627, #420747, #5c076b, #760793, #8e0ebf, #9813d4, #a119e9, #a920ff, #a920ff, #a920ff, #a920ff, #a920ff) padding-box,
+  -webkit-linear-gradient(to right bottom, #f568f9, #ed95ff, #eab9ff,#77c6ff, #00bdff) border-box;
+  background: -moz-linear-gradient(to bottom, #270627, #420747, #5c076b, #760793, #8e0ebf, #9813d4, #a119e9, #a920ff, #a920ff, #a920ff, #a920ff, #a920ff) padding-box,
+  -moz-linear-gradient(to right bottom, #f568f9, #ed95ff, #eab9ff,#77c6ff, #00bdff) border-box;
+  background: -ms-linear-gradient(to bottom, #270627, #420747, #5c076b, #760793, #8e0ebf, #9813d4, #a119e9, #a920ff, #a920ff, #a920ff, #a920ff, #a920ff) padding-box,
+  -ms-linear-gradient(to right bottom, #f568f9, #ed95ff, #eab9ff,#77c6ff, #00bdff) border-box;
+  background: -o-linear-gradient(to bottom, #270627, #420747, #5c076b, #760793, #8e0ebf, #9813d4, #a119e9, #a920ff, #a920ff, #a920ff, #a920ff, #a920ff) padding-box,
+  -o-linear-gradient(to right bottom, #f568f9, #ed95ff, #eab9ff,#77c6ff, #00bdff) border-box;
+
+  border: 2px solid transparent;
+}
+
+.fellChaser p.gameDescription
+{
+  background-color: rgb(40, 40, 40, 0.8);
+}
 
 .enKore, .enKoreImages {
   border-radius: 15px;

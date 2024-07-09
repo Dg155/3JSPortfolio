@@ -1,5 +1,6 @@
 import * as THREE from 'https://unpkg.com/three@0.127.0/build/three.module.js';
 import { FBXLoader } from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/loaders/FBXLoader.js';
+import { GLTFLoader } from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/loaders/GLTFLoader.js';
 import { RenderPass } from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/postprocessing/RenderPass.js';
 import { EffectComposer } from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/postprocessing/EffectComposer.js';
 
@@ -53,6 +54,7 @@ composer.addPass(renderScene);
 // Loader
 const loadingManager = new THREE.LoadingManager();
 const fbxLoader = new FBXLoader(loadingManager);
+const gltfLoader = new GLTFLoader(loadingManager);
 
 loadingManager.onStart = function (url, itemsLoaded, itemsTotal) {
     console.log('Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.');
@@ -74,14 +76,30 @@ loadingManager.onError = function (url) {
 
 // Custom Import
 
+var FellChaser = new THREE.Mesh();
+gltfLoader.load(
+    './assets/FellChaser.glb',
+    (gltf) => {
+        FellChaser = gltf.scene;
+        FellChaser.position.set(-9.5, -1, 7.3);
+        FellChaser.rotation.set(0, -1, -0.3);
+        FellChaser.scale.set(1.8, 1.8, 1.8);
+        scene.add(FellChaser);
+    },
+    (xhr) => {
+    },
+    (error) => {
+        console.log(error);
+    }
+)
+
 var EnKore = new THREE.Mesh();
 
 fbxLoader.load(
     './assets/EnKore.fbx',
     (object) => {
-        object.position.set(-9, -2, 7.3) 
-        object.rotation.set(0, 4, 0)
-        object.scale.set(0.007, 0.007, 0.007)
+        //object.position.set(-9, -2, 7.3) 
+        //object.scale.set(0.007, 0.007, 0.007)
 
         EnKore = object;
 
@@ -99,8 +117,6 @@ var Celestial = new THREE.Mesh();
 fbxLoader.load(
     './assets/CC.fbx',
     (object) => {
-        object.position.set(-13, 0, 18)
-        object.scale.set(0.0035, 0.0035, 0.0035)
 
         const material = new THREE.MeshStandardMaterial({
             color: 0xffffff, // Base color
@@ -177,39 +193,39 @@ fbxLoader.load(
 
 var MusicalMadness = new THREE.Mesh();
 
-fbxLoader.load(
-    './assets/MM.fbx',
-    (object) => {
-        object.position.set(-10, -0.3, 50)
-        object.rotation.set(0, 0, 0)
-        object.scale.set(0.03, 0.03, 0.03)
+// fbxLoader.load(
+//     './assets/MM.fbx',
+//     (object) => {
+//         object.position.set(-10, -0.3, 50)
+//         object.rotation.set(0, 0, 0)
+//         object.scale.set(0.03, 0.03, 0.03)
 
-        const material = new THREE.MeshStandardMaterial({
-            color: 0xffffff, // Base color
-            roughness: 0.5,    // Roughness (1 for completely rough)
-            metalness: 0,    // Metalness (0 for non-metallic)
-        });
+//         const material = new THREE.MeshStandardMaterial({
+//             color: 0xffffff, // Base color
+//             roughness: 0.5,    // Roughness (1 for completely rough)
+//             metalness: 0,    // Metalness (0 for non-metallic)
+//         });
 
-        const textureLoader = new THREE.TextureLoader();
-        material.map = textureLoader.load(MMPic);
-        material.map.encoding = THREE.sRGBEncoding;
+//         const textureLoader = new THREE.TextureLoader();
+//         material.map = textureLoader.load(MMPic);
+//         material.map.encoding = THREE.sRGBEncoding;
 
-        object.traverse(function(child) {
-            if (child.isMesh) {
-                child.material = material; 
-            }
-        });
+//         object.traverse(function(child) {
+//             if (child.isMesh) {
+//                 child.material = material; 
+//             }
+//         });
 
-        MusicalMadness = object;
+//         MusicalMadness = object;
 
-        scene.add(MusicalMadness)
-    },
-    (xhr) => {
-    },
-    (error) => {
-        console.log(error);
-    }
-)
+//         scene.add(MusicalMadness)
+//     },
+//     (xhr) => {
+//     },
+//     (error) => {
+//         console.log(error);
+//     }
+// )
 
 // Background
 
@@ -298,16 +314,25 @@ const moon = new THREE.Mesh(
 
 // Logo Light
 const LogoLight = new THREE.PointLight(0xffffff);
-LogoLight.position.set(3, 2, -2);
+LogoLight.position.set(3, 2, -5);
 LogoLight.rotation.set(1, 10, 4);
 LogoLight.intensity = 8;
-LogoLight.distance = 100;
+LogoLight.distance = 60;
 LogoLight.decay = 15;
 scene.add(LogoLight);
 
+// FellChaser Light
+const FellChaserLight = new THREE.PointLight(0x00ffff);
+FellChaserLight.position.set(-9.2, 3.5, 5); 
+//FellChaserLight.rotation.set(0, 2.2, 0);
+FellChaserLight.intensity = 3;
+FellChaserLight.distance = 100;
+FellChaserLight.decay = 20;
+scene.add(FellChaserLight);
+
 // Enkore Light
 const EnkoreLight = new THREE.PointLight(0xffffff);
-EnkoreLight.position.set(-9, 8, 7.3);
+EnkoreLight.position.set(-10.8, 8, 22); // 0, +10, 0
 EnkoreLight.rotation.set(0, 2.2, 0);
 EnkoreLight.intensity = 8;
 EnkoreLight.distance = 100;
@@ -316,7 +341,7 @@ scene.add(EnkoreLight);
 
 // Celestial Light
 const CelestialLight = new THREE.PointLight(0xffffff);
-CelestialLight.position.set(-8, 0, 23);
+CelestialLight.position.set(-13, 0, 40);  //0, 0, +5
 CelestialLight.rotation.set(0, 2.2, 0);
 CelestialLight.intensity = 3;
 CelestialLight.distance = 100;
@@ -325,23 +350,14 @@ scene.add(CelestialLight);
 
 // Zot Light
 const ZotLight = new THREE.PointLight(0xffffff);
-ZotLight.position.set(-13, 7.3, 32.8);
+ZotLight.position.set(-12, 7.7, 49); // 0, -8, 0
 ZotLight.rotation.set(0, 2.2, 0);
 ZotLight.intensity = 8;
 ZotLight.distance = 100;
 ZotLight.decay = 20;
 scene.add(ZotLight);
 
-// Musical Light
-const MusicalLight = new THREE.PointLight(0xffffff);
-MusicalLight.position.set(-6, -0.3, 54);
-MusicalLight.rotation.set(0, 2.2, 0);
-MusicalLight.intensity = 3;
-MusicalLight.distance = 100;
-MusicalLight.decay = 20;
-scene.add(MusicalLight);
-
-// const lightHelper = new THREE.PointLightHelper(CelestialLight);
+// const lightHelper = new THREE.PointLightHelper(LogoLight);
 // scene.add(lightHelper);
 
 const ambientLight = new THREE.AmbientLight(0x404040);
@@ -379,6 +395,7 @@ function animate() {
   Celestial.rotation.y += 0.008;
   zotZoomer.rotation.y += 0.008;
   MusicalMadness.rotation.y += 0.008;
+  FellChaser.rotation.y += 0.004;
 
   reSizeWindow();
 
@@ -602,18 +619,15 @@ function reSizeWindow()
         daniel.scale.set(1, 1, 1);
 
         EnKore.position.set(-9, -2, 7.3);
-        
         EnKore.scale.set(0.007, 0.007, 0.007);
 
         Celestial.position.set(-13, 0, 18);
         Celestial.scale.set(0.0035, 0.0035, 0.0035);
 
         zotZoomer.position.set(-13, -0.7, 32.8);
-        
         zotZoomer.scale.set(1.1, 1.1, 1.1);
 
         MusicalMadness.position.set(-10, -0.3, 50);
-        
         MusicalMadness.scale.set(0.03, 0.03, 0.03);
     }
     else if (currentWidth < 769)
@@ -629,18 +643,15 @@ function reSizeWindow()
         daniel.scale.set(1, 1, 1);
 
         EnKore.position.set(-9, -2, 7.3);
-        
         EnKore.scale.set(0.007, 0.007, 0.007);
 
         Celestial.position.set(-13, 0, 18);
         Celestial.scale.set(0.0035, 0.0035, 0.0035);
 
         zotZoomer.position.set(-13, -0.7, 32.8);
-        
         zotZoomer.scale.set(1.1, 1.1, 1.1);
 
         MusicalMadness.position.set(-10, -0.3, 50);
-        
         MusicalMadness.scale.set(0.03, 0.03, 0.03);
     }
     else if (currentWidth < 875)
@@ -654,19 +665,16 @@ function reSizeWindow()
         daniel.position.set(-3, 0.15, 60);
         daniel.scale.set(1, 1, 1);
 
-        EnKore.position.set(-9, -2, 7.3);
-        
+        EnKore.position.set(-13, 0, 20);
         EnKore.scale.set(0.007, 0.007, 0.007);
 
         Celestial.position.set(-13, 0, 18);
         Celestial.scale.set(0.0035, 0.0035, 0.0035);
 
         zotZoomer.position.set(-13, -0.7, 32.8);
-        
         zotZoomer.scale.set(1.1, 1.1, 1.1);
 
         MusicalMadness.position.set(-10, -0.3, 50);
-        
         MusicalMadness.scale.set(0.03, 0.03, 0.03);
     }
     else if (currentWidth < 1025)
@@ -680,19 +688,16 @@ function reSizeWindow()
         daniel.position.set(-3, 0.15, 60);
         daniel.scale.set(1, 1, 1);
 
-        EnKore.position.set(-9, -2, 7.3);
-        
+        EnKore.position.set(-13, 0, 20);
         EnKore.scale.set(0.007, 0.007, 0.007);
 
         Celestial.position.set(-13, 0, 18);
         Celestial.scale.set(0.0035, 0.0035, 0.0035);
 
         zotZoomer.position.set(-13, -0.7, 32.8);
-        
         zotZoomer.scale.set(1.1, 1.1, 1.1);
 
         MusicalMadness.position.set(-10, -0.3, 50);
-        
         MusicalMadness.scale.set(0.03, 0.03, 0.03);
     }
     else if (currentWidth < 1849)
@@ -706,19 +711,16 @@ function reSizeWindow()
         daniel.position.set(-2, 0.15, 65.8);
         daniel.scale.set(1, 1, 1);
 
-        EnKore.position.set(-9, -2, 7.3);
-        
+        EnKore.position.set(-10.8, -2, 22);
         EnKore.scale.set(0.007, 0.007, 0.007);
 
-        Celestial.position.set(-13, 0, 18);
+        Celestial.position.set(-13, 0, 35);
         Celestial.scale.set(0.0035, 0.0035, 0.0035);
 
-        zotZoomer.position.set(-13, -0.7, 32.8);
-        
+        zotZoomer.position.set(-12, -0.3, 49);
         zotZoomer.scale.set(1.1, 1.1, 1.1);
 
         MusicalMadness.position.set(-10, -0.3, 50);
-        
         MusicalMadness.scale.set(0.03, 0.03, 0.03);
     }
     else
