@@ -363,6 +363,7 @@ body {
   font-size: 15px;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 h1,
@@ -605,11 +606,11 @@ header {
 
 /* #region Sidebar Nav */
 
-#mySidenav a {
+.leftSidenav a {
   position: fixed;
   left: -105px;
   transition: 0.3s;
-  padding: 15px;
+  padding: 12px;
   width: 140px;
   text-decoration: none;
   font-size: 20px;
@@ -624,8 +625,31 @@ header {
   z-index: 999;
 }
 
-#mySidenav a:hover {
+.leftSidenav a:hover {
   left: 0;
+}
+
+.rightSidenav a {
+  position: fixed;
+  right: -98px;
+  transition: 0.3s;
+  padding: 8px;
+  width: 140px;
+  text-decoration: none;
+  font-size: 13.5px;
+  color: white;
+  background: linear-gradient(to left bottom, #000000, #0f0f0f, #191919, #222222, #2b2b2c, #2b2b2c, #2b2b2c, #2b2b2c, #222222, #191919, #0f0f0f, #000000) padding-box,
+  linear-gradient(to right bottom, #DB7802, #EAA001) border-box;
+  border: 3px solid transparent;
+  border-right:none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+}
+
+.rightSidenav a:hover {
+  right: 0px;
 }
 
 #SideLinkedIn {
@@ -646,7 +670,34 @@ header {
   border-radius: 0 0 15px 0;
 }
 
-.sidebarIcon {
+#SideFellchaser {
+  top: 60%;
+  border-radius: 15px 0 0 0;
+  background: url(assets/images/FellChaserBackground.png) padding-box,
+  linear-gradient(to right bottom, #e4e4e4, #dbd1e2, #ddbbd8, #e686a3, #e1839f, #be9dba, #b4aaba, #b3b3b3) border-box;
+}
+
+#SideEnkore {
+  top: 67.5%;
+  background: url(assets/images/EKBackgroundScaled.png) padding-box,
+  linear-gradient(to right bottom, #f568f9, #ed95ff, #eab9ff,#77c6ff, #00bdff) border-box;
+}
+
+#SideCC {
+  top: 75%;
+  background: url(assets/images/CCBackgroundScaled.png) padding-box,
+  linear-gradient(to right bottom, #EADDA1, #D2B136) border-box;
+}
+
+#SideZotZoomer {
+  top: 82.5%;
+  border-radius: 0 0 0 15px;
+  background: url(assets/images/ZZBackgroundScaled.png) padding-box,
+  linear-gradient(to bottom right, #5645AE, #f0c5f2) border-box;
+}
+
+
+.leftSidebarIcon {
   display: block;
   width: 30px;
   height: 30px;
@@ -659,14 +710,37 @@ header {
   filter: invert(55%) sepia(65%) saturate(2742%) hue-rotate(352deg) brightness(105%) contrast(98%);
 }
 
+.rightSidebarIcon {
+  display: block;
+  width: 45px;
+  height: 45px;
+  background-image: url(assets/images/PortfolioIcons.png);
+  text-indent: -99999px;
+  background-repeat: no-repeat;
+  text-align: right;
+  float: right;
+  margin-right: 5px;
+}
+
 #sideItchImage { background-position: -30px 0; }
 
 #sideGitImage { background-position: -60px 0; }
 
 #sideContactImage { background-position: -90px 0; }
 
+#sideFellchaserImage { background-position: 0px 0; }
+
+#sideEnkoreImage { background-position: -45px 0; }
+
+#sideCCImage { background-position: -90px 0; }
+
+#sideZZImage { background-position: -135px 0; }
+
 @media screen and (max-width: 1024px) {
-  #mySidenav {
+  .leftSidenav {
+    display: none;
+  }
+  .rightSidenav {
     display: none;
   }
 }
@@ -1220,6 +1294,102 @@ p.gameDescription {
 }
 
 /* #endregion LoadingScreen */
+
+/* #region NavButtons */
+
+.navButtonSection
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.navButton
+{
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.arrow-icon:hover
+{
+  transform: scale(1.1);
+  transition: all 0.5s ease;
+}
+
+.arrow-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  cursor: pointer;
+  border-radius: 4px;
+  right: 33%;
+}
+
+.left-bar {
+  position: absolute;
+  background-color: transparent;
+  top: 0;
+  left: -30px;
+  width: 40px;
+  height: 10px;
+  display: block;
+  transform: rotate(35deg);
+  float: right;
+  border-radius: 2px;
+  &:after {
+    content:"";
+    background-color: white;
+    width: 40px;
+    height: 10px;
+    display: block;
+    float: right;
+    border-radius: 6px 10px 10px 6px;
+    transition: all 0.5s cubic-bezier(0.25, 1.7, 0.35, 0.8);
+    z-index: -1;
+  }
+}
+
+.right-bar {
+  position: absolute;
+  background-color: transparent;
+  top: 0px;
+  left: -4px;
+  width: 40px;
+  height: 10px;
+  display: block;
+  transform: rotate(-35deg);
+  float: right;
+  border-radius: 2px;
+  &:after {
+    content:"";
+    background-color: white;
+    width: 40px;
+    height: 10px;
+    display: block;
+    float: right;
+    border-radius: 10px 6px 6px 10px;
+    transition: all 0.5s cubic-bezier(0.25, 1.7, 0.35, 0.8);
+    z-index: -1;
+  }
+}
+
+.open {
+    .left-bar:after {
+    transform-origin: center center;
+    transform: rotate(-70deg);
+  }
+  .right-bar:after {
+    transform-origin: center center;
+    transform: rotate(70deg);
+  }
+
+}
+
+/* #endregion NavButtons */
 
 /* #region PortfolioButtons */
 

@@ -77,7 +77,7 @@
         <!-- Header Logo -->
         <div class="LogoAnimation">
             <div class="headerLogo ButtonShine">
-                <a href="#portfolio" id="headerContact">
+                <a onclick="smoothScrollToElement('portfolio')" id="headerContact">
                     <img src="assets/images/PortfolioLogov4.png" alt="Daniel Boghossian Logo">
                 </a>
             </div>
@@ -89,7 +89,7 @@
             <!-- Portfolio Button -->
             <div class="bounceAnimOne">
                 <div class="navLogo">
-                    <a href="#portfolio" >
+                    <a onclick="smoothScrollToElement('portfolio')">
                         <div class="navInfo ButtonShine">
                             <img src="assets/images/PortfolioImage.png" alt="PortfolioTextImage">
                             <!-- <p>&#9660;</p> -->
@@ -102,7 +102,7 @@
             <!-- About Me Button -->
             <div class="bounceAnimTwo">
                 <div class="navLogo">
-                    <a href="#AboutMe">
+                    <a onclick="smoothScrollToElement('AboutMe')">
                         <div class="navInfo ButtonShine">
                             <img src="assets/images/AboutMeImage.png" alt="AboutMeTextImage">
                             <!-- <p>&#9660;</p> -->
@@ -131,14 +131,32 @@
 
     </header>
 
-    <!-- Sidebar Nav -->
-    <div id="mySidenav" class="sidenav">
-        <a href="https://www.linkedin.com/in/daniel-boghossian/" id="SideLinkedIn" class="ButtonShine" target="_blank" rel="noopener noreferrer">LinkedIn <div class="sidebarIcon" id="sideLinkedImage"></div></a>
-        <a href="https://dg155.itch.io/" id="SideItch" class="ButtonShine" target="_blank" rel="noopener noreferrer">Itch.io <div class="sidebarIcon" id="sideItchImage"></div></a>
-        <a href="https://github.com/Dg155" id="SideGitHub" class="ButtonShine" target="_blank" rel="noopener noreferrer">GitHub <div class="sidebarIcon" id="sideGitImage"></div></a>
-        <a href="mailto:danielboghoss@gmail.com" id="SideContact" class="ButtonShine">Contact <div class="sidebarIcon" id="sideContactImage"></div></a>
+    <!-- Left Sidebar Nav -->
+    <div class="leftSidenav">
+        <a href="https://www.linkedin.com/in/daniel-boghossian/" id="SideLinkedIn" class="ButtonShine" target="_blank" rel="noopener noreferrer">LinkedIn <div class="leftSidebarIcon" id="sideLinkedImage"></div></a>
+        <a href="https://dg155.itch.io/" id="SideItch" class="ButtonShine" target="_blank" rel="noopener noreferrer">Itch.io <div class="leftSidebarIcon" id="sideItchImage"></div></a>
+        <a href="https://github.com/Dg155" id="SideGitHub" class="ButtonShine" target="_blank" rel="noopener noreferrer">GitHub <div class="leftSidebarIcon" id="sideGitImage"></div></a>
+        <a href="mailto:danielboghoss@gmail.com" id="SideContact" class="ButtonShine">Contact <div class="leftSidebarIcon" id="sideContactImage"></div></a>
       </div>
-    <!-- Sidebar Nav -->
+    <!-- Left Sidebar Nav -->
+
+    <!-- Right Sidebar Nav -->
+    <div class="rightSidenav">
+        <a onclick="smoothScrollToElement('fellChaser')" id="SideFellchaser" class="ButtonShine"><div class="rightSidebarIcon" id="sideFellchaserImage"></div> FELLCHASER</a>
+        <a onclick="smoothScrollToElement('enKore')" id="SideEnkore" class="ButtonShine"><div class="rightSidebarIcon" id="sideEnkoreImage"></div> ENKORE</a>
+        <a onclick="smoothScrollToElement('celestialClash')" id="SideCC" class="ButtonShine"><div class="rightSidebarIcon" id="sideCCImage"></div> Celestial Clash</a>
+        <a onclick="smoothScrollToElement('zotZoomer')" id="SideZotZoomer" class="ButtonShine"><div class="rightSidebarIcon" id="sideZZImage"></div> Zot Zoomer</a>
+      </div>
+    <!-- Left Sidebar Nav -->
+
+    <div class="navButtonSection">
+        <button onclick="smoothScrollWithParameters('button0', 'headerContact', 'headerContact')" class="navButton">
+            <a id="button0" class="arrow-icon open">
+                <span class="left-bar"></span>
+                <span class="right-bar"></span>
+            </a>
+        </button>
+    </div>
 
     <!-- FellChaser Section-->
     <div class="content-area group section">
@@ -205,7 +223,7 @@
                     <!-- <button class="ImageIcon ImageIconAnimation fellChaserIcon" id="fellChaserButton">
                         <img src="assets/images/whiteImageIcon.png" alt="Image Icon">
                     </button> -->
-                    <h2 class="gameTitle FCTitle">FellChaser:</h2>
+                    <h2 class="gameTitle FCTitle">FELLCHASER:</h2>
                 </div>
 
                 <ul class="gameInfo group">
@@ -227,7 +245,7 @@
 
                 <div class="ContentButtons">
                     <div class="ButtonShine fellChaserButton gameButtons">
-                        <a href="https://dg155.itch.io/musical-madness" target="_blank" rel="noopener noreferrer" class="playButton">Play Now!</a>
+                        <a href="https://store.steampowered.com/app/2793110/FELLCHASER/" target="_blank" rel="noopener noreferrer" class="playButton">Play Now!</a>
                     </div>
                     <div class="ButtonShine fellChaserButton gameButtons" id="fellChaserButton">
                         <a class="playButton">View Images</a>
@@ -245,6 +263,15 @@
     
     </div>
     <!-- FellChaser Section-->
+
+    <div class="navButtonSection">
+        <button onclick="smoothScrollWithParameters('button1', 'enKore', 'fellChaser')" class="navButton">
+            <a id="button1" class="arrow-icon">
+                <span class="left-bar"></span>
+                <span class="right-bar"></span>
+            </a>
+        </button>
+    </div>
     
     <!-- EnKore Section-->
     <div class="content-area group section">
@@ -304,7 +331,7 @@
                     <!-- <button class="ImageIcon ImageIconAnimation enKoreIcon" id="enKoreButton">
                         <img src="assets/images/whiteImageIcon.png" alt="Image Icon">
                     </button> -->
-                    <h2 class="gameTitle EKTitle">EnKore:</h2>
+                    <h2 class="gameTitle EKTitle">ENKORE:</h2>
                 </div>
 
                 <ul class="gameInfo group">
@@ -345,6 +372,15 @@
     
     </div>
     <!-- EnKore Section-->
+
+    <div class="navButtonSection">
+        <button onclick="smoothScrollWithParameters('button2', 'celestialClash', 'enKore')" class="navButton">
+            <a id="button2" class="arrow-icon">
+                <span class="left-bar"></span>
+                <span class="right-bar"></span>
+            </a>
+        </button>
+    </div>
 
     <!-- Celestial Clash Section-->
     <div class="content-area group section">
@@ -443,6 +479,15 @@
     
     </div>
     <!-- Celestial Clash Section-->
+
+    <div class="navButtonSection">
+        <button onclick="smoothScrollWithParameters('button3', 'zotZoomer', 'celestialClash')" class="navButton">
+            <a id="button3" class="arrow-icon">
+                <span class="left-bar"></span>
+                <span class="right-bar"></span>
+            </a>
+        </button>
+    </div>
 
     <!-- Zot Zoomer Section-->
     <div class="content-area group section">
@@ -588,7 +633,7 @@
         <!-- Image Slideshow -->
 
         <!-- Game Info -->
-        <div class="container musicalMadness reveal" style="float:right" id="musicalMadness">
+        <div class="container musicalMadness" style="float:right" id="musicalMadness">
 
             <!-- row -->
             <div class="row">
@@ -642,8 +687,17 @@
     </div>
     <!-- Musical Madness Section-->
 
+    <div class="navButtonSection">
+        <button onclick="smoothScrollWithParameters('button4', 'AboutMe', 'zotZoomer')" class="navButton">
+            <a id="button4" class="arrow-icon">
+                <span class="left-bar"></span>
+                <span class="right-bar"></span>
+            </a>
+        </button>
+    </div>
+
     <!-- About Me Section -->
-    <div class="AboutMe">
+    <div class="AboutMe reveal">
         <img src="assets/images/AboutMeImage.png" alt="AboutMeTextImage">
         <p>
             Hello! I am Daniel Boghossian, a skillful and industrious college student with a Bachelors in Computer Science and Game Development. Playing my first ever video game, Super Mario World on my Nintendo DS, I knew I wanted to purse a career in game development. My goal is to be able to provide others with the same joy and comfort I felt as a child, and even now, playing video games.
@@ -698,11 +752,13 @@
         </div>
     </div>
 
-
-
     </main>
+
     <div id="app"></div>
+
+
     <script type="text/javascript">
+
       window.addEventListener('scroll', reveal);
 
       function reveal(){
@@ -741,13 +797,6 @@
         $("#modal_container").removeClass("show");
       });
 
-    //   $("#submit").click(function(){
-    //     event.preventDefault();
-    //     sendMail();
-    //   });
-
-
-
       function sendMail() {
         var params = {
             name: document.getElementById("fullname1").value,
@@ -770,6 +819,116 @@
             .catch(err=>console.log(err));
 
         }
+
+        function smoothScrollToElement(elementString)
+        {
+            element = document.getElementById(elementString);
+
+            if (element) 
+            {
+                // If reveal animation has not played yet, make sure it scrolls to the correct offset
+                if (!element.classList.contains('active'))
+                {
+                    const elementTopPosition = element.getBoundingClientRect().top + window.pageYOffset;
+                    window.scrollTo({
+                        top: elementTopPosition - 150,
+                        behavior: 'smooth'
+                    });
+                }
+                else
+                {
+                    element.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+
+                updateArrows(elementString);
+            } 
+            else 
+            {
+                console.error("Element not found");
+            }
+        }
+
+        function updateArrows(elementString)
+        {
+            if (!document.getElementById('button0').classList.contains("open"))
+            {
+                document.getElementById('button0').classList.add("open");
+            }
+
+            if (elementString == 'fellChaser')
+                {
+                    document.getElementById('button1').classList.remove("open");
+                }
+                else if (elementString == 'enKore')
+                {
+                    if (!document.getElementById('button1').classList.contains("open"))
+                    {
+                        document.getElementById('button1').classList.add("open");
+                    }
+                    document.getElementById('button2').classList.remove("open");
+                }
+                else if (elementString == 'celestialClash')
+                {
+                    if (!document.getElementById('button2').classList.contains("open"))
+                    {
+                        document.getElementById('button2').classList.add("open");
+                    }
+                    document.getElementById('button3').classList.remove("open");
+                }
+                else if (elementString == 'zotZoomer')
+                {
+                    if (!document.getElementById('button3').classList.contains("open"))
+                    {
+                        document.getElementById('button3').classList.add("open");
+                    }
+                    document.getElementById('button4').classList.remove("open");
+                }
+        }
+
+        function smoothScrollWithParameters(clickedElementId, targetId1, targetId2)
+        {
+            const clickedElement = document.getElementById(clickedElementId);
+
+            if (!clickedElement) {
+                console.error("Clicked element not found");
+                return;
+            }
+
+            const targetElementId = clickedElement.classList.contains('open') ? targetId1 : targetId2;
+            updateArrows(targetElementId);
+            const element = document.getElementById(targetElementId);
+
+            if (element) 
+            {
+                // If reveal animation has not played yet, make sure it scrolls to the correct offset
+                if (!element.classList.contains('active'))
+                {
+                    const elementTopPosition = element.getBoundingClientRect().top + window.pageYOffset;
+                    window.scrollTo({
+                        top: elementTopPosition - 150,
+                        behavior: 'smooth'
+                    });
+                }
+                else
+                {
+                    element.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            } 
+            else 
+            {
+                console.error("Element not found");
+            }
+        }
+
+        $( ".arrow-icon" ).click(function() {
+            $(this).toggleClass("open");
+        });
 
         $(document).ready(function(){
         $("#fellChaserButton").click(function(){
