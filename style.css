@@ -610,7 +610,7 @@ header {
   position: fixed;
   left: -105px;
   transition: 0.3s;
-  padding: 12px;
+  padding: 14px;
   width: 140px;
   text-decoration: none;
   font-size: 20px;
@@ -633,7 +633,7 @@ header {
   position: fixed;
   right: -98px;
   transition: 0.3s;
-  padding: 8px;
+  padding: 10px;
   width: 140px;
   text-decoration: none;
   font-size: 13.5px;
