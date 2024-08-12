@@ -1257,6 +1257,7 @@ p.gameDescription {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 1000;
 }
 
 .spinner {
@@ -1329,6 +1330,21 @@ p.gameDescription {
   text-transform: uppercase;
 }
 
+.DYKInfo
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  letter-spacing: 8px;
+  margin-left: 4px;
+  margin-top: 22%;
+  position: absolute;
+  text-align: center;
+  transform: translate3d(-50%, -50%, 0);
+}
+
 #DYKText {
   color: white;
   animation: fadeInNonScale 1000ms ease forwards;
@@ -1337,14 +1353,61 @@ p.gameDescription {
   font-family: 'Helvetica Neue', Helvetica, sans-serif;
   font-size: 12px;
   font-weight: 300;
-  left: 50%;
-  letter-spacing: 8px;
-  margin-left: 4px;
-  margin-top: 22%;
-  position: absolute;
-  text-align: center;
-  transform: translate3d(-50%, -50%, 0);
   text-transform: uppercase;
+  padding: 7px;
+}
+
+#NextLoadingTextArrow {
+  color: white;
+  animation: fadeInNonScale 1000ms ease forwards;
+  opacity: 0;
+  animation-delay: 1000ms;
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+#more-arrows {
+  height: 65px;
+  width: 27%;
+  animation: fadeInNonScale 1000ms ease forwards;
+  opacity: 0;
+  animation-delay: 1000ms;
+  transform: rotate(-90deg) scale(0.5);
+  
+  &:hover {
+    
+    polygon {
+      fill: #FFF;
+      transition: all .2s ease-out;
+
+      &.arrow-bottom {
+        transform: translateY(-18px);
+      }
+
+      &.arrow-top {
+        transform: translateY(18px);
+      }
+      
+    }
+  
+  }
+  
+}
+
+polygon {
+  fill: #FFF;
+  transition: all .2s ease-out;
+    
+  &.arrow-middle {
+	  opacity: 0.75;
+	}
+
+	&.arrow-top {
+	  opacity: 0.5
+	}
+	 
 }
 
 @keyframes pulsing-fade {

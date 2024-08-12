@@ -54,10 +54,29 @@ composer.addPass(renderScene);
 // Update Trivia Text
 
 const TriviaText = ["A custom-made demo of SimCity 2000 is exhibited in the New York Museum of Modern Art.", "The dragon Paarthurnax in The Elder Scrolls V: Skyrim is voiced by the same man who voices Nintendo’s Mario.", "Rockstar Games hired real-life gang members to voice background characters in Grand Theft Auto V.", "Counter-Strike was initially a custom mod you could play in Half-Life.", "In 2012 the developers of Terraria tried to cancel further updates to the game.", "In the first 24 hours of its release, more than a million people logged into Xbox Live to play Halo 3.", "There are five different forms that MissingNo. can take in the original Pokémon GameBoy games.", "The Colossi in Shadow of the Colossus don’t actually have names.", "If you click the units enough times in Warcraft III, they will get annoyed at you and start talking back.", "Donkey Kong 64‘s DK Rap started as a joke between the game designers."];
-const randomElement = TriviaText[Math.floor(Math.random() * TriviaText.length)];
+var randomElementIndex = Math.floor(Math.random() * TriviaText.length);
+var randomElement = TriviaText[randomElementIndex];
 
 var DYKText = document.getElementById("DYKText");
 DYKText.innerText = "Did You Know: " + randomElement;
+var DYKButton = document.getElementById("more-arrows");
+DYKButton.addEventListener("click", updateDYKText);
+
+function updateDYKText() {
+    DYKText.style.transition = "opacity 1s";
+    DYKText.style.opacity = "0";
+    DYKButton.removeEventListener("click", updateDYKText);
+    setTimeout(() => {
+        const newTriviaText = [...TriviaText];
+        newTriviaText.splice(randomElementIndex, 1);
+        randomElementIndex = Math.floor(Math.random() * newTriviaText.length);
+        randomElement = newTriviaText[randomElementIndex];
+        DYKText.innerText = "Did You Know: " + randomElement;
+        DYKText.style.opacity = "1";
+        DYKButton.addEventListener("click", updateDYKText);
+    }, 1);
+}
+
 
 // Loader
 const loadingManager = new THREE.LoadingManager();
