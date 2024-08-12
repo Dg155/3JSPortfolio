@@ -115,6 +115,27 @@ main {
   
 /* End Fade In Animation */
 
+/* Fade In Non Scale Animation */
+@-webkit-keyframes fadeInNonScale {
+  0% {
+    opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@keyframes fadeInNonScale {
+  0% {
+    opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+  
+/* End Fade In Non Scale Animation */
+
 /* Fade In Left Animation */
 @-webkit-keyframes fadeInLeft {
   0% {
@@ -608,8 +629,8 @@ header {
 
 .leftSidenav a {
   position: fixed;
-  left: -105px;
   transition: 0.3s;
+  left: -105px;
   padding: 14px;
   width: 140px;
   text-decoration: none;
@@ -623,10 +644,29 @@ header {
   justify-content: space-between;
   align-items: center;
   z-index: 999;
+  transform: translateX(-200px); /* Start off-screen */
+  opacity: 0; /* Start invisible */
+  animation: slideIn 1s forwards; /* Animation settings */
 }
 
 .leftSidenav a:hover {
   left: 0;
+}
+
+.leftSidenav a:nth-child(1), .rightSidenav a:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.leftSidenav a:nth-child(2), .rightSidenav a:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.leftSidenav a:nth-child(3), .rightSidenav a:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.leftSidenav a:nth-child(4), .rightSidenav a:nth-child(4) { 
+  animation-delay: 0.8s;
 }
 
 .rightSidenav a {
@@ -646,10 +686,20 @@ header {
   justify-content: space-between;
   align-items: center;
   z-index: 999;
+  transform: translateX(200px); /* Start off-screen */
+  opacity: 0; /* Start invisible */
+  animation: slideIn 1s forwards; /* Animation settings */
 }
 
 .rightSidenav a:hover {
   right: 0px;
+}
+
+@keyframes slideIn {
+  to {
+      transform: translateX(0);
+      opacity: 1;
+  }
 }
 
 #SideLinkedIn {
@@ -1279,6 +1329,24 @@ p.gameDescription {
   text-transform: uppercase;
 }
 
+.DYKText {
+  color: white;
+  animation: fadeInNonScale 1000ms ease forwards;
+  opacity: 0;
+  animation-delay: 1000ms;
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  left: 50%;
+  letter-spacing: 8px;
+  margin-left: 4px;
+  margin-top: 10px;
+  position: absolute;
+  text-align: center;
+  transform: translate3d(-50%, 250%, 0);
+  text-transform: uppercase;
+}
+
 @keyframes pulsing-fade {
   0% {
     opacity: 1;
@@ -1348,6 +1416,9 @@ p.gameDescription {
     display: block;
     float: right;
     border-radius: 6px 10px 10px 6px;
+    background: linear-gradient(to left bottom, #000000, #0f0f0f, #191919, #222222, #2b2b2c, #2b2b2c, #2b2b2c, #2b2b2c, #222222, #191919, #0f0f0f, #000000) padding-box,
+    linear-gradient(to right bottom, #DB7802, #EAA001) border-box;
+    border: 2px solid transparent;
     transition: all 0.5s cubic-bezier(0.25, 1.7, 0.35, 0.8);
     z-index: -1;
   }
@@ -1371,7 +1442,11 @@ p.gameDescription {
     height: 10px;
     display: block;
     float: right;
-    border-radius: 10px 6px 6px 10px;
+    border-radius: 0 6px 6px 10px;
+    background: linear-gradient(to left bottom, #000000, #0f0f0f, #191919, #222222, #2b2b2c, #2b2b2c, #2b2b2c, #2b2b2c, #222222, #191919, #0f0f0f, #000000) padding-box,
+    linear-gradient(to right bottom, #DB7802, #EAA001) border-box;
+    border: 2px solid transparent;
+
     transition: all 0.5s cubic-bezier(0.25, 1.7, 0.35, 0.8);
     z-index: -1;
   }
