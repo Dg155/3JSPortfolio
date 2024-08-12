@@ -1329,7 +1329,7 @@ p.gameDescription {
   text-transform: uppercase;
 }
 
-.DYKText {
+#DYKText {
   color: white;
   animation: fadeInNonScale 1000ms ease forwards;
   opacity: 0;
@@ -1340,10 +1340,10 @@ p.gameDescription {
   left: 50%;
   letter-spacing: 8px;
   margin-left: 4px;
-  margin-top: 10px;
+  margin-top: 22%;
   position: absolute;
   text-align: center;
-  transform: translate3d(-50%, 250%, 0);
+  transform: translate3d(-50%, -50%, 0);
   text-transform: uppercase;
 }
 
