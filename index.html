@@ -85,7 +85,7 @@
         <!-- Header Logo -->
         <div class="LogoAnimation">
             <div class="headerLogo ButtonShine">
-                <a onclick="smoothScrollToElement('portfolio')" id="headerContact">
+                <a onclick="smoothScrollToElement('fellChaser')" id="headerContact">
                     <img src="assets/images/PortfolioLogov4.png" alt="Daniel Boghossian Logo">
                 </a>
             </div>
@@ -97,7 +97,7 @@
             <!-- Portfolio Button -->
             <div class="bounceAnimOne">
                 <div class="navLogo">
-                    <a onclick="smoothScrollToElement('portfolio')">
+                    <a onclick="smoothScrollToElement('fellChaser')">
                         <div class="navInfo ButtonShine">
                             <img src="assets/images/PortfolioImage.png" alt="PortfolioTextImage">
                             <!-- <p>&#9660;</p> -->
@@ -147,6 +147,10 @@
         <a href="mailto:danielboghoss@gmail.com" id="SideContact" class="ButtonShine">Contact <div class="leftSidebarIcon" id="sideContactImage"></div></a>
       </div>
     <!-- Left Sidebar Nav -->
+
+    <div class="rightSidenav">
+        <a onclick="smoothScrollToElement('headerContact')" id="SideHeader" class="ButtonShine"><div class="rightSidebarIcon" id="sideHeaderImage"></div> Home</a>
+    </div>
 
     <!-- Right Sidebar Nav -->
     <div class="rightSidenav">
@@ -769,6 +773,8 @@
 
       window.addEventListener('scroll', reveal);
 
+      document.getElementById('SideHeader').style.right = "-200px";
+
       function reveal(){
           var reveals = document.querySelectorAll('.reveal');
           for(var i = 0; i < reveals.length; i++){
@@ -851,7 +857,7 @@
                     });
                 }
 
-                updateArrows(elementString);
+                updateArrowsAndSideNav(elementString);
             } 
             else 
             {
@@ -859,8 +865,14 @@
             }
         }
 
-        function updateArrows(elementString)
+        function updateArrowsAndSideNav(elementString)
         {
+            document.getElementById('SideHeader').style.right = "";
+            document.getElementById('SideFellchaser').style.right = "";
+            document.getElementById('SideEnkore').style.right = "";
+            document.getElementById('SideCC').style.right = "";
+            document.getElementById('SideZotZoomer').style.right = "";
+
             if (!document.getElementById('button0').classList.contains("open"))
             {
                 document.getElementById('button0').classList.add("open");
@@ -869,6 +881,7 @@
             if (elementString == 'fellChaser')
                 {
                     document.getElementById('button1').classList.remove("open");
+                    document.getElementById('SideFellchaser').style.right = "-130px";
                 }
                 else if (elementString == 'enKore')
                 {
@@ -877,6 +890,7 @@
                         document.getElementById('button1').classList.add("open");
                     }
                     document.getElementById('button2').classList.remove("open");
+                    document.getElementById('SideEnkore').style.right = "-130px";
                 }
                 else if (elementString == 'celestialClash')
                 {
@@ -885,6 +899,7 @@
                         document.getElementById('button2').classList.add("open");
                     }
                     document.getElementById('button3').classList.remove("open");
+                    document.getElementById('SideCC').style.right = "-130px";
                 }
                 else if (elementString == 'zotZoomer')
                 {
@@ -893,6 +908,11 @@
                         document.getElementById('button3').classList.add("open");
                     }
                     document.getElementById('button4').classList.remove("open");
+                    document.getElementById('SideZotZoomer').style.right = "-130px";
+                }
+                else if (elementString == 'headerContact')
+                {
+                    document.getElementById('SideHeader').style.right = "-130px";
                 }
         }
 
@@ -906,7 +926,7 @@
             }
 
             const targetElementId = clickedElement.classList.contains('open') ? targetId1 : targetId2;
-            updateArrows(targetElementId);
+            updateArrowsAndSideNav(targetElementId);
             const element = document.getElementById(targetElementId);
 
             if (element) 
