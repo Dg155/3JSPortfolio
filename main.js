@@ -763,13 +763,13 @@ function reSizeWindow()
         FellChaser.position.set(-10.5, -1.5, 5.8);
         FellChaser.scale.set(1.8, 1.8, 1.8);
 
-        EnKore.position.set(-11, -2, 22);
+        EnKore.position.set(-11.5, -2, 22);
         EnKore.scale.set(0.007, 0.007, 0.007);
 
-        Celestial.position.set(-13.5, 0, 35);
+        Celestial.position.set(-14, 0, 36);
         Celestial.scale.set(0.0035, 0.0035, 0.0035);
 
-        zotZoomer.position.set(-13, -0.3, 49);
+        zotZoomer.position.set(-14, -0.3, 52);
         zotZoomer.scale.set(1.1, 1.1, 1.1);
 
         //MusicalMadness.position.set(-10, -0.3, 50);
