@@ -757,7 +757,7 @@ function reSizeWindow()
         logoStartRotation = -0.5;
         logoEndRotation = 2.64;
 
-        daniel.position.set(-1, 0.15, 70);
+        daniel.position.set(-2, 0.15, 67);
         daniel.scale.set(1, 1, 1);
 
         FellChaser.position.set(-10.5, -1.5, 5.8);
