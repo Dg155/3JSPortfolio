@@ -757,19 +757,19 @@ function reSizeWindow()
         logoStartRotation = -0.5;
         logoEndRotation = 2.64;
 
-        daniel.position.set(-3, 0.15, 74);
+        daniel.position.set(-3, 0.15, 70);
         daniel.scale.set(1, 1, 1);
 
-        FellChaser.position.set(-9.5, -1.5, 5.8);
+        FellChaser.position.set(-10.5, -1.5, 5.8);
         FellChaser.scale.set(1.8, 1.8, 1.8);
 
-        EnKore.position.set(-9, -2, 21);
+        EnKore.position.set(-11, -2, 22);
         EnKore.scale.set(0.007, 0.007, 0.007);
 
-        Celestial.position.set(-12.5, 0, 34);
+        Celestial.position.set(-13.5, 0, 35);
         Celestial.scale.set(0.0035, 0.0035, 0.0035);
 
-        zotZoomer.position.set(-12, -0.3, 47.5);
+        zotZoomer.position.set(-13, -0.3, 49);
         zotZoomer.scale.set(1.1, 1.1, 1.1);
 
         //MusicalMadness.position.set(-10, -0.3, 50);
