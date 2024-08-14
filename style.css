@@ -438,7 +438,7 @@ a {
 
 @media screen and (max-width: 1024px) {
   .section {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
   .container {
@@ -2032,7 +2032,7 @@ h2.MMTitle {
     width: 70%;
     float: none;
     padding-right: 0;
-    margin-bottom: 30px;
+    margin-top: 5%;
   }
 }
 
