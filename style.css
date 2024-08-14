@@ -445,6 +445,10 @@ a {
     max-width: 80%;
   }
 
+  body {
+    overflow: scroll;
+  }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -619,7 +623,7 @@ header {
 
 @media screen and (max-width: 376px) {
   header {
-    margin-top: 350px;
+    margin-top: 300px;
   }
 }
 
@@ -1428,6 +1432,17 @@ polygon {
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .DYKInfo{
+    margin-top: 0;
+    transform: translate3d(-50%, -100%, 0);
+  }
+
+  #more-arrows {
+    display: none;
+  }
+}
+
 /* #endregion LoadingScreen */
 
 /* #region NavButtons */
@@ -1462,6 +1477,12 @@ polygon {
   cursor: pointer;
   border-radius: 4px;
   right: 33%;
+}
+
+@media screen and (max-width: 1024px) {
+  .arrow-icon {
+    display: none;
+  }
 }
 
 .left-bar {
