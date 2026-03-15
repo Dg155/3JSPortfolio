@@ -424,7 +424,7 @@ function moveCamera() {
     camera.rotation.y = t * -0.0002;
 }
 
-document.body.addEventListener('scroll', moveCamera, { passive: true });
+document.body.onscroll = moveCamera;
 moveCamera();
 
 // Responsive layout
